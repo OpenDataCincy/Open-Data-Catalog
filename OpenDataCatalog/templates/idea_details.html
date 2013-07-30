@@ -5,11 +5,11 @@
 
 {% block meta %}
     <meta name="Description" content="{{idea.description|striptags|truncatewords:25}}" />
-    <link rel="canonical" href="http://www.opendataphilly.org{{SITE_ROOT}}{{idea.get_absolute_url}}" />
+    <link rel="canonical" href="{{SITE_ROOT}}{{idea.get_absolute_url}}" />
     {% if idea.ideaimage_set.count > 0 %}
-    <link rel="image_src" href="http://www.opendataphilly.org{{SITE_ROOT}}{% thumbnail idea.ideaimage_set.all.0 300x300 autocrop %}"/>
+    <link rel="image_src" href="{{SITE_ROOT}}{% thumbnail idea.ideaimage_set.all.0 300x300 autocrop %}"/>
     {% else %}
-    <link rel="image_src" href="http://www.opendataphilly.org{{SITE_ROOT}}/static/images/logo.png"/>
+    <link rel="image_src" href="{{SITE_ROOT}}/static/images/logo.png"/>
     {% endif %}
 
 {% endblock %}
@@ -60,7 +60,7 @@
       {% endif %}
 		{% else %}
 			<div class="tab_image" id="tab_image_1">
-			  <img src="/static/images/detail_no_image.gif" alt="No Idea Images">
+			  <img src="{% static "images/detail_no_image.gif" %}" alt="No Idea Images">
 			  <div class="tab_image_detail">No Images</div>
 			</div>
 		{% endif %}

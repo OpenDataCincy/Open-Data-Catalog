@@ -47,6 +47,6 @@ DATABASES = {
 }
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = 'securedatahappensnoaccident'
+SECRET_KEY = 'securedata'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

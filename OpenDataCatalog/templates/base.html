@@ -2,26 +2,39 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    {% load staticfiles %}
         {% block meta %}
         {% endblock %}
-		<title>OpenDataPhilly{% block title %}{% endblock %}</title>
+		<title>OpenDataCincy{% block title %}{% endblock %}</title>
 
 			{% block tophead %}
 			{% endblock %}
+      
 
-			<script type="text/javascript" src="/static/jquery-1.5.2.js"></script>
-			<script type="text/javascript" src="/static/jQueryUI/js/jquery-ui-1.8.11.min.js"></script>
-			<script type="text/javascript" src="/static/StarRating/jquery.rating.js"></script>
-			<script type="text/javascript" src="/static/jquery.query-2.1.7.js"></script>
-			<script type="text/javascript" src="/static/odp.js"></script>
-      <!-- TYPEKIT -->
-      <script type="text/javascript" src="http://use.typekit.com/nni2gly.js"></script>
-      <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+			<script type="text/javascript" src="{% static "jquery-1.5.2.js" %}"></script>
+			<script type="text/javascript" src="{% static "jQueryUI/js/jquery-ui-1.8.11.min.js" %}"></script>
+			<script type="text/javascript" src="{% static "StarRating/jquery.rating.js" %}"></script>
+			<script type="text/javascript" src="{% static "jquery.query-2.1.7.js" %}"></script>
+			<script type="text/javascript" src="{% static "odp.js" %}"></script>
+      <!-- Google fonts -->
+      <link href="http://fonts.googleapis.com/css?family=Open+Sans:800" rel="stylesheet" type="text/css">
 
-			<link rel="stylesheet" href="/static/reset.css" type="text/css"/>
-			<link rel="stylesheet" href="/static/StarRating/jquery.rating.css" type="text/css"/>
-      <link rel="stylesheet" href="/static/jQueryUI/css/jquery.ui.base.css" type="text/css"/>
-      <link rel="stylesheet" href="/static/odp.css" type="text/css"/>
+			<link rel="stylesheet" href="{% static "reset.css" %}" type="text/css"/>
+			<link rel="stylesheet" href="{% static "StarRating/jquery.rating.css" %}" type="text/css"/>
+      <link rel="stylesheet" href="{% static "jQueryUI/css/jquery.ui.base.css" %}" type="text/css"/>
+      <link rel="stylesheet" href="{% static "odp.css" %}" type="text/css"/>
+      <!--[if IE 9 ]>
+        <link rel="stylesheet" href="/static/ie9.css" type="text/css"/>
+      <![endif]-->
+      <!--[if lte IE 8]>
+        <link rel="stylesheet" href="/static/ie8.css" type="text/css"/>
+      <![endif]-->
+      <!--[if lte IE 7]>
+        <link rel="stylesheet" href="/static/ie7.css" type="text/css"/>
+      <![endif]-->
+      <!--[if lte IE 6]>
+        <link rel="stylesheet" href="/static/ie6.css" type="text/css"/>
+      <![endif]-->
 
             <script type="text/javascript">
                 odp.site_root = "{{SITE_ROOT}}";    

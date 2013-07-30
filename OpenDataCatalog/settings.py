@@ -50,6 +50,8 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
 MEDIA_ROOT = os.path.join(os.path.dirname(__file__), 'media/')
@@ -223,6 +225,9 @@ LOGGING = {
     }
 }
 
+LOCAL_STATICFILE_DIR = ()
+LOCAL_TEMPLATE_DIR = ()
+
 try:
     from local_settings import *
 except Exception:
@@ -245,5 +250,7 @@ TEMPLATE_DIRS = (
     LOCAL_TEMPLATE_DIR,
     os.path.join(os.path.dirname(__file__), 'templates')
 )
+
+
 
 LOGIN_URL = SITE_ROOT + "/accounts/login/"
