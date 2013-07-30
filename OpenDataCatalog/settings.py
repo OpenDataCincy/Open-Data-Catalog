@@ -235,7 +235,7 @@ STATICFILES_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
     LOCAL_STATICFILE_DIR,
     os.path.abspath(os.path.join(os.path.dirname(__file__),
-                                 'opendata/static')),
+                                 'opendata/static/')),
 )
 
 TEMPLATE_DIRS = (
