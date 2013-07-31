@@ -16,16 +16,9 @@ MANAGERS = (
      ('OpenData Team', 'info@example.org'),
 )
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'opendata',                      # Or path to database file if using sqlite3.
-        'USER': 'odc-user',                      # Not used with sqlite3.
-        'PASSWORD': 'odcCincyD4ta',                  # Not used with sqlite3.
-        'HOST': '96.126.105.71',                      # Set to 'localhost' for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
-}
+# Parse database configuration from $DATABASE_URL
+import dj_database_url
+DATABASES['default'] =  dj_database_url.config()
 
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
