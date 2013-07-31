@@ -19,10 +19,10 @@ MANAGERS = (
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'catalog',                      # Or path to database file if using sqlite3.
-        'USER': 'catalog',                      # Not used with sqlite3.
-        'PASSWORD': 'passw0rd',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to 'localhost' for localhost. Not used with sqlite3.
+        'NAME': 'opendata',                      # Or path to database file if using sqlite3.
+        'USER': 'odc-user',                      # Not used with sqlite3.
+        'PASSWORD': 'odcCincyD4ta',                  # Not used with sqlite3.
+        'HOST': '96.126.105.71',                      # Set to 'localhost' for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
