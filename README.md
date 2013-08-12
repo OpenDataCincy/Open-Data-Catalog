@@ -143,3 +143,48 @@ Django can run via mod_wsgi on Apache as well. Add the following to a new Apache
         import django.core.handlers.wsgi
 
         application = django.core.handlers.wsgi.WSGIHandler()
+
+
+# NGINX
+
+DJango can run behind NGINX by simply forwarding the requests from the web to the local gunicorn_django wsgi server
+
+
+        server {
+        
+            listen       80 default;
+            server_name  opendataCITY.org www.opendataCITY.org;
+            access_log   /<log location>/opendata-site.access.log;
+            error_log    /<log location>/opendata-site.error.log;
+
+            # redirect to www
+            if ($host !~* ^www\.) {
+                rewrite ^(.*)$ http://www.$host$1 permanent;
+            }
+
+            location = /biconcave {
+                return  404;
+            }
+
+            location  /static/ {
+            root  /<project location>/Open-Data-Catalog/OpenDataCatalog/;
+            }
+
+            location  /media/ {
+            root  /<project location>/Open-Data-Catalog/OpenDataCatalog/;
+            }
+
+
+            location  / {
+                proxy_pass            http://127.0.0.1:8000/;
+                proxy_redirect        off;
+                proxy_set_header      Host             $host;
+                proxy_set_header      X-Real-IP        $remote_addr;
+                proxy_set_header      X-Forwarded-For  $proxy_add_x_forwarded_for;
+                proxy_set_header      X-Scheme         $scheme;
+                client_max_body_size  10m;
+                proxy_connect_timeout 10;
+                proxy_read_timeout    10;
+            }
+
+        }
