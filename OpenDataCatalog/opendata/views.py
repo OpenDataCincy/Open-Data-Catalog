@@ -151,7 +151,7 @@ def suggest_content(request):
     return render_to_response('submit.html', {'form': form}, context_instance=RequestContext(request))
 
 def send_email(user, data):
-    subject, user_email = 'OpenDataPhilly - Data Submission', (user.first_name + " " + user.last_name, user.email)
+    subject, user_email = 'OpenDataCincy - Data Submission', (user.first_name + " " + user.last_name, user.email)
     text_content = render_to_string('submit_email.txt', data)
     text_content_copy = render_to_string('submit_email_copy.txt', data)
 

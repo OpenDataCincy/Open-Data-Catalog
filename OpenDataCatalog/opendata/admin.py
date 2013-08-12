@@ -93,6 +93,12 @@ class SubmissionAdmin(admin.ModelAdmin):
     search_fields = ['email_text', 'user']
     readonly_fields = ['user',]
 
+    def save_model(self, request, obj, form, change):
+        if not change:
+            obj.user = request.user
+        
+        obj.save()
+
 class ODPUserProfileAdmin(admin.ModelAdmin):
     list_display = ['user', 'can_notify',]
     fieldsets = [(None, {'fields':['user', 'organization', 'can_notify']}),]

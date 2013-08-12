@@ -1,7 +1,7 @@
 import os
 # Django settings for opendata project.
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -17,8 +17,18 @@ MANAGERS = (
 )
 
 # Parse database configuration from $DATABASE_URL
-import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
+#import dj_database_url
+#DATABASES['default'] =  dj_database_url.config()
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'catalog',                      # Or path to database file if using sqlite3.
+        'USER': 'catalog',                      # Not used with sqlite3.
+        'PASSWORD': 'passw0rd',                  # Not used with sqlite3.
+        'HOST': '',                      # Set to 'localhost' for localhost. Not used with sqlite3.
+        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+    }
+}
 
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
@@ -165,7 +175,7 @@ SITEPORT = None
 CSW = {
     'metadata:main': {
         'identification_title': 'Open Data Catalog CSW',
-        'identification_abstract': 'Open Data Catalog is an open data catalog based on Django, Python and PostgreSQL. It was originally developed for OpenDataPhilly.org, a portal that provides access to open data sets, applications, and APIs related to the Philadelphia region. The Open Data Catalog is a generalized version of the original source code with a simple skin. It is intended to display information and links to publicly available data in an easily searchable format. The code also includes options for data owners to submit data for consideration and for registered public users to nominate a type of data they would like to see openly available to the public.',
+        'identification_abstract': 'Open Data Catalog is an open data catalog based on Django, Python and PostgreSQL. It was originally developed for OpenDataCincy.org, a portal that provides access to open data sets, applications, and APIs related to the Philadelphia region. The Open Data Catalog is a generalized version of the original source code with a simple skin. It is intended to display information and links to publicly available data in an easily searchable format. The code also includes options for data owners to submit data for consideration and for registered public users to nominate a type of data they would like to see openly available to the public.',
         'identification_keywords': 'odc,Open Data Catalog,catalog,discovery',
         'identification_keywords_type': 'theme',
         'identification_fees': 'None',
@@ -235,16 +245,17 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    LOCAL_STATICFILE_DIR,
+    #LOCAL_STATICFILE_DIR,
     os.path.abspath(os.path.join(os.path.dirname(__file__),
                                  'opendata/static/')),
+    
 )
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    LOCAL_TEMPLATE_DIR,
+    #LOCAL_TEMPLATE_DIR,
     os.path.join(os.path.dirname(__file__), 'templates')
 )
 

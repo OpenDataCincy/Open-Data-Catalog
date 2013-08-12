@@ -83,4 +83,10 @@ urlpatterns = patterns('',
 
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+# Process static files properly
 urlpatterns += staticfiles_urlpatterns()
+
+# Catch all for static pages
+#urlpatterns += patterns('django.contrib.flatpages.views',
+#    (r'^(?P<url>.*/)$', 'flatpage'),
+#)

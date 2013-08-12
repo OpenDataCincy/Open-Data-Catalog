@@ -14,4 +14,13 @@
 <h1 id="title">404 - File not found</h1>
 <h2 id="description"></h2>
 
+{% load flatpages %}
+{% get_flatpages as flatpages %}
+Showing flat pages
+<ul>
+    {% for page in flatpages %}
+        <li><a href="{{ page.url }}">{{ page.title }}</a></li>
+    {% endfor %}
+</ul>
+
 {% endblock %}
