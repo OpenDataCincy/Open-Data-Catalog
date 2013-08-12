@@ -1,6 +1,8 @@
 *.pyc
 *.db
 *.csv
+local_settings.py
+OpenDataCatalog/local_settings.py
 admin_media
 media/*
 static/*
