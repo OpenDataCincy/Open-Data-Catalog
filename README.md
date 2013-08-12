@@ -145,9 +145,9 @@ Django can run via mod_wsgi on Apache as well. Add the following to a new Apache
         application = django.core.handlers.wsgi.WSGIHandler()
 
 
-# NGINX
+# Nginx
 
-DJango can run behind NGINX by simply forwarding the requests from the web to the local gunicorn_django wsgi server
+DJango can run behind Nginx by simply forwarding the requests from the web to the local gunicorn_django wsgi server
 
 
         server {
