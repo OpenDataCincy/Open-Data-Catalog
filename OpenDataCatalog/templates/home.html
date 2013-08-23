@@ -1,4 +1,5 @@
 {% extends "template_home.html" %}
+{% load staticfiles %}
 
 {% block title %} - Connecting People With Data{% endblock %}
 
@@ -20,6 +21,14 @@
 <a id="home_idea_callout" href="/ideas/">Need Inspiration? Visit the Idea Gallery</a>
 
 <div id="home_twitter">
+	<script type="text/javascript" src="{% static "tumbo.min.js" %}"></script>
+	<script type="text/javascript">
+	var tumblrBlogLink="http://OpenDataCincy.tumblr.com";
+	var tumblrApiKey="fuiKNFp9vQFvjLNvx4sUwti4Yb5yGutBN4Xh10LXZhhRKjWlV4";	
+	var tumboWidgetWidth = 315;
+	var tumboWidgetHeight = 300;
+	</script>
+	<div id="tumbo"></div><br/><br/>
 	<a class="twitter-timeline" href="https://twitter.com/OpenDataCincy" data-widget-id="362346320465379328">Tweets by @OpenDataCincy</a>
 	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </div>

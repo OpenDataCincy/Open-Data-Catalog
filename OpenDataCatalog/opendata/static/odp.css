@@ -178,9 +178,9 @@ margin-top: -14px;
 #wrapper {
 	position:relative;
 	width:900px;
-    margin: 0 auto; 
+  margin: 0 auto; 
 	padding-top:50px;
-    overflow: visible; /* chrome, safari, ie bottom padding fix */
+  overflow: visible; /* chrome, safari, ie bottom padding fix */
 }
 
 
@@ -192,7 +192,7 @@ margin-top: -14px;
 #left_container #logo {
   	margin-left: 5px;
   	display:block;
-    width: 157px;
+    width: 200px;
 }
 #left_container #logo:hover,
 #logo:hover { 
