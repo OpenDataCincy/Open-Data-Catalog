@@ -117,7 +117,7 @@ class Resource(models.Model):
     proj_coord_sys = models.CharField(max_length=255, blank=True, verbose_name="Coordinate system")
 
     # CSW specific properties 
-    wkt_geometry = models.TextField(blank=True)
+    wkt_geometry = models.TextField(blank=False)
     csw_typename = models.CharField(max_length=200,default="csw:Record")
     csw_schema = models.CharField(max_length=200,default="http://www.opengis.net/cat/csw/2.0.2")
     csw_mdsource = models.CharField(max_length=100,default="local") 
@@ -303,7 +303,10 @@ class Idea(models.Model):
         images = IdeaImage.objects.filter(idea=self)
         home = images.filter(home_page=True)
         if home.count() == 0:
-            return images[0]
+            if images.count() == 0:
+                return False
+            else:
+                return images[0]
         return home[0]
     
     def get_absolute_url(self):
