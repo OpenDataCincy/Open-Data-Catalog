@@ -2,6 +2,7 @@
 
 {% load thumbnail %}
 {% load comments %}
+{% load staticfiles %}
 
 {% block meta %}
     <meta name="Keywords" content="{{resource.tags.all|join:', '}}" />
@@ -192,7 +193,7 @@
   <div class="tab_container" id="content_data">
     <ul class="tab_header">
       <li class="tab_button"><a href="#tab_data" onclick="odp.trackEvent('Resource Data', 'Data', 'Resource', {{resource.id}});return false;">DATA</a></li>
-      <li class="tab_button"><a href="#tab_metadata" onclick="odp.trackEvent('Resource Data', 'Metadata', 'Resource', {{resource.id}});return false;">METADATA</a></li>
+      {# <li class="tab_button"><a href="#tab_metadata" onclick="odp.trackEvent('Resource Data', 'Metadata', 'Resource', {{resource.id}});return false;">METADATA</a></li> #}
     </ul>
     <div class="tab_body" id="tab_data">
     {% if resource.get_grouped_urls.Data %}
@@ -251,7 +252,7 @@
     </div>
 
     <div class="tab_body" id="tab_metadata">
-      <div class="data_block">
+      <div class="data_block" style="display:none;">
         <div class="info_label">XML Metadata</div>
         <div class="info_data">
           <a href="{{SITE_ROOT}}/csw/?service=CSW&amp;version=2.0.2&amp;request=GetRecordById&amp;id={{resource.csw_identifier}}">Dublin Core</a>
