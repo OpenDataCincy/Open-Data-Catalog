@@ -75,6 +75,20 @@ Update the database settings in local_settings.py. You'll probably have to updat
 
 Open Data Catalog supports the [OGC Catalogue Service] (http://www.opengeospatial.org/standards/specifications/catalog) specification (CSW) using [pycsw](http://pycsw.org).  CSW settings can be set/modified in `settings.CSW`.  As well, `settings.SITEHOST` and `settings.SITEPORT` must be set accordingly for your deployment environment.
 
+### Email Setup
+
+Open Data Catalog is by default setup to output all emails to the console, instead of sending them via SMTP. You can use a local server, by simply changing the local_settings.py from:
+
+        EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+to:
+
+        EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+Follow the DJango manual to see how to setup your SMTP server:
+
+        https://docs.djangoproject.com/en/dev/topics/email/
+
 ### Creating the database scheme
 
 To create the scheme we use django "syncdb" command
