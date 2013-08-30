@@ -91,10 +91,9 @@ Follow the DJango manual to see how to setup your SMTP server:
 
 ### Creating the database scheme
 
-To create the scheme we use django "syncdb" command
+To create the scheme we use django "syncdb" command, using --migrate to apply database migrations
 
-        python manage.py syncdb
-        python manage.py migrate
+        python manage.py syncdb --migrate
 
 ## Running a server
 We installed gunicorn as part of the installation process. All you need to do now is start it:
