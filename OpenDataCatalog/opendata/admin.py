@@ -26,12 +26,13 @@ class UserAdmin(UserAdmin):
                 opts = {
                     'use_https': request.is_secure(),
                     'token_generator': default_token_generator,
-                    'from_email': settings.DEFAULT_FROM_EMAIL,
+                    'from_email': 'OpenData Cincy<info@opendatacincy.org>',
                     'email_template_name': 'registration/password_reset_email.html',
                     'subject_template_name': 'registration/password_reset_subject.txt',
                     'request': request,
                 }
 
+                opts = dict(opts, domain_override=request.get_host())
                 form.save(**opts)
 
     password_reset.short_description = 'Send password reset email'
