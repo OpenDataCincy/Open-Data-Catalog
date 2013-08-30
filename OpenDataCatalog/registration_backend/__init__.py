@@ -2,7 +2,7 @@ from django import forms
 
 from registration.backends.default.views import RegistrationView
 # from registration.backends.default import DefaultBackend
-from registration.forms import RegistrationForm,RegistrationFormUniqueEmail
+from registration.forms import RegistrationForm, RegistrationFormUniqueEmail
 from django.db import transaction
 from OpenDataCatalog.opendata.models import ODPUserProfile
 from widgets import *
