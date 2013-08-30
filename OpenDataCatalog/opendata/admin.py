@@ -71,7 +71,7 @@ class ResourceAdmin(admin.ModelAdmin):
             'metadata_contact','metadata_notes', 'data_types', 'tags', ], 'classes':['wide']})
     ]
     readonly_fields = ['created_by', 'created', 'last_updated_by', 'last_updated']
-    inlines = [UrlInline,]
+    inlines = [UrlInline, ]
     
     verbose_name = 'Resource Url'
     verbose_name_plural = 'Resource Urls'
