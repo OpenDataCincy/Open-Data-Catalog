@@ -5,7 +5,7 @@ DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-     ('OpenData Admins', 'admin@example.org'),
+    ('OpenData Admins', 'admin@example.org'),
 )
 CONTACT_EMAILS = ['admin@example.org',]
 DEFAULT_FROM_EMAIL = 'OpenData Team <info@example.org>'
@@ -13,7 +13,7 @@ EMAIL_SUBJECT_PREFIX = '[OpenData.org] '
 SERVER_EMAIL = 'OpenData Team <info@example.org>'
 
 MANAGERS = (
-     ('OpenData Team', 'info@example.org'),
+    ('OpenData Team', 'info@example.org'),
 )
 
 # Parse database configuration from $DATABASE_URL
@@ -258,7 +258,6 @@ TEMPLATE_DIRS = (
     #LOCAL_TEMPLATE_DIR,
     os.path.join(os.path.dirname(__file__), 'templates')
 )
-
 
 
 LOGIN_URL = SITE_ROOT + "/accounts/login/"
