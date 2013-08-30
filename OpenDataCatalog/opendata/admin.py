@@ -4,6 +4,41 @@ from OpenDataCatalog.comments.models import *
 from OpenDataCatalog.suggestions.models import *
 from OpenDataCatalog.contest.models import *
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import PasswordResetForm
+from django.contrib.auth.tokens import default_token_generator
+from django.conf import settings
+
+
+class UserAdmin(UserAdmin):
+    """
+    Subclassing the user admin to add password reset email functionality
+    """
+    actions = list(UserAdmin.actions) + ['password_reset']
+
+    def password_reset(modeladmin, request, queryset):
+        for user in queryset:
+            # Do the password reset stuff.
+            form = PasswordResetForm({'email': user.email})
+
+            if form.is_valid():
+                opts = {
+                    'use_https': request.is_secure(),
+                    'token_generator': default_token_generator,
+                    'from_email': settings.DEFAULT_FROM_EMAIL,
+                    'email_template_name': 'registration/password_reset_email.html',
+                    'subject_template_name': 'registration/password_reset_subject.txt',
+                    'request': request,
+                }
+
+                form.save(**opts)
+
+    password_reset.short_description = 'Send password reset email'
+
+
+admin.site.unregister(User)
+admin.site.register(User, UserAdmin)
 
 
 class UrlImageInline(admin.TabularInline):
