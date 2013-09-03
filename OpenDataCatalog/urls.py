@@ -67,7 +67,7 @@ urlpatterns = patterns('',
     (r'^api/tags/(?P<tag_name>.*)/$', 'OpenDataCatalog.api.views.by_tag'),
     (r'^api/ideas/$', 'OpenDataCatalog.api.views.ideas'),
     (r'^api/ideas/(?P<idea_id>\d+)/$', 'OpenDataCatalog.api.views.idea'),
-    # GET to list, POST to created
+    # GET to list, POST to create
     (r'^api/suggestions/$', 'OpenDataCatalog.api.views.suggestions'),
     (r'^api/suggestions/search$', 'OpenDataCatalog.api.views.search_suggestions'),
     (r'^api/suggestions/(?P<suggestion_id>\d+)/$', 'OpenDataCatalog.api.views.suggestion'),
