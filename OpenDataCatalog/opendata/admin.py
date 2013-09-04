@@ -17,7 +17,8 @@ class UserAdmin(UserAdmin):
     """
     actions = list(UserAdmin.actions) + ['password_reset']
 
-    def password_reset(modeladmin, request, queryset):
+    def password_reset(self, request, queryset):
+        count = 0
         for user in queryset:
             # Do the password reset stuff.
             form = PasswordResetForm({'email': user.email})
@@ -34,6 +35,15 @@ class UserAdmin(UserAdmin):
 
                 opts = dict(opts, domain_override=request.get_host())
                 form.save(**opts)
+
+                count += 1
+
+        if count == 1:
+            message_bit = '1 user was'
+        else:
+            message_bit = '%s users were' % count
+
+        self.message_user(request, '%s emailed password reset instructions' % message_bit)
 
     password_reset.short_description = 'Send password reset email'
 
