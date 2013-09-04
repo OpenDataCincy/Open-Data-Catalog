@@ -147,7 +147,9 @@ class SubmissionAdmin(admin.ModelAdmin):
     verbose_name_plural = 'Resource Urls' 
     list_display = ['user', 'sent_date']
     search_fields = ['email_text', 'user']
-    readonly_fields = ['user',]
+    readonly_fields = ['user', ]
+
+    actions = ['convert_to_resource', ]
 
     def save_model(self, request, obj, form, change):
         if not change:
@@ -155,10 +157,29 @@ class SubmissionAdmin(admin.ModelAdmin):
         
         obj.save()
 
+    def convert_to_resource(self, request, queryset):
+        """
+        Converts the submission to a resource
+        """
+        count = 0
+        for submission in queryset:
+
+            count += 1
+            pass
+
+        if count == 1:
+            message = '1 submission was converted to a resource'
+        else:
+            message = '%s submissions were converted to resources' % count
+
+        self.message_user(request, message)
+
+    convert_to_resource.short_description = 'Convert selected submission(s) to resource(s)'
+
 
 class ODPUserProfileAdmin(admin.ModelAdmin):
     list_display = ['user', 'can_notify',]
-    fieldsets = [(None, {'fields':['user', 'organization', 'can_notify']}),]
+    fieldsets = [(None, {'fields':['user', 'organization', 'can_notify']}), ]
     readonly_fields = ['user',]
     list_filter = ['can_notify',]
 
