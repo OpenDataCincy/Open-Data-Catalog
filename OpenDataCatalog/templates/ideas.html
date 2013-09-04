@@ -45,7 +45,7 @@
                         {% thumbnail i "300x300" autocrop as im %}
 					  <img src="{{ im }}" alt="{{ i.title }}">
 					  <div class="tab_image_detail">{{i.title}}</div>
-					  <div title="{{i.title}}" class="dialog" id="dialog_{{i.id}}">
+					  <div title="{{ i.title }}" class="dialog" id="dialog_{{i.id}}">
 						{% thumbnail i 626x520 as im_big %}
                           <img src="{{ im_big }}">
 					  </div>
