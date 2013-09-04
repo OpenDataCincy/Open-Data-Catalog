@@ -338,6 +338,9 @@ class IdeaImage(models.Model):
     def __unicode__(self):
         return u'%s' % self.image
 
+    def media_path(self):
+        return '/media/%s' % self.image.name
+
 
 class Submission(models.Model):
     user = models.ForeignKey(User)
