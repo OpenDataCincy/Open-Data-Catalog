@@ -113,8 +113,10 @@ def resource(request, resource_id):
     else:
         raise Http404
 
+
 def resources(request):
     return HttpResponse(json_encode(list(Resource.objects.filter(is_published = True)), short_resource_encoder))
+
 
 def safe_key_getter(dic):
     def annon(key, f = lambda x: x):

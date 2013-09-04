@@ -107,7 +107,7 @@ def suggest_content(request):
         if form.is_valid():
             #do something
             
-            coords, types, formats, updates ="", "", "", ""
+            coords, types, formats, updates = "", "", "", ""
             for c in request.POST.getlist("coord_system"):
                 coords = coords + " EPSG:" + CoordSystem.objects.get(pk=c).EPSG_code.__str__()
             for t in request.POST.getlist("types"):
@@ -141,14 +141,14 @@ def suggest_content(request):
                 "intended_audience": request.POST.get("intended_audience"),
                 "why": request.POST.get("why"),
             }
-            
-            
+
             send_email(request.user, data)
             return render_to_response('thanks.html', context_instance=RequestContext(request))
     else: 
         form = SubmissionForm()
         
     return render_to_response('submit.html', {'form': form}, context_instance=RequestContext(request))
+
 
 def send_email(user, data):
     subject, user_email = 'OpenDataCincy - Data Submission', (user.first_name + " " + user.last_name, user.email)
@@ -167,7 +167,6 @@ def send_email(user, data):
     sug_object.save()
 
     return sug_object
-
 
 
 ## views called by js ajax for object lists
