@@ -22,6 +22,7 @@ import simplejson as json
 from OpenDataCatalog.opendata.models import *
 from OpenDataCatalog.opendata.forms import *
 
+
 def home(request):
     tweets = cache.get( 'tweets' )
 
@@ -47,11 +48,16 @@ def home(request):
     
     recent = Resource.objects.order_by("-created")[:3]
     idea = Idea.objects.order_by("-created_by_date")[:4]
+
     if idea.count() > 0:
         ct = idea.count() - 1     
         ran = random.randint(0, ct)
-        return render_to_response('home.html', {'recent': recent, 'idea': idea[ran], 'tweets': tweets},  context_instance=RequestContext(request))
+
+        return render_to_response('home.html', {'recent': recent, 'idea': idea[ran], 'tweets': tweets},
+                                  context_instance=RequestContext(request))
+
     return render_to_response('home.html', {'recent': recent, 'idea': idea, 'tweets': tweets},  context_instance=RequestContext(request))
+
 
 def results(request):
     resources = Resource.objects.all()
@@ -60,8 +66,10 @@ def results(request):
         resources = resources.filter(url__url_type__url_type__iexact=f).distinct()
     return render_to_response('results.html', {'results': resources}, context_instance=RequestContext(request))
 
+
 def thanks(request):
     return render_to_response('thanks.html', context_instance=RequestContext(request))
+
 
 def tag_results(request, tag_id):
     tag = Tag.objects.get(pk=tag_id)
@@ -71,6 +79,7 @@ def tag_results(request, tag_id):
         tag_resources = tag_resources.filter(url__url_type__url_type__icontains=f).distinct()
     
     return render_to_response('results.html', {'results': tag_resources, 'tag': tag}, context_instance=RequestContext(request))
+
 
 def search_results(request):
     search_resources = Resource.objects.all()
@@ -82,6 +91,7 @@ def search_results(request):
         search_resources = search_resources.filter(url__url_type__url_type__iexact=f).distinct()
     
     return render_to_response('results.html', {'results': search_resources}, context_instance=RequestContext(request))
+
 
 def resource_details(request, resource_id, slug=""):
     resource = get_object_or_404(Resource, pk=resource_id)
@@ -96,9 +106,11 @@ def idea_results(request, idea_id=None, slug=""):
     ideas = Idea.objects.order_by("-created_by_date")
     return render_to_response('ideas.html', {'ideas': ideas}, context_instance=RequestContext(request)) 
 
+
 def feed_list(request):
     tags = Tag.objects.all()
     return render_to_response('feeds/list.html', {'tags': tags}, context_instance=RequestContext(request)) 
+
 
 @login_required
 def suggest_content(request):
@@ -141,14 +153,14 @@ def suggest_content(request):
                 "intended_audience": request.POST.get("intended_audience"),
                 "why": request.POST.get("why"),
             }
-            
-            
+
             send_email(request.user, data)
             return render_to_response('thanks.html', context_instance=RequestContext(request))
     else: 
         form = SubmissionForm()
         
     return render_to_response('submit.html', {'form': form}, context_instance=RequestContext(request))
+
 
 def send_email(user, data):
     subject, user_email = 'OpenDataCincy - Data Submission', (user.first_name + " " + user.last_name, user.email)
@@ -167,7 +179,6 @@ def send_email(user, data):
     sug_object.save()
 
     return sug_object
-
 
 
 ## views called by js ajax for object lists
