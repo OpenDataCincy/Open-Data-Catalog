@@ -336,7 +336,10 @@ class IdeaImage(models.Model):
     home_page = models.BooleanField(default=False, help_text="Select this image for use on the home page.")
 
     def __unicode__(self):
-        return '%s' % (self.image)
+        return '%s' % self.image
+
+    def media_path(self):
+        return '/media/%s' % self.image.name
 
 class Submission(models.Model):
     user = models.ForeignKey(User)
