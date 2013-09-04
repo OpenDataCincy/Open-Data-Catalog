@@ -181,7 +181,7 @@ def submit(request):
             "data_purpose": json_dict("data_purpose"),
             "intended_audience": json_dict("intended_audience"),
             "why": json_dict("why"),
-            }
+        }
         
         for key in data:
             if (data[key] == None or (hasattr(data[key], "len") and len(data[key]) == 0)):

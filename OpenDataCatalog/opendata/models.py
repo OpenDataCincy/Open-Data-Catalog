@@ -343,6 +343,7 @@ class Submission(models.Model):
     user = models.ForeignKey(User)
     sent_date = models.DateTimeField(auto_now=True)
     email_text = models.TextField()
+    json_text = models.TextField(blank=True, help_text=u'JSON-serialized version of the email_text field.')
 
     def __unicode__(self):
         return u'%s submitted an idea' % self.user.get_full_name()

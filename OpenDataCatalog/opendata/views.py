@@ -22,6 +22,7 @@ import simplejson as json
 from OpenDataCatalog.opendata.models import *
 from OpenDataCatalog.opendata.forms import *
 
+
 def home(request):
     tweets = cache.get( 'tweets' )
 
@@ -159,11 +160,22 @@ def send_email(user, data):
     
     msg = EmailMessage(subject, text_content_copy, to=user_email)
     msg.send()
-    
+
+    # Create new user submission object.
     sug_object = Submission()
     sug_object.user = user
     sug_object.email_text = text_content
-    
+
+    # Prep data for serialization
+    data['submit_date'] = str(data.get('submit_date', ''))
+
+    try:
+        sug_object.json_text = json.dumps(data)
+    except TypeError:
+        # Something was not consumed by the json serializer..
+        sug_object.json_text = ''
+
+    # Save the submission
     sug_object.save()
 
     return sug_object
