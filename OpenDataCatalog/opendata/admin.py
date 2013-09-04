@@ -178,10 +178,10 @@ class SubmissionAdmin(admin.ModelAdmin):
 
 
 class ODPUserProfileAdmin(admin.ModelAdmin):
-    list_display = ['user', 'can_notify',]
-    fieldsets = [(None, {'fields':['user', 'organization', 'can_notify']}), ]
-    readonly_fields = ['user',]
-    list_filter = ['can_notify',]
+    list_display = ['user', 'can_notify', ]
+    fieldsets = [(None, {'fields': ['user', 'organization', 'can_notify']}), ]
+    readonly_fields = ['user', ]
+    list_filter = ['can_notify', ]
 
 
 class EntryAdmin(admin.ModelAdmin):
