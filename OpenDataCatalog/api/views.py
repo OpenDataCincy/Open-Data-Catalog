@@ -126,7 +126,7 @@ def safe_key_getter(dic):
 
 @csrf_exempt
 def submit(request):
-    if (request.method == 'POST'):
+    if request.method == 'POST':
         json_dict = safe_key_getter(json_load(request.raw_post_data))
     
         coord_list = json_dict("coord_system")
@@ -134,18 +134,17 @@ def submit(request):
         format_list = json_dict("formats")
         update_frequency_list = json_dict("update_frequency")
 
-        coords, types, formats, updates ="", "", "", ""
+        coords, types, formats, updates = "", "", "", ""
 
-        if (coord_list == None):
+        if coord_list is None:
             return http_badreq("coord_system should be a list")
-        if (type_list == None):
+        if type_list is None:
             return http_badreq("types should be a list")
-        if (format_list == None):
+        if format_list is None:
             return http_badreq("formats should be a list")
-        if (update_frequency_list == None):
+        if update_frequency_list is None:
             return http_badreq("update_frequency should be a list")
 
-            
         for c in coord_list:
             coords = coords + " EPSG:" + CoordSystem.objects.get(pk=c).EPSG_code.__str__()
         
