@@ -152,6 +152,9 @@ def suggest_content(request):
 
 
 def send_email(user, data):
+    """
+    Sends an email with a new data submission, and stores the submission as a suggestion
+    """
     subject, user_email = 'OpenDataCincy - Data Submission', (user.first_name + " " + user.last_name, user.email)
     text_content = render_to_string('submit_email.txt', data)
     text_content_copy = render_to_string('submit_email_copy.txt', data)
