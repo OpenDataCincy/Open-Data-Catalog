@@ -41,7 +41,6 @@
 				<div class="tab_container" id="tab_image_container">
 					{% if idea.ideaimage_set.count > 0 %}
 					{% for i in idea.ideaimage_set.all %}
-                        <!-- {{ i.media_path }} -->
 					<div class="tab_image" id="tab_image_{{i.id}}">
                         {% thumbnail i "300x300" autocrop as im %}
 					  <img src="{{ im }}" alt="{{ i.title }}">
@@ -68,7 +67,6 @@
       			</div>
 
 				<div class="idea_description">{{idea.description|safe|truncatewords:100}}</div>
-
 
          <h4 class="idea_resources_title">Data used:</h4>
           <ul id="idea_resources">
