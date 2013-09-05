@@ -8,7 +8,6 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import PasswordResetForm
 from django.contrib.auth.tokens import default_token_generator
-from django.conf import settings
 
 
 class UserAdmin(UserAdmin):
@@ -17,7 +16,8 @@ class UserAdmin(UserAdmin):
     """
     actions = list(UserAdmin.actions) + ['password_reset']
 
-    def password_reset(modeladmin, request, queryset):
+    def password_reset(self, request, queryset):
+        count = 0
         for user in queryset:
             # Do the password reset stuff.
             form = PasswordResetForm({'email': user.email})
@@ -34,6 +34,15 @@ class UserAdmin(UserAdmin):
 
                 opts = dict(opts, domain_override=request.get_host())
                 form.save(**opts)
+
+                count += 1
+
+        if count == 1:
+            message_bit = '1 user was'
+        else:
+            message_bit = '%s users were' % count
+
+        self.message_user(request, '%s emailed password reset instructions' % message_bit)
 
     password_reset.short_description = 'Send password reset email'
 
@@ -138,7 +147,9 @@ class SubmissionAdmin(admin.ModelAdmin):
     verbose_name_plural = 'Resource Urls' 
     list_display = ['user', 'sent_date']
     search_fields = ['email_text', 'user']
-    readonly_fields = ['user',]
+    readonly_fields = ['user', ]
+
+    actions = ['convert_to_resource', ]
 
     def save_model(self, request, obj, form, change):
         if not change:
@@ -146,12 +157,31 @@ class SubmissionAdmin(admin.ModelAdmin):
         
         obj.save()
 
+    def convert_to_resource(self, request, queryset):
+        """
+        Converts the submission to a resource
+        """
+        count = 0
+        for submission in queryset:
+
+            count += 1
+            pass
+
+        if count == 1:
+            message = '1 submission was converted to a resource'
+        else:
+            message = '%s submissions were converted to resources' % count
+
+        self.message_user(request, message)
+
+    convert_to_resource.short_description = 'Convert selected submission(s) to resource(s)'
+
 
 class ODPUserProfileAdmin(admin.ModelAdmin):
-    list_display = ['user', 'can_notify',]
-    fieldsets = [(None, {'fields':['user', 'organization', 'can_notify']}),]
-    readonly_fields = ['user',]
-    list_filter = ['can_notify',]
+    list_display = ['user', 'can_notify', ]
+    fieldsets = [(None, {'fields': ['user', 'organization', 'can_notify']}), ]
+    readonly_fields = ['user', ]
+    list_filter = ['can_notify', ]
 
 
 class EntryAdmin(admin.ModelAdmin):

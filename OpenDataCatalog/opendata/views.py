@@ -119,7 +119,7 @@ def suggest_content(request):
         if form.is_valid():
             #do something
             
-            coords, types, formats, updates ="", "", "", ""
+            coords, types, formats, updates = "", "", "", ""
             for c in request.POST.getlist("coord_system"):
                 coords = coords + " EPSG:" + CoordSystem.objects.get(pk=c).EPSG_code.__str__()
             for t in request.POST.getlist("types"):
@@ -163,6 +163,9 @@ def suggest_content(request):
 
 
 def send_email(user, data):
+    """
+    Sends an email with a new data submission, and stores the submission as a suggestion
+    """
     subject, user_email = 'OpenDataCincy - Data Submission', (user.first_name + " " + user.last_name, user.email)
     text_content = render_to_string('submit_email.txt', data)
     text_content_copy = render_to_string('submit_email_copy.txt', data)
@@ -171,11 +174,22 @@ def send_email(user, data):
     
     msg = EmailMessage(subject, text_content_copy, to=user_email)
     msg.send()
-    
+
+    # Create new user submission object.
     sug_object = Submission()
     sug_object.user = user
     sug_object.email_text = text_content
-    
+
+    # Prep data for serialization
+    data['submit_date'] = str(data.get('submit_date', ''))
+
+    try:
+        sug_object.json_text = json.dumps(data)
+    except TypeError:
+        # Something was not consumed by the json serializer..
+        sug_object.json_text = ''
+
+    # Save the submission
     sug_object.save()
 
     return sug_object

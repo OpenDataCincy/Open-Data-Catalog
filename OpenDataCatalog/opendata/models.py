@@ -336,24 +336,32 @@ class IdeaImage(models.Model):
     home_page = models.BooleanField(default=False, help_text="Select this image for use on the home page.")
 
     def __unicode__(self):
-        return '%s' % self.image
+        return u'%s' % self.image
 
     def media_path(self):
         return '/media/%s' % self.image.name
+
 
 class Submission(models.Model):
     user = models.ForeignKey(User)
     sent_date = models.DateTimeField(auto_now=True)
     email_text = models.TextField()
+    json_text = models.TextField(blank=True, help_text=u'JSON-serialized version of the email_text field.')
+
+    def __unicode__(self):
+        return u'%s submitted an idea' % self.user.get_full_name()
+
 
 class TwitterCache(models.Model):
     text = models.TextField()
+
 
 class ODPUserProfile(models.Model):
     organization = models.CharField(max_length=255, blank=True)
     can_notify = models.BooleanField(default=False)
     
     user = models.ForeignKey(User, unique=True)
+
 
 def gen_website_url():
     if not settings.SITEHOST:

@@ -113,8 +113,10 @@ def resource(request, resource_id):
     else:
         raise Http404
 
+
 def resources(request):
     return HttpResponse(json_encode(list(Resource.objects.filter(is_published = True)), short_resource_encoder))
+
 
 def safe_key_getter(dic):
     def annon(key, f = lambda x: x):
@@ -179,7 +181,7 @@ def submit(request):
             "data_purpose": json_dict("data_purpose"),
             "intended_audience": json_dict("intended_audience"),
             "why": json_dict("why"),
-            }
+        }
         
         for key in data:
             if (data[key] == None or (hasattr(data[key], "len") and len(data[key]) == 0)):
