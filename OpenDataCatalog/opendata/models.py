@@ -322,10 +322,12 @@ class IdeaImage(models.Model):
         fsplit = filename.split('.')
         extra = 1
         test_path = os.path.join(settings.MEDIA_ROOT, 'idea_images', str(instance.idea_id), fsplit[0] + '_' + str(extra) + '.' + fsplit[1])
+
         while os.path.exists(test_path):
            extra += 1
            test_path = os.path.join(settings.MEDIA_ROOT, 'idea_images', str(instance.idea_id), fsplit[0] + '_' + str(extra) + '.' +  fsplit[1])
-        path = os.path.join('idea_images', str(instance.idea_id), fsplit[0] + '_' + str(extra) + '.' + fsplit[1])
+
+        path = os.path.join('idea_images', str(instance.idea_id), fsplit[0] + '_' + str(extra) + '.' + fsplit[-1])
         return path
 
     idea = models.ForeignKey(Idea)
