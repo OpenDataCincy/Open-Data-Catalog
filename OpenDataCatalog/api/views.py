@@ -8,6 +8,7 @@ from encoder import *
 from rest import login_required
 from django.views.decorators.csrf import csrf_exempt
 
+
 def http_badreq(body = ""):
     res = HttpResponse("Bad Request\n" + body)
     res.status_code = 400
@@ -33,6 +34,7 @@ def vote(request, suggestion_id):
         return HttpResponse(json_encode(suggestion))
 
     raise Http404
+
 
 def add_suggestion(user, text, remote_addr):
     sug = Suggestion()

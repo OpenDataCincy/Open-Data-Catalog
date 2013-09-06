@@ -2,6 +2,7 @@ from OpenDataCatalog.opendata.models import Resource, DataType, Tag, CoordSystem
 from OpenDataCatalog.suggestions.models import Suggestion
 import simplejson as j
 
+
 def tiny_resource_encoder(obj):
         return { "name" : obj.name,
                  "id" : obj.id,
