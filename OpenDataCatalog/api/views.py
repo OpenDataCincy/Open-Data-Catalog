@@ -1,11 +1,11 @@
 # Create your views here
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseNotFound
 from OpenDataCatalog.opendata.models import *
 from OpenDataCatalog.opendata.views import send_email
 from OpenDataCatalog.suggestions.models import Suggestion
 from datetime import datetime
-from encoder import *
-from rest import login_required
+from .encoder import *
+from .rest import login_required
 from django.views.decorators.csrf import csrf_exempt
 
 
@@ -108,16 +108,22 @@ def resource_search(request):
     else:
         return http_badreq("Must specify qs search param")
 
+
 def resource(request, resource_id):
-    rsrc = Resource.objects.filter(id=resource_id, is_published = True)
+    rsrc = Resource.objects.filter(pk=resource_id, is_published=True)
     if rsrc and len(rsrc) == 1:
         return HttpResponse(json_encode(rsrc[0], full_resource_encoder))
     else:
-        raise Http404
+        return HttpResponseNotFound()
 
 
 def resources(request):
-    return HttpResponse(json_encode(list(Resource.objects.filter(is_published = True)), short_resource_encoder))
+    """
+    Returns a list of published resources
+    """
+    return HttpResponse(json_encode(list(
+        Resource.objects.filter(is_published=True)), short_resource_encoder), content_type='application/json'
+    )
 
 
 def safe_key_getter(dic):
