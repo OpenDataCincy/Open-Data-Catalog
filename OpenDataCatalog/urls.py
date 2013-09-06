@@ -21,8 +21,11 @@ sitemaps = {
 }
 
 urlpatterns = patterns('',
-    # Examples:
     (r'^$', 'OpenDataCatalog.opendata.views.home'),
+
+    # The API urls
+    (r'^api/', include('OpenDataCatalog.api.urls')),
+
     (r'^opendata/$', 'OpenDataCatalog.opendata.views.results'),
 
     (r'^opendata/tag/(?P<tag_id>\d+)/$', 'OpenDataCatalog.opendata.views.tag_results'),
@@ -59,22 +62,6 @@ urlpatterns = patterns('',
     (r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
     (r'^robots\.txt$', TemplateView.as_view(template_name='robots.txt')),
     
-    # API urls (all are GET urls unless stated otherwise)
-    (r'^api/resources/$', 'OpenDataCatalog.api.views.resources'),
-    (r'^api/resources/(?P<resource_id>\d+)/$', 'OpenDataCatalog.api.views.resource'),                 
-    (r'^api/resources/search$', 'OpenDataCatalog.api.views.resource_search'),
-    (r'^api/tags/$', 'OpenDataCatalog.api.views.tags'),                       
-    (r'^api/tags/(?P<tag_name>.*)/$', 'OpenDataCatalog.api.views.by_tag'),
-    (r'^api/ideas/$', 'OpenDataCatalog.api.views.ideas'),
-    (r'^api/ideas/(?P<idea_id>\d+)/$', 'OpenDataCatalog.api.views.idea'),
-    # GET to list, POST to create
-    (r'^api/suggestions/$', 'OpenDataCatalog.api.views.suggestions'),
-    (r'^api/suggestions/search$', 'OpenDataCatalog.api.views.search_suggestions'),
-    (r'^api/suggestions/(?P<suggestion_id>\d+)/$', 'OpenDataCatalog.api.views.suggestion'),
-    # PUT to vote, DELETE to remove
-    (r'^api/suggestions/(?P<suggestion_id>\d+)/vote$', 'OpenDataCatalog.api.views.vote'),
-    # POST to create
-    (r'^api/submit/$', 'OpenDataCatalog.api.views.submit'),
 
     url(r'^catalog/', include("OpenDataCatalog.catalog.urls")),
 

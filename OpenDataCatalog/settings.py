@@ -163,7 +163,7 @@ INSTALLED_APPS = (
     'OpenDataCatalog.suggestions',
     'OpenDataCatalog.contest',
     'OpenDataCatalog.catalog',
-
+    'OpenDataCatalog.api',
 )
 
 # the hostname of the deployment
