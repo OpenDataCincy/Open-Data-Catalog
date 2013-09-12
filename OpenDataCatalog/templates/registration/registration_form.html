@@ -31,10 +31,10 @@
 {% if form.errors %}
 <div class="resource error_message">The form has errors. Please try again.</div>
 {% endif %}
-  <form method="post" action="{{SITE_ROOT}}/accounts/register/">
+  <form method="post" action="{% url 'registration_register' %}">
   {% csrf_token %}
   <table id="registration_table">
-  {{form}}
+  {{ form }}
   </table>
   </form>
 </div>

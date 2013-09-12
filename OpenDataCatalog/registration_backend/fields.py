@@ -6,6 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 from widgets import *
 from recaptcha.client import captcha
 
+
 class ReCaptchaField(forms.CharField):
     default_error_messages = {
         'captcha_invalid': _(u'Invalid captcha')
