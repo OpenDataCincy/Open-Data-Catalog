@@ -883,6 +883,11 @@ ul.tab_header li.tab_button a:hover {
     width: 340px;
 }
 
+.tab_data {
+    float: left;
+    width: 340px;
+}
+
 .info_label {
 	font-size: 0.75em;
 	font-weight: bold;

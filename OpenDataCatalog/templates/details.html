@@ -105,7 +105,7 @@
     </div>
 
     <div class="tab_body" id="tab_extra_info">
-	  <div id="tab_data2">
+	  <div class="tab_data">
 		{% if resource.organization %}
 		<div class="info_label">Organization</div><div class="info_data"><a href="{{SITE_ROOT}}/opendata/search/?qs={{resource.organization}}" onclick="odp.trackEvent('Search Link', 'Resource Organization', 'Resource', {{resource.id}})">{{resource.organization}}</a></div>
 		{% endif %}
@@ -129,7 +129,7 @@
 		<div class="info_label">Categories</div>
 		<div class="info_data">
 		  {% for tag in resource.tags.all %}
-			<a href="{{SITE_ROOT}}/opendata/tag/{{tag.id}}" onclick="odp.trackEvent('Search Link', 'Resource Tag', 'Tag', '{{tag}}')">{{tag}}</a>{% if not forloop.last %}, {% endif %}
+			<a href="{% url 'tag' tag.id %}" onclick="odp.trackEvent('Search Link', 'Resource Tag', 'Tag', '{{ tag }}')">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
 		  {% endfor %}
 		</div>
 		<div class="info_label">Usage</div><div class="info_data">{{ resource.usage }}</div>
@@ -160,8 +160,6 @@
         <div class="info_label">Date Added</div><div class="info_data">{{resource.created}}</div>
         <div class="info_label">Last Update</div><div class="info_data">{{resource.last_updated}}</div>
 
-
-
 	  </div>
 	  <div class="tab_container" id="tab_image_container">
 		{% if resource.get_images %}
@@ -179,8 +177,9 @@
 			  {% for i in resource.get_images %}
 			  <li><a href="#tab_image_{{i.id}}" onclick="odp.trackEvent('View Small Image', 'Resource Url Image', 'Image', {{i.id}})"></a></li>
 			  {% endfor %}
-	  {% endif %}
-			</ul>
+	        </ul>
+      {% endif %}
+
 		{% else %}
 			<div class="tab_image" id="tab_image_1">
 			  <img src="{% static "images/detail_no_image.png" %}" alt="No Resource Images">
@@ -197,7 +196,7 @@
       <li class="tab_button"><a href="#tab_data" onclick="odp.trackEvent('Resource Data', 'Data', 'Resource', {{resource.id}});return false;">DATA</a></li>
       {# <li class="tab_button"><a href="#tab_metadata" onclick="odp.trackEvent('Resource Data', 'Metadata', 'Resource', {{resource.id}});return false;">METADATA</a></li> #}
     </ul>
-    <div class="tab_body" id="tab_data">
+    <div class="tab_body" class="tab_data">
     {% if resource.get_grouped_urls.Data %}
       <div class="data_block">
         <div class="url_header">
@@ -205,14 +204,14 @@
         </div>
         <ul>
         {% for url in resource.get_grouped_urls.Data %}
-          <li class="url_link"><a href="{{url.url}}" target="_blank">{{url.url_label}}</a></li>
+          <li class="url_link"><a href="{{ url.url }}" target="_blank">{{ url.url_label }}</a></li>
         {% endfor %}
         </ul>
       </div>
     {% endif %}
 
     {% if resource.get_grouped_urls.Documentation %}
-      <div class="data_block" id="data_documention">
+      <div class="data_block" id="data_documentation">
         <div class="url_header">
           <div id="resource_icon_Documentation" class="url_image"></div><div class="url_label">Documentation</div>
         </div>
@@ -244,7 +243,7 @@
         </div>
         <ul>
         {% for url in resource.get_grouped_urls.Application %}
-          <li class="url_link"><a href="{{url.url}}" target="_blank">{{url.url_label}}</a></li>
+          <li class="url_link"><a href="{{ url.url }}" target="_blank">{{ url.url_label }}</a></li>
         {% endfor %}
         </ul>
       </div>
@@ -253,7 +252,7 @@
     <div class="clear"></div>
     </div>
 
-    <div class="tab_body" id="tab_metadata">
+    <div class="tab_body" id="tab_metadata" style="display: none;">
       <div class="data_block" style="display:none;">
         <div class="info_label">XML Metadata</div>
         <div class="info_data">
