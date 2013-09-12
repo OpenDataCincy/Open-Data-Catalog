@@ -61,15 +61,19 @@ class CoordSystem(models.Model):
     class Meta: 
         ordering = ['EPSG_code']
         verbose_name = 'Coordinate system'
-    
+
+
 class Resource(models.Model):
     @classmethod
-    def search(cls, qs = None, objs = None):
-        if objs == None:
-            objs = cls.objects.filter(is_published = True)
+    def search(cls, qs=None, objs=None):
+        if objs is None:
+            objs = cls.objects.filter(is_published=True)
 
         if qs:
-            objs = objs.filter(Q(name__icontains=qs) | Q(description__icontains=qs) | Q(organization__icontains=qs) | Q(division__icontains=qs))
+            objs = objs.filter(
+                Q(name__icontains=qs) | Q(description__icontains=qs) |
+                Q(organization__icontains=qs) | Q(division__icontains=qs)
+            )
 
         return objs
 
