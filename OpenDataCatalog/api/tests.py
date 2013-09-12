@@ -76,6 +76,7 @@ class RestTestCase(TestCase):
         base64_auth = base64.encodestring(user.username + ":" + password)
         return {"HTTP_AUTHORIZATION" : "Basic " + base64_auth}
 
+
 class SuggestionsTest(RestTestCase):
     def test_empty_case(self):
         self.assertEmptyList("/api/suggestions/")
@@ -119,7 +120,6 @@ class SuggestionsTest(RestTestCase):
         resp = self.c.put("/api/suggestions/%s/vote"%sug1.pk, {}, **self.auth_pair(self.u,"fail"))
         self.assertEquals(resp.status_code, 401)
 
-
     def test_vote(self):
         sug1 = self.mksug("sug1")
 
@@ -156,7 +156,8 @@ class SuggestionsTest(RestTestCase):
         # Back to zero
         self.c.delete("/api/suggestions/%s/vote"%sug1.pk, {}, **self.auth_pair(self.u2))
         self.assertEqual(Suggestion.objects.all()[0].rating.votes, 0)
-        
+
+
 class TagTest(RestTestCase):
     def test_empty_case(self):
         self.assertEmptyList("/api/tags/")
@@ -207,7 +208,6 @@ class IdeaTest(RestTestCase):
         self.assertCode(self.c.get("/api/ideas/22/"), 404)
         self.assertCode(self.c.get("/api/ideas/f/"), 404)
 
-        
 
 class ResourceTest(RestTestCase):
 
@@ -263,11 +263,14 @@ class ResourceTest(RestTestCase):
     def test_single_case(self):
         rsrc1 = self.mkrsrc("rsrc1")
 
-        self.assertEquals(self.get("/api/resources/%d/" % rsrc1.pk)["id"], rsrc1.pk)
+        self.assertEquals(self.get("/api/resources/%d/" % rsrc1.pk).get('id'), rsrc1.pk)
 
     def test_invalid_url(self):
-        self.assertCode(self.c.get("/api/resources/22/"), 404)
-        self.assertCode(self.c.get("/api/resources/f/"), 404)
+        response = self.c.get("/api/resources/22/")
+        self.assertEqual(response.status_code, 404)
+
+        response = self.c.get("/api/resources/f/")
+        self.assertEqual(response.status_code, 404)
 
         
 
