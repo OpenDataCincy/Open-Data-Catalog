@@ -90,8 +90,9 @@
 			  {% for i in resource.get_images %}
 			  <li><a href="#tab_image_{{i.id}}" onclick="odp.trackEvent('View Small Image', 'Resource Url Image', 'Image', {{i.id}})"></a></li>
 			  {% endfor %}
+            </ul>
       {% endif %}
-			</ul>
+
 		{% else %}
 			<div class="tab_image" id="tab_image_1">
 			  <img src="{% static "images/detail_no_image.png" %}" alt="No Resource Images">
