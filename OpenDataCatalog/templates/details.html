@@ -53,7 +53,7 @@
         <div class="info_label">Division</div><div class="info_data"><a href="{{SITE_ROOT}}/opendata/search/?qs={{resource.division}}" onclick="odp.trackEvent('Search Link', 'Resource Organization', 'Resource', {{resource.id}})">{{resource.division}}</a></div>
         {% endif %}
         {% if resource.release_date %}
-        <div class="info_label">Release Date</div><div class="info_data">{{resource.release_date}}</a></div>
+        <div class="info_label">Release Date</div><div class="info_data">{{ resource.release_date }}</div>
         {% endif %}
         {% if resource.time_period %}
         <div class="info_label">Valid Time Period</div><div class="info_data">{{resource.time_period}}</div>
