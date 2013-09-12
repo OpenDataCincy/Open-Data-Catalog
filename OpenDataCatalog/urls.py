@@ -30,7 +30,7 @@ urlpatterns = patterns('',
 
     url(r'^opendata/$', 'OpenDataCatalog.opendata.views.results'),
 
-    url(r'^opendata/tag/(?P<tag_id>\d+)/$', 'OpenDataCatalog.opendata.views.tag_results'),
+    url(r'^opendata/tag/(?P<tag_id>\d+)/$', 'OpenDataCatalog.opendata.views.tag_results', name='tag'),
     url(r'^opendata/search/$', 'OpenDataCatalog.opendata.views.search_results'),
     url(r'^opendata/resource/(?P<resource_id>\d+)/$', ResourceView.as_view()),
     url(r'^opendata/resource/(?P<resource_id>\d+)/(?P<slug>[-\w]+)/$', ResourceView.as_view()),
