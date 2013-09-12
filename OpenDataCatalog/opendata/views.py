@@ -1,17 +1,14 @@
 import random
 from datetime import datetime
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
 from django.shortcuts import render_to_response, get_object_or_404
 from django.core import serializers
 from django.core.mail import send_mail, mail_managers, EmailMessage
 from django.template import RequestContext
 from django.template.loader import render_to_string
-from django.db.models import Q
-from django.contrib.auth import authenticate, login
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from datetime import datetime
+from django.views.generic import TemplateView
+
 import pytz
 from pytz import timezone
 from django.core.cache import cache
@@ -21,6 +18,24 @@ import simplejson as json
 
 from OpenDataCatalog.opendata.models import *
 from OpenDataCatalog.opendata.forms import *
+
+
+class ResourceView(TemplateView):
+    template_name = 'details.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        # Get the resource
+        resource = get_object_or_404(Resource, pk=kwargs.get('resource_id'))
+
+        kwargs['resource'] = resource
+
+        return super(ResourceView, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+
+        return {
+            'resource': kwargs.get('resource'),
+        }
 
 
 def home(request):
@@ -92,11 +107,6 @@ def search_results(request):
     
     return render_to_response('results.html', {'results': search_resources}, context_instance=RequestContext(request))
 
-
-def resource_details(request, resource_id, slug=""):
-    resource = get_object_or_404(Resource, pk=resource_id)
-    return render_to_response('details.html', {'resource': resource}, context_instance=RequestContext(request)) 
-    
 
 def idea_results(request, idea_id=None, slug=""):
     if idea_id:

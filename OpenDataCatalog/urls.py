@@ -10,6 +10,8 @@ from OpenDataCatalog.opendata.feeds import ResourcesFeed, TagFeed, IdeasFeed, Up
 from OpenDataCatalog.opendata.models import Resource, Idea
 from OpenDataCatalog.registration_backend import CatalogRegistrationView
 
+from OpenDataCatalog.opendata.views import ResourceView
+
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
@@ -30,8 +32,8 @@ urlpatterns = patterns('',
 
     url(r'^opendata/tag/(?P<tag_id>\d+)/$', 'OpenDataCatalog.opendata.views.tag_results'),
     url(r'^opendata/search/$', 'OpenDataCatalog.opendata.views.search_results'),
-    url(r'^opendata/resource/(?P<resource_id>\d+)/$', 'OpenDataCatalog.opendata.views.resource_details'),
-    url(r'^opendata/resource/(?P<resource_id>\d+)/(?P<slug>[-\w]+)/$', 'OpenDataCatalog.opendata.views.resource_details'),
+    url(r'^opendata/resource/(?P<resource_id>\d+)/$', ResourceView.as_view()),
+    url(r'^opendata/resource/(?P<resource_id>\d+)/(?P<slug>[-\w]+)/$', ResourceView.as_view()),
     url(r'^ideas/$', 'OpenDataCatalog.opendata.views.idea_results'),
     url(r'^idea/(?P<idea_id>\d+)/$', 'OpenDataCatalog.opendata.views.idea_results'),
     url(r'^idea/(?P<idea_id>\d+)/(?P<slug>[-\w]+)/$', 'OpenDataCatalog.opendata.views.idea_results'),
