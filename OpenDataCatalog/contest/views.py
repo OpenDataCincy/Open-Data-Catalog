@@ -13,8 +13,12 @@ from .models import Contest, Entry, Vote
 from .utils import process_contest_entry
 
 
-class ContestEntriesView(TemplateView):
-    template_name = 'contest/entries.html'
+class ContestTemplateView(TemplateView):
+    """
+    This view does some initial construction to pull either the supplied contest
+    or the base contest.
+    """
+    template_name = ''
 
     def dispatch(self, request, *args, **kwargs):
 
@@ -27,7 +31,11 @@ class ContestEntriesView(TemplateView):
 
         kwargs['contest'] = contest
 
-        return super(ContestEntriesView, self).dispatch(request, *args, **kwargs)
+        return super(ContestTemplateView, self).dispatch(request, *args, **kwargs)
+
+
+class ContestEntriesView(ContestTemplateView):
+    template_name = 'contest/entries.html'
 
     def get_context_data(self, **kwargs):
 
@@ -39,22 +47,10 @@ class ContestEntriesView(TemplateView):
         }
 
 
-class AddEntryView(FormView):
+class AddEntryView(ContestTemplateView, FormView):
     success_url = '/contest/thanks'
     form_class = EntryForm
     template_name = 'contest/submit_entry.html'
-
-    def dispatch(self, request, *args, **kwargs):
-        try:
-            # We need to figure out which contest is currently running.
-            contest = Contest.objects.get(pk=kwargs.get('contest_id', 1))
-
-        except Contest.DoesNotExist:
-            return redirect('home')
-
-        kwargs['contest'] = contest
-
-        return super(AddEntryView, self).dispatch(request, *args, **kwargs)
 
     def get(self, request, *args, **kwargs):
         """
@@ -72,26 +68,14 @@ class AddEntryView(FormView):
 
         # TODO: Let's create a contest entry.
 
-        # But for now, let's just process it.
+        # But for now, let's just process it.  This sends out some emails.
         process_contest_entry(form)
 
         return super(AddEntryView, self).form_valid(form)
 
 
-class AddEntryThanksView(TemplateView):
+class AddEntryThanksView(ContestTemplateView):
     template_name = 'contest/thanks.html'
-
-    def dispatch(self, request, *args, **kwargs):
-        try:
-            # We need to figure out which contest is currently running.
-            contest = Contest.objects.get(pk=kwargs.get('contest_id', 1))
-
-        except Contest.DoesNotExist:
-            return redirect('home')
-
-        kwargs['contest'] = contest
-
-        return super(AddEntryThanksView, self).dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         return {
