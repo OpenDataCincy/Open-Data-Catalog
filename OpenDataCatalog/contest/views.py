@@ -5,8 +5,11 @@ from django.core.mail import mail_managers, EmailMessage
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.views.generic import TemplateView
-from OpenDataCatalog.contest.models import *
+
 from datetime import datetime
+
+from .forms import EntryForm
+from .models import Contest, Entry, Vote
 
 
 class ContestEntriesView(TemplateView):
