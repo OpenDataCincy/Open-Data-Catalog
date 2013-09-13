@@ -3,6 +3,7 @@ from django.template import RequestContext
 from django.template.loader import render_to_string
 from django.core.mail import mail_managers, EmailMessage
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.contrib import messages
 from django.views.generic import TemplateView, FormView
 
