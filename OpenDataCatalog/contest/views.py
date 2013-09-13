@@ -97,9 +97,6 @@ def get_winners(request, contest_id=1):
     entries = Entry.objects.filter(contest=contest, is_visible=True).order_by('-vote_count')
     return render_to_response('contest/winners.html', {'contest': contest, 'entries': entries}, context_instance=RequestContext(request))
 
-def get_rules(request, contest_id=1):
-    contest = Contest.objects.get(pk=contest_id)
-    return render_to_response('contest/rules.html', {'contest': contest}, context_instance=RequestContext(request))
 
 def get_entry(request, entry_id):
     entry = Entry.objects.get(pk=entry_id)

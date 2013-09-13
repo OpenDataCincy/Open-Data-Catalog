@@ -1,11 +1,11 @@
 from django.conf.urls import patterns, url
 
-from .views import ContestEntriesView, AddEntryView, AddEntryThanksView
+from .views import ContestEntriesView, AddEntryView, AddEntryThanksView, ContestTemplateView
 
 urlpatterns = patterns('',
     url(r'^$', ContestEntriesView.as_view(), name='contest'),
     url(r'(?P<contest_id>\d+)/$', ContestEntriesView.as_view(), name='contest-id'),
-    url(r'^rules/$', 'OpenDataCatalog.contest.views.get_rules'),
+    url(r'^rules/$', ContestTemplateView.as_view(template_name='contest/rules.html'), name='contest-rules'),
     url(r'^add/$', AddEntryView.as_view(), name='contest-add'),
     url(r'^thanks/$', AddEntryThanksView.as_view(), name='contest-thanks'),
     url(r'^entry/(?P<entry_id>\d+)/$', 'OpenDataCatalog.contest.views.get_entry'),
