@@ -1,13 +1,9 @@
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
-from django.template.loader import render_to_string
-from django.core.mail import mail_managers, EmailMessage
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.views.generic import TemplateView, FormView
-
-from datetime import datetime
 
 from .forms import EntryForm
 from .models import Contest, Entry, Vote
@@ -84,6 +80,28 @@ class AddEntryThanksView(ContestTemplateView):
         }
 
 
+class EntryView(ContestTemplateView):
+    template_name = 'contest/entry.html'
+
+    def dispatch(self, request, *args, **kwargs):
+
+        try:
+            entry = Entry.objects.get(pk=kwargs.get('entry_id'))
+        except Entry.DoesNotExist:
+            return redirect('contest')
+
+        kwargs['entry'] = entry
+
+        return super(EntryView, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+
+        return {
+            'contest': kwargs.get('contest'),
+            'entry': kwargs.get('entry'),
+        }
+
+
 def get_entries_table(request, contest_id=1):
     contest = Contest.objects.get(pk=contest_id)
     entries = Entry.objects.filter(contest=contest)
@@ -128,7 +146,7 @@ def add_vote(request, entry_id):
                                         'and to join the race toward more open data!')
     else:
         next_vote_date = contest.get_next_vote_date(user)
-        
+
         if next_vote_date > contest.end_date:
             messages.error(request, '<div style="font-weight:bold;">You have already voted.</div>You will not be able '
                                     'to vote again before the end of the contest. <br><br>Please encourage others to '
