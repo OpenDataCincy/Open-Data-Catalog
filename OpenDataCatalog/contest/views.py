@@ -58,6 +58,7 @@ def get_entry(request, entry_id):
     entry = Entry.objects.get(pk=entry_id)
     return render_to_response('contest/entry.html', {'contest': entry.contest, 'entry': entry}, context_instance=RequestContext(request))
 
+
 #@login_required
 def add_entry(request, contest_id=1):
     contest = Contest.objects.get(pk=contest_id)
