@@ -23,7 +23,7 @@ sitemaps = {
 }
 
 urlpatterns = patterns('',
-    url(r'^$', 'OpenDataCatalog.opendata.views.home'),
+    url(r'^$', 'OpenDataCatalog.opendata.views.home', name='home'),
 
     # The API urls
     url(r'^api/', include('OpenDataCatalog.api.urls')),

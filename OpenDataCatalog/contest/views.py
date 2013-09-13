@@ -1,19 +1,38 @@
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
 from django.template.loader import render_to_string
-from django.core.mail import send_mail, mail_managers, EmailMessage
+from django.core.mail import mail_managers, EmailMessage
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.views.generic import TemplateView
 from OpenDataCatalog.contest.models import *
 from datetime import datetime
 
 
-def get_entries(request, contest_id=1):
-    contest = Contest.objects.get(pk=contest_id)
-    entries = Entry.objects.filter(contest=contest, is_visible=True)
-    if not request.GET.__contains__('sort'):
-        entries = entries.order_by('-vote_count')
-    return render_to_response('contest/entries.html', {'contest': contest, 'entries': entries}, context_instance=RequestContext(request))
+class ContestEntriesView(TemplateView):
+    template_name = 'contest/entries.html'
+
+    def dispatch(self, request, *args, **kwargs):
+
+        try:
+            # We need to figure out which contest is currently running.
+            contest = Contest.objects.get(pk=kwargs.get('contest_id', 1))
+
+        except Contest.DoesNotExist:
+            return redirect('home')
+
+        kwargs['contest'] = contest
+
+        return super(ContestEntriesView, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+
+        contest = kwargs.get('contest')
+
+        return {
+            'contest': contest,
+            'entries': contest.entries.filter(is_visible=True).order_by('-vote_count')
+        }
 
 
 def get_entries_table(request, contest_id=1):

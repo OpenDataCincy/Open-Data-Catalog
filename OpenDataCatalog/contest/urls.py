@@ -1,7 +1,9 @@
 from django.conf.urls import patterns, url
 
+from .views import ContestEntriesView
+
 urlpatterns = patterns('',
-    url(r'^$', 'OpenDataCatalog.contest.views.get_entries'),
+    url(r'^$', ContestEntriesView.as_view(), name='contest'),
     url(r'^rules/$', 'OpenDataCatalog.contest.views.get_rules'),
     url(r'^add/$', 'OpenDataCatalog.contest.views.add_entry'),
     url(r'^entry/(?P<entry_id>\d+)/$', 'OpenDataCatalog.contest.views.get_entry'),

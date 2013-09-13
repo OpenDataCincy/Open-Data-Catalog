@@ -59,6 +59,7 @@ class Contest(models.Model):
     def __str__(self):
         return self.title
 
+
 class Entry(models.Model):
     def get_image_path(instance, filename):
         fsplit = filename.split('.')
@@ -83,7 +84,7 @@ class Entry(models.Model):
     rejected_reason = models.CharField(max_length=255, null=True, blank=True)
     comments = models.TextField(null=True, blank=True)
 
-    contest = models.ForeignKey(Contest)
+    contest = models.ForeignKey(Contest, related_name='entries')
     vote_count = models.IntegerField(default=0)
 
 
