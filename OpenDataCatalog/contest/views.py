@@ -4,12 +4,13 @@ from django.template.loader import render_to_string
 from django.core.mail import mail_managers, EmailMessage
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, FormView
 
 from datetime import datetime
 
 from .forms import EntryForm
 from .models import Contest, Entry, Vote
+from .utils import process_contest_entry
 
 
 class ContestEntriesView(TemplateView):
@@ -38,12 +39,52 @@ class ContestEntriesView(TemplateView):
         }
 
 
+class AddEntryView(FormView):
+    success_url = '/contest/thanks'
+    form_class = EntryForm
+    template_name = 'contest/submit_entry.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        try:
+            # We need to figure out which contest is currently running.
+            contest = Contest.objects.get(pk=kwargs.get('contest_id', 1))
+
+        except Contest.DoesNotExist:
+            return redirect('home')
+
+        kwargs['contest'] = contest
+
+        return super(AddEntryView, self).dispatch(request, *args, **kwargs)
+
+    def get(self, request, *args, **kwargs):
+        """
+        We have to add the contest to the context here.
+        """
+        form_class = self.get_form_class()
+        form = self.get_form(form_class)
+        context = self.get_context_data(**kwargs)
+        context['form'] = form
+        context['contest'] = kwargs.get('contest')
+
+        return self.render_to_response(context)
+
+    def form_valid(self, form):
+
+        # TODO: Let's create a contest entry.
+
+        # But for now, let's just process it.
+        process_contest_entry(form)
+
+        return super(AddEntryView, self).form_valid(form)
+
+
 def get_entries_table(request, contest_id=1):
     contest = Contest.objects.get(pk=contest_id)
     entries = Entry.objects.filter(contest=contest)
     if not request.GET.__contains__('sort'):
         entries = entries.order_by('-vote_count')
     return render_to_response('contest/entry_table.html', {'contest': contest, 'entries': entries}, context_instance=RequestContext(request))
+
 
 def get_winners(request, contest_id=1):
     contest = Contest.objects.get(pk=contest_id)
