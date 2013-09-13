@@ -78,6 +78,27 @@ class AddEntryView(FormView):
         return super(AddEntryView, self).form_valid(form)
 
 
+class AddEntryThanksView(TemplateView):
+    template_name = 'contest/thanks.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        try:
+            # We need to figure out which contest is currently running.
+            contest = Contest.objects.get(pk=kwargs.get('contest_id', 1))
+
+        except Contest.DoesNotExist:
+            return redirect('home')
+
+        kwargs['contest'] = contest
+
+        return super(AddEntryThanksView, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        return {
+            'contest': kwargs.get('contest'),
+        }
+
+
 def get_entries_table(request, contest_id=1):
     contest = Contest.objects.get(pk=contest_id)
     entries = Entry.objects.filter(contest=contest)
