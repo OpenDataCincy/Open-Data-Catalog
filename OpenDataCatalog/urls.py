@@ -10,7 +10,7 @@ from OpenDataCatalog.opendata.feeds import ResourcesFeed, TagFeed, IdeasFeed, Up
 from OpenDataCatalog.opendata.models import Resource, Idea
 from OpenDataCatalog.registration_backend import CatalogRegistrationView
 
-from OpenDataCatalog.opendata.views import ResourceView
+from OpenDataCatalog.opendata.views import ResourceView, UserView
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -56,7 +56,9 @@ urlpatterns = patterns('',
     url(r'^feeds/tag/(?P<tag_id>\d+)/$', TagFeed()),
     url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
     url(r'^robots\.txt$', TemplateView.as_view(template_name='robots.txt')),
-    
+
+    # User specific
+    url(r'^users/(?P<username>\w+)/', UserView.as_view(), name='user'),
 
     url(r'^catalog/', include("OpenDataCatalog.catalog.urls")),
 

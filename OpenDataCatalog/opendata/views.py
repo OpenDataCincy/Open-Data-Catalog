@@ -8,6 +8,7 @@ from django.template import RequestContext
 from django.template.loader import render_to_string
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
+from django.utils.decorators import method_decorator
 
 import pytz
 from pytz import timezone
@@ -35,6 +36,21 @@ class ResourceView(TemplateView):
 
         return {
             'resource': kwargs.get('resource'),
+        }
+
+
+class UserView(TemplateView):
+    template_name = 'users/user.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+
+        return super(UserView, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+
+        return {
+            'user': '',
         }
 
 
