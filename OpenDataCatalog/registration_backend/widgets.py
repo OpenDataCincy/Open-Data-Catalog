@@ -3,6 +3,7 @@ from django.utils.safestring import mark_safe
 from django.conf import settings
 from recaptcha.client import captcha
 
+
 class ReCaptcha(forms.widgets.Widget):
     recaptcha_challenge_name = 'recaptcha_challenge_field'
     recaptcha_response_name = 'recaptcha_response_field'
