@@ -21,7 +21,7 @@ class Contest(models.Model):
     title = models.CharField(max_length=255)    
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
-    vote_frequency = models.IntegerField(help_text=u'You may vote one time every X days, where X is frequency.')
+    vote_frequency = models.IntegerField(help_text=u'You may vote one time every X days.')
     rules = models.TextField()
     
     def get_days_left(self):
