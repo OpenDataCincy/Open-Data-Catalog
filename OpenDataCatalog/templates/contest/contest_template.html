@@ -30,7 +30,7 @@
                             <div id="voting_over">VOTING IS OVER!</div>
                         </div>
                         <div id="days_events" class="days_over">Congratulations to the winners and thank you for participating in the {{contest.title}}! The contest is now finished, but you can 
-                        continue to <a href="{{SITE_ROOT}}/opendata/nominate/?sort=rating_score&dir=desc">nominate</a> data sets for OpenDataCatalog.</div>
+                        continue to <a href="{% url 'nominate' %}?sort=rating_score&dir=desc">nominate</a> data sets for OpenDataCatalog.</div>
                     {% else %}
                         <div id="days_left">
                             <div id="days">{{contest.get_days_till_start}}</div>
