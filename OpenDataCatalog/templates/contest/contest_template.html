@@ -30,7 +30,7 @@
                             <div id="voting_over">VOTING IS OVER!</div>
                         </div>
                         <div id="days_events" class="days_over">Congratulations to the winners and thank you for participating in the {{contest.title}}! The contest is now finished, but you can 
-                        continue to <a href="{{SITE_ROOT}}/opendata/nominate/?sort=rating_score&dir=desc">nominate</a> data sets for OpenDataCatalog.</div>
+                        continue to <a href="{% url 'nominate' %}?sort=rating_score&dir=desc">nominate</a> data sets for OpenDataCatalog.</div>
                     {% else %}
                         <div id="days_left">
                             <div id="days">{{contest.get_days_till_start}}</div>
@@ -55,15 +55,15 @@
 	<div id="center_container">
     {% include "loginlogout.html" %}
         <div id="contest_header">
-            <a href="{% if contest.has_ended %}{{SITE_ROOT}}/contest/winners/{% else %}{{SITE_ROOT}}/contest/?sort=vote_count{% endif %}" id="logo">Contest Logo</a>
+            <a href="{% if contest.has_ended %}{% url 'contest-winners' %}{% else %}{% url 'contest' %}?sort=vote_count{% endif %}" id="logo">Contest Logo</a>
             <div id="contest_menu">
                 <ul>
-                    {% if contest.has_ended %}<li id="menu_winner" class="contest_menu"><a href="{{SITE_ROOT}}/contest/winners">CONTEST WINNERS</a></li>{% endif %}
-                    <li id="menu_vote" class="contest_menu"><a href="{{SITE_ROOT}}/contest/?sort=vote_count&dir=desc">
+                    {% if contest.has_ended %}<li id="menu_winner" class="contest_menu"><a href="{% url 'contest-winners' %}">CONTEST WINNERS</a></li>{% endif %}
+                    <li id="menu_vote" class="contest_menu"><a href="{% url 'contest' %}?sort=vote_count&dir=desc">
                         {% if contest.has_ended %}VIEW RESULTS{% else %}CAST YOUR VOTE{% endif %}</a></li>
-                    <li id="menu_table" class="contest_menu"><a href="{{SITE_ROOT}}/contest/entries/">ALL ENTRIES</a></li>
-                    <li id="menu_rules" class="contest_menu"><a href="{{SITE_ROOT}}/contest/rules/">RULES</a></li>
-                    <li id="menu_odp" class="contest_menu"><a href="{{SITE_ROOT}}/">OpenDataCatalog</a></li>
+                    <li id="menu_table" class="contest_menu"><a href="{% url 'contest-entries' %}">ALL ENTRIES</a></li>
+                    <li id="menu_rules" class="contest_menu"><a href="{% url 'contest-rules' %}">RULES</a></li>
+                    <li id="menu_odp" class="contest_menu"><a href="{% url 'home' %}">OpenDataCatalog</a></li>
                 </ul>
             </div>
             <div id="contest_desc">

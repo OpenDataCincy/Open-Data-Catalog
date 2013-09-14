@@ -21,7 +21,7 @@ class Contest(models.Model):
     title = models.CharField(max_length=255)    
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
-    vote_frequency = models.IntegerField(help_text=u'You may vote one time every X days, where X is frequency.')
+    vote_frequency = models.IntegerField(help_text=u'You may vote one time every X days.')
     rules = models.TextField()
     
     def get_days_left(self):
@@ -44,16 +44,21 @@ class Contest(models.Model):
     def get_next_vote_date(self, user):
         votes = user.vote_set.order_by('-timestamp')
         increment = datetime.timedelta(days=self.vote_frequency)
-        last_vote_date = votes[0].timestamp
+        if len(votes):
+            last_vote_date = votes[0].timestamp
+        else:
+            last_vote_date = dt.today()
         next_vote_date = last_vote_date + increment 
         return next_vote_date
 
     def user_can_vote(self, user):
         votes = user.vote_set.order_by('-timestamp')
-        if votes.count > 0:           
+
+        if votes.count() > 0:
             next_date = self.get_next_vote_date(user)
             if dt.today() < next_date and dt.today() < self.end_date:
                 return False
+
         return True
 
     def __str__(self):
@@ -64,11 +69,11 @@ class Entry(models.Model):
     def get_image_path(instance, filename):
         fsplit = filename.split('.')
         extra = 1
-        test_path = os.path.join(settings.MEDIA_ROOT, 'contest_images', str(instance.id), fsplit[0] + '_' + str(extra) + '.' + fsplit[1])
+        test_path = os.path.join(settings.MEDIA_ROOT, 'contest_images', str(instance.id), fsplit[0] + '_' + str(extra) + '.' + fsplit[-1])
         while os.path.exists(test_path):
            extra += 1
-           test_path = os.path.join(settings.MEDIA_ROOT, 'contest_images', str(instance.id), fsplit[0] + '_' + str(extra) + '.' +  fsplit[1])
-        path = os.path.join('contest_images', str(instance.id), fsplit[0] + '_' + str(extra) + '.' + fsplit[1])
+           test_path = os.path.join(settings.MEDIA_ROOT, 'contest_images', str(instance.id), fsplit[0] + '_' + str(extra) + '.' + fsplit[-1])
+        path = os.path.join('contest_images', str(instance.id), fsplit[0] + '_' + str(extra) + '.' + fsplit[-1])
         return path
 
     title = models.CharField(max_length=255)
