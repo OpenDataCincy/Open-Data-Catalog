@@ -46,7 +46,7 @@ urlpatterns = patterns('',
     url(r'^accounts/register/$', CatalogRegistrationView.as_view(), name='registration_register'),
     url(r'^accounts/password_reset', 'django.contrib.auth.views.password_reset'),
     url(r'^accounts/', include('registration.backends.default.urls')),
-    url(r'^opendata/nominate/', include('OpenDataCatalog.suggestions.urls')),
+    url(r'^opendata/nominate/', include('OpenDataCatalog.suggestions.urls'), name='nominate'),
     url(r'^contest/', include('OpenDataCatalog.contest.urls')),
 
     url(r'^feeds/$', 'OpenDataCatalog.opendata.views.feed_list'),
