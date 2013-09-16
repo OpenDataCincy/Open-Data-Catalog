@@ -1,7 +1,7 @@
 import random
 from datetime import datetime
 from django.http import HttpResponse
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.core import serializers
 from django.core.mail import send_mail, mail_managers, EmailMessage
 from django.template import RequestContext
@@ -45,12 +45,16 @@ class UserView(TemplateView):
     @method_decorator(login_required)
     def dispatch(self, request, *args, **kwargs):
 
+        # Verify that the user can see this profile
+        if not request.user.is_superuser:
+            return redirect('home')
+
         return super(UserView, self).dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
 
         return {
-            'user': '',
+            'the_user': User.objects.get(username=kwargs.get('username')),
         }
 
 
