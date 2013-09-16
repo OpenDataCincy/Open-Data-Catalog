@@ -213,10 +213,6 @@ LOGGING = {
         }
     },
     'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler'
-        },
         'mail_admins': {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
@@ -225,12 +221,13 @@ LOGGING = {
     },
     'loggers': {
         'django.request': {
-            'handlers': ['console', 'mail_admins'],
-            'level': 'INFO',
+            'handlers': ['mail_admins'],
+            'level': 'ERROR',
             'propagate': True,
         },
     }
 }
+
 
 LOCAL_STATICFILE_DIR = ()
 LOCAL_TEMPLATE_DIR = ()
