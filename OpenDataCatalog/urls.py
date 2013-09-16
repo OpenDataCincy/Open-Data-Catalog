@@ -56,7 +56,7 @@ urlpatterns = patterns('',
     url(r'^feeds/tag/(?P<tag_id>\d+)/$', TagFeed()),
     url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
     url(r'^robots\.txt$', TemplateView.as_view(template_name='robots.txt')),
-    
+
 
     url(r'^catalog/', include("OpenDataCatalog.catalog.urls")),
 
