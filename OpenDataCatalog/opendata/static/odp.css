@@ -1719,12 +1719,12 @@ float:left;
     font-weight: bold;
 }
 #contest_menu a {
-    color: #DF5800;
+    color: #107BC0;
 }
 
 #contest_menu li.selected {
     font-size: .95em;
-    background-color: #DF5800;
+    background-color: #107BC0;
     border: 1px solid white;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -1779,7 +1779,7 @@ float:left;
 	box-shadow: 0 0 4px #ccc;
 }
 #date_box {
-    background-color: #DF5800;
+    background-color: #107BC0;
 }
 #pic_box {
     background: #F5F5F5 url(/static/images/contest/pic-1.jpg) no-repeat;
@@ -1797,7 +1797,7 @@ float:left;
 #days_left #days {
     font-size: 2.4em;
     font-weight: bold;
-    color: #DF5800;
+    color: #107BC0;
 }
 #days_left #left {
     font-size: 0.7em;
@@ -1806,7 +1806,7 @@ float:left;
 #days_left #voting_over {
     font-size: 1em;
     font-weight: bold;
-    color: #DF5800;
+    color: #107BC0;
 }
 
 #date_box #days_header {
@@ -1936,7 +1936,7 @@ float:left;
     font-weight: bold;
     text-align: center;
     color: white;
-    background-color: #DF5800;
+    background-color: #107BC0;
     border: 1px solid white;
     cursor: pointer;
     -moz-border-radius: 15px;
@@ -1973,8 +1973,8 @@ li.resource #entry_votes {
 #entry_votes #nom_votes_number {
 	font-size: 2em;
 	font-weight: bold;
-	color: #FC8E4A;
-    font-family: "Open Sans","Open Sans", Arial, Helvetica;
+	color: #107BC0;
+    font-family: "Open Sans","Open Sans", Arial, Helvetica, sans-serif;
     letter-spacing:-1px;
 }
 #entry_votes #nom_votes_text {
@@ -2109,7 +2109,7 @@ li.resource #entry_votes {
     border-bottom: none;
 }
 #entry_list_table a {
-    color: #DF5800;
+    color: #107BC0;
 }
 #entry_list_table #included {
     background: transparent url(/static/images/icon_done_small.png) no-repeat;
