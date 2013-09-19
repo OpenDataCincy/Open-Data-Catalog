@@ -3,9 +3,18 @@
 {% block center_container %}
 
 <div id="">
-    <h1>{{ the_user.get_full_name }}</h1>
+    <h3>{{ the_user.get_full_name }}</h3>
 
-    <h3>Email: <a href="mailto:{{ the_user.email }}">{{ the_user.email }}</a></h3>
+    <div class="tab_container">
+        <div class="tab_body" id="user-tab">
+            <p>Email: <a href="mailto:{{ the_user.email }}">{{ the_user.email }}</a></p>
+            <p>Joined: {{ the_user.date_joined }}</p>
+            <p>Last login: {{ the_user.last_login }}</p>
+            <p>Resources: {{ resources.count }}</p>
+            <p>Votes: {{ votes.count }}</p>
+            <p>Submissions: {{ submissions.count }}</p>
+        </div>
+    </div>
 </div>
 
 
