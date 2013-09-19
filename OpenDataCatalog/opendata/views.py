@@ -19,6 +19,7 @@ import simplejson as json
 
 from OpenDataCatalog.opendata.models import *
 from OpenDataCatalog.opendata.forms import *
+from OpenDataCatalog.contest.models import Vote
 
 
 class ResourceView(TemplateView):
@@ -52,9 +53,20 @@ class UserView(TemplateView):
         return super(UserView, self).dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
-
+        """
+        Pull information back about the user.
+        - Profile
+        - Resources
+        - Nominations
+        - Votes
+        - Ideas
+        """
+        the_user = User.objects.get(username=kwargs.get('username'))
         return {
-            'the_user': User.objects.get(username=kwargs.get('username')),
+            'the_user': the_user,
+            'resources': Resource.objects.filter(created_by=the_user).order_by('name'),
+            'submissions': Submission.objects.filter(user=the_user).order_by('-sent_date'),
+            'votes': Vote.objects.filter(user=the_user),
         }
 
 
