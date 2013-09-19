@@ -1,13 +1,14 @@
 import random
 from datetime import datetime
 from django.http import HttpResponse
-from django.shortcuts import render_to_response, get_object_or_404
+from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.core import serializers
 from django.core.mail import send_mail, mail_managers, EmailMessage
 from django.template import RequestContext
 from django.template.loader import render_to_string
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
+from django.utils.decorators import method_decorator
 
 import pytz
 from pytz import timezone
@@ -18,6 +19,7 @@ import simplejson as json
 
 from OpenDataCatalog.opendata.models import *
 from OpenDataCatalog.opendata.forms import *
+from OpenDataCatalog.contest.models import Vote
 
 
 class ResourceView(TemplateView):
@@ -35,6 +37,36 @@ class ResourceView(TemplateView):
 
         return {
             'resource': kwargs.get('resource'),
+        }
+
+
+class UserView(TemplateView):
+    template_name = 'users/user.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+
+        # Verify that the user can see this profile
+        if not request.user.is_superuser:
+            return redirect('home')
+
+        return super(UserView, self).dispatch(request, *args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        """
+        Pull information back about the user.
+        - Profile
+        - Resources
+        - Nominations
+        - Votes
+        - Ideas
+        """
+        the_user = User.objects.get(username=kwargs.get('username'))
+        return {
+            'the_user': the_user,
+            'resources': Resource.objects.filter(created_by=the_user).order_by('name'),
+            'submissions': Submission.objects.filter(user=the_user).order_by('-sent_date'),
+            'votes': Vote.objects.filter(user=the_user),
         }
 
 

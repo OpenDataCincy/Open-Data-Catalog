@@ -23,6 +23,7 @@ class Tag(models.Model):
     class Meta: 
         ordering = ['tag_name']
 
+
 class DataType(models.Model):
     data_type = models.CharField(max_length=50)
     
@@ -31,6 +32,7 @@ class DataType(models.Model):
         
     class Meta: 
         ordering = ['data_type']
+
 
 class UrlType(models.Model):
     url_type = models.CharField(max_length=50)
@@ -41,6 +43,7 @@ class UrlType(models.Model):
     class Meta: 
         ordering = ['url_type']
 
+
 class UpdateFrequency(models.Model):
     update_frequency = models.CharField(max_length=50)
     
@@ -49,6 +52,7 @@ class UpdateFrequency(models.Model):
     
     class Meta: 
         ordering = ['update_frequency']
+
 
 class CoordSystem(models.Model):
     name = models.CharField(max_length=255)
@@ -291,6 +295,7 @@ class UrlImage(models.Model):
     
     def __unicode__(self):
         return '%s' % (self.image)
+
 
 class Idea(models.Model):
     title = models.CharField(max_length=255)
