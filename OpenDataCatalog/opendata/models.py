@@ -159,7 +159,7 @@ class Resource(models.Model):
     
     def get_absolute_url(self):
         slug = slugify(self.name)
-        return "/opendata/resource/%i/%s" % (self.id, slug)
+        return "/opendata/resource/%i/%s/" % (self.id, slug)
 
     def __unicode__(self):
         return '%s' % self.name

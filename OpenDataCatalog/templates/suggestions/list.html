@@ -108,7 +108,7 @@
             {% else %}
                 <div id="closed">Nomination Closed</div>
                 {% for r in s.resources.all %}
-                <div><a target="_blank" href="{{SITE_ROOT}}/opendata/resource/{{r.id}}/{{r.name|slugify}}">{{r}}</a></div>
+                <div><a target="_blank" href="{{ r.get_absolute_url }}">{{ r }}</a></div>
                 {% empty %}
                 <div><a target="_blank" href="{{SITE_ROOT}}/_admin_/suggestions/suggestion/{{s.id}}">Add links to resources</a></div>
                 {% endfor %}
