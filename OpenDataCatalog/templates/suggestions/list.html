@@ -103,7 +103,7 @@
                     <a class="nom_vote_login" href="{{SITE_ROOT}}/accounts/login/?next={{ request.get_full_path }}">Login to vote</a>
                 {% endif %}
                 {% if perms.opendata.change_resource %}
-                    <a class="button" onclick="odp.trackEvent('Nominate Data', 'Vote', 'Suggestion', '{{s.id}}');window.location='close/{{s.id}}'">Close Nomination</a>
+                    <p><a class="button" onclick="odp.trackEvent('Nominate Data', 'Vote', 'Suggestion', '{{s.id}}');window.location='close/{{s.id}}'">Close Nomination</a></p>
                 {% endif %}
             {% else %}
                 <div id="closed">Nomination Closed</div>
