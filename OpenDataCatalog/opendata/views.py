@@ -7,7 +7,7 @@ from django.core.mail import send_mail, mail_managers, EmailMessage
 from django.template import RequestContext
 from django.template.loader import render_to_string
 from django.contrib.auth.decorators import login_required
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, FormView
 from django.utils.decorators import method_decorator
 
 import pytz
@@ -154,61 +154,62 @@ def feed_list(request):
     return render_to_response('feeds/list.html', {'tags': tags}, context_instance=RequestContext(request)) 
 
 
-@login_required
-def suggest_content(request):
-    if request.method == 'POST':
-        form = SubmissionForm(request.POST)
-        if form.is_valid():
-            #do something
-            
-            coords, types, formats, updates = "", "", "", ""
-            for c in request.POST.getlist("coord_system"):
-                coords = coords + " EPSG:" + CoordSystem.objects.get(pk=c).EPSG_code.__str__()
-            for t in request.POST.getlist("types"):
-                types = types + " " + UrlType.objects.get(pk=t).url_type
-            for f in request.POST.getlist("formats"):
-                formats = formats + " " + DataType.objects.get(pk=f).data_type
-            for u in request.POST.getlist("update_frequency"):
-                if u:
-                    updates = updates + " " + UpdateFrequency.objects.get(pk=u).update_frequency
-                
-            data = {
-                "submitter": request.user.username,
-                "submit_date": datetime.now(),
-                "dataset_name": request.POST.get("dataset_name"),
-                "organization": request.POST.get("organization"),
-                "copyright_holder": request.POST.get("copyright_holder"),
-                "contact_email": request.POST.get("contact_email"),
-                "contact_phone": request.POST.get("contact_phone"),
-                "url": request.POST.get("url"),
-                "time_period": request.POST.get("time_period"),
-                "release_date": request.POST.get("release_date"),
-                "area_of_interest": request.POST.get("area_of_interest"),
-                "update_frequency": updates,
-                "coord_system": coords,
-                "wkt_geometry": request.POST.get("wkt_geometry"),
-                "types": types,
-                "formats": formats,
-                "usage_limitations": request.POST.get("usage_limitations"),
-                "collection_process": request.POST.get("collection_process"),
-                "data_purpose": request.POST.get("data_purpose"),
-                "intended_audience": request.POST.get("intended_audience"),
-                "why": request.POST.get("why"),
-            }
+class SubmitDataView(FormView):
+    template_name = 'submit.html'
+    success_url = '/opendata/submit/thanks/'
+    form_class = SubmissionForm
 
-            send_email(request.user, data)
-            return render_to_response('thanks.html', context_instance=RequestContext(request))
-    else: 
-        form = SubmissionForm()
-        
-    return render_to_response('submit.html', {'form': form}, context_instance=RequestContext(request))
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+
+        return super(SubmitDataView, self).dispatch(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        coords, types, formats, updates = "", "", "", ""
+        for c in self.request.POST.getlist("coord_system"):
+            coords = coords + " EPSG:" + CoordSystem.objects.get(pk=c).EPSG_code.__str__()
+        for t in self.request.POST.getlist("types"):
+            types = types + " " + UrlType.objects.get(pk=t).url_type
+        for f in self.request.POST.getlist("formats"):
+            formats = formats + " " + DataType.objects.get(pk=f).data_type
+        for u in self.request.POST.getlist("update_frequency"):
+            if u:
+                updates = updates + " " + UpdateFrequency.objects.get(pk=u).update_frequency
+
+        data = {
+            "submitter": self.request.user.username,
+            "submit_date": datetime.now(),
+            "dataset_name": form.cleaned_data.get("dataset_name"),
+            "organization": form.cleaned_data.get("organization"),
+            "copyright_holder": form.cleaned_data.get("copyright_holder"),
+            "contact_email": form.cleaned_data.get("contact_email"),
+            "contact_phone": form.cleaned_data.get("contact_phone"),
+            "url": form.cleaned_data.get("url"),
+            "time_period": form.cleaned_data.get("time_period"),
+            "release_date": form.cleaned_data.get("release_date"),
+            "area_of_interest": form.cleaned_data.get("area_of_interest"),
+            "update_frequency": updates,
+            "coord_system": coords,
+            "wkt_geometry": form.cleaned_data.get("wkt_geometry"),
+            "types": types,
+            "formats": formats,
+            "usage_limitations": form.cleaned_data.get("usage_limitations"),
+            "collection_process": form.cleaned_data.get("collection_process"),
+            "data_purpose": form.cleaned_data.get("data_purpose"),
+            "intended_audience": form.cleaned_data.get("intended_audience"),
+            "why": form.cleaned_data.get("why"),
+        }
+
+        send_email(self.request.user, data)
+
+        return super(SubmitDataView, self).form_valid(form)
 
 
 def send_email(user, data):
     """
     Sends an email with a new data submission, and stores the submission as a suggestion
     """
-    subject, user_email = 'OpenDataCincy - Data Submission', (user.first_name + " " + user.last_name, user.email)
+    subject, user_email = 'OpenDataCincy - Data Submission', (user.get_full_name(), user.email)
     text_content = render_to_string('submit_email.txt', data)
     text_content_copy = render_to_string('submit_email_copy.txt', data)
 
