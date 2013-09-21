@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from OpenDataCatalog.suggestions.models import *
 from OpenDataCatalog.suggestions.forms import *
 
+
 def list_all(request):
     suggestions = Suggestion.objects.order_by("-rating_score")
     if 'nqs' in request.GET:
@@ -28,6 +29,7 @@ def list_all(request):
 
     form = SuggestionForm()
     return render_to_response('suggestions/list.html', {'suggestions': suggestions, 'form': form}, context_instance=RequestContext(request))
+
 
 @login_required
 def add_suggestion(request):
