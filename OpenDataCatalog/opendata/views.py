@@ -71,7 +71,7 @@ class UserView(TemplateView):
 
 
 def home(request):
-    tweets = cache.get( 'tweets' )
+    tweets = cache.get('tweets')
 
     utc = pytz.utc
     local = timezone('US/Eastern')
@@ -82,16 +82,16 @@ def home(request):
             tweet_cache = []
             for t in TwitterCache.objects.all():
                 tc = json.JSONDecoder().decode(t.text)
-                tc['date'] = datetime.strptime( tc['created_at'], "%a %b %d %H:%M:%S +0000 %Y" ).replace(tzinfo=utc).astimezone(local)
+                tc['date'] = datetime.strptime(tc['created_at'], "%a %b %d %H:%M:%S +0000 %Y").replace(tzinfo=utc).astimezone(local)
                 tweet_cache.append(tc)
             tweets = tweet_cache
         else:
             TwitterCache.objects.all().delete()
             for tweet in tweets:
-                tweet.date = datetime.strptime( tweet.created_at, "%a %b %d %H:%M:%S +0000 %Y" ).replace(tzinfo=utc).astimezone(local)
+                tweet.date = datetime.strptime(tweet.created_at, "%a %b %d %H:%M:%S +0000 %Y").replace(tzinfo=utc).astimezone(local)
                 t = TwitterCache(text=tweet.AsJsonString())
                 t.save()
-            cache.set( 'tweets', tweets, settings.TWITTER_TIMEOUT )
+            cache.set('tweets', tweets, settings.TWITTER_TIMEOUT)
     
     recent = Resource.objects.order_by("-created")[:3]
     idea = Idea.objects.order_by("-created_by_date")[:4]
