@@ -1,5 +1,5 @@
 {% extends "template_home.html" %}
-{% load staticfiles %}
+{% load static %}
 
 {% block title %} - Connecting People With Data{% endblock %}
 
@@ -17,7 +17,7 @@
 <div id="home_idea_label">
   <a href="{{SITE_ROOT}}{{idea.get_absolute_url}}">{{idea.title}}</a> by {{idea.author}}
 </div>
-<a id="home_idea_callout" href="/ideas/">Need Inspiration? Visit the Idea Gallery</a>
+<a id="home_idea_callout" href="{% url 'ideas' %}">Need Inspiration? Visit the Idea Gallery</a>
 
 <div id="home_twitter">
 	<script type="text/javascript" src="{% static "tumbo.min.js" %}"></script>
@@ -34,7 +34,7 @@
 
 
 <div id="home_additions">
-<a href="{{SITE_ROOT}}/opendata/submit/" id="button_submission">Got data? Make a submission</a>
+<a href="{% url 'submit' %}" id="button_submission">Got data? Make a submission</a>
 
   <h2 class="grid">Recent Additions</h2>
   <ul id="home_additions_list">
@@ -59,6 +59,9 @@
 	{% endfor %}
 
   </ul>
+<div>
+<a href="{% url 'contest' %}" alt="contest" title="Open Data Race"><img src="{% static "images/open_data_race.png" %}"></a>
+</div>
 
 
 </div>

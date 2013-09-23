@@ -16,7 +16,7 @@ class ODPRegistrationForm(RegistrationForm):
                                 error_messages={ 'invalid': "This value must contain only letters" }, required=True)
     last_name = forms.RegexField(regex=r'^\w', max_length=30, widget=forms.TextInput(), label="Last Name",
                                 error_messages={ 'invalid': "This value must contain only letters" }, required=True)
-    organization = forms.CharField(max_length=255, required=False, initial="optional")
+    organization = forms.CharField(max_length=255, required=False, widget=forms.TextInput(attrs={'placeholder': 'Optional'}))
     can_notify = forms.BooleanField(
         required=False,
         label="",

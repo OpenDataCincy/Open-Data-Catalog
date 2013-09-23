@@ -1,6 +1,7 @@
 from django import forms
 from OpenDataCatalog.opendata.models import UpdateFrequency, CoordSystem, UrlType, DataType
 
+
 class SubmissionForm(forms.Form):
     dataset_name = forms.CharField(max_length=255, label="Data set, API or App name")
     organization = forms.CharField(max_length=255)
@@ -26,4 +27,4 @@ class SubmissionForm(forms.Form):
     why = forms.CharField(max_length=1000, widget=forms.Textarea, label="Why should the data be included in this site?")
     certified = forms.BooleanField(required=False, label="", help_text="I am the copyright holder or have permission to release this data")
     terms = forms.BooleanField(label="", help_text="I have read and agree with the site's <a href='/terms/' target='_blank'>terms of use</a>")
-    
+

@@ -10,7 +10,7 @@ from OpenDataCatalog.opendata.feeds import ResourcesFeed, TagFeed, IdeasFeed, Up
 from OpenDataCatalog.opendata.models import Resource, Idea
 from OpenDataCatalog.registration_backend import CatalogRegistrationView
 
-from OpenDataCatalog.opendata.views import ResourceView, UserView
+from OpenDataCatalog.opendata.views import ResourceView, UserView, SubmitDataView
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -34,10 +34,11 @@ urlpatterns = patterns('',
     url(r'^opendata/search/$', 'OpenDataCatalog.opendata.views.search_results'),
     url(r'^opendata/resource/(?P<resource_id>\d+)/$', ResourceView.as_view()),
     url(r'^opendata/resource/(?P<resource_id>\d+)/(?P<slug>[-\w]+)/$', ResourceView.as_view()),
-    url(r'^ideas/$', 'OpenDataCatalog.opendata.views.idea_results'),
+    url(r'^ideas/$', 'OpenDataCatalog.opendata.views.idea_results', name='ideas'),
     url(r'^idea/(?P<idea_id>\d+)/$', 'OpenDataCatalog.opendata.views.idea_results'),
     url(r'^idea/(?P<idea_id>\d+)/(?P<slug>[-\w]+)/$', 'OpenDataCatalog.opendata.views.idea_results'),
-    url(r'^opendata/submit/$', 'OpenDataCatalog.opendata.views.suggest_content'),
+    url(r'^opendata/submit/$', SubmitDataView.as_view(), name='submit'),
+    url(r'^opendata/submit/thanks/$', TemplateView.as_view(template_name='thanks.html'), name='submit-thanks'),
     url(r'^thanks/$', 'OpenDataCatalog.opendata.views.thanks'),
     
     url(r'^tags/$', 'OpenDataCatalog.opendata.views.get_tag_list'),

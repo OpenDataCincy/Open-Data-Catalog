@@ -62,8 +62,8 @@
             {% if user.is_authenticated %}
 			<div id="filter">
 				<ul>
-                    <li id="filter_done" class="nom_filter"><a href="javascript:void()" onClick="odp.getNomFiltered('done');return false;" class="url_image"></a></li>
-					<li id="filter_mine" class="nom_filter"><a href="javascript:void()" onClick="odp.getNomFiltered('mine');return false;" class="url_image"></a></li>					<li class="info_label">FILTER:</li>
+                    <li id="filter_done" class="nom_filter"><a href="javascript:void(0);" onClick="odp.getNomFiltered('done');return false;" class="url_image"></a></li>
+					<li id="filter_mine" class="nom_filter"><a href="javascript:void(0);" onClick="odp.getNomFiltered('mine');return false;" class="url_image"></a></li>					<li class="info_label">FILTER:</li>
 				</ul>
 			</div>
             {% endif %}
@@ -90,7 +90,7 @@
               {% if vote and not s.completed %}
                 <a id="nom_unvote" href="unvote/{{s.id}}/" onclick="odp.trackEvent('Nominate Data', 'Undo Vote', 'Suggestion', '{{s.id}}')">Undo vote</a>
               {% endif %}
-              By <strong>{{s.suggested_by}}</strong> on <strong>{{s.suggested_date|date:"SHORT_DATE_FORMAT"}}</strong>
+              By <strong>{{ s.suggested_by }}</strong> on <strong>{{s.suggested_date|date:"SHORT_DATE_FORMAT"}}</strong>
             </div>
             {% if not s.completed %}
                 {% if user.is_authenticated %}
@@ -103,14 +103,14 @@
                     <a class="nom_vote_login" href="{{SITE_ROOT}}/accounts/login/?next={{ request.get_full_path }}">Login to vote</a>
                 {% endif %}
                 {% if perms.opendata.change_resource %}
-                    <a class="button" onclick="odp.trackEvent('Nominate Data', 'Vote', 'Suggestion', '{{s.id}}');window.location='close/{{s.id}}'">Close Nomination</a>
+                    <p><a class="button" onclick="odp.trackEvent('Nominate Data', 'Vote', 'Suggestion', '{{s.id}}');window.location='close/{{s.id}}'">Close Nomination</a></p>
                 {% endif %}
             {% else %}
                 <div id="closed">Nomination Closed</div>
                 {% for r in s.resources.all %}
-                <div><a target="_blank" href="{{SITE_ROOT}}/opendata/resource/{{r.id}}/{{r.name|slugify}}">{{r}}</a></div>
+                <div><a target="_blank" href="{{ r.get_absolute_url }}">{{ r }}</a></div>
                 {% empty %}
-                <div><a target="_blank" href="{{SITE_ROOT}}/_admin_/suggestions/suggestion/{{s.id}}">Add links to resources</a></div>
+                <div><a target="_blank" href="{{SITE_ROOT}}/_admin_/suggestions/suggestion/{{s.id}}/">Add links to resources</a></div>
                 {% endfor %}
             {% endif %}
           </div>

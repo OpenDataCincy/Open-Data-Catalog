@@ -235,8 +235,8 @@ margin-top: -14px;
 #left_container ul li a.active, #left_container ul li.active_page a {
 	padding-bottom: 3px;
 	margin-bottom: 1px;
-	border-bottom: 1px solid #DF5800;
-	color: #DF5800;
+	border-bottom: 1px solid #107BC0;
+	color: #107BC0;
 }
 
 #left_container ul li.separator {
@@ -1465,7 +1465,7 @@ width: 440px;
 #nom_votes #nom_votes_number {
 	font-size: 2em;
 	font-weight: bold;
-	color: #FC8E4A;
+	color: #107BC0;
   font-family: "Open Sans","Open Sans", Arial, Helvetica;
     letter-spacing:-1px;
 }
