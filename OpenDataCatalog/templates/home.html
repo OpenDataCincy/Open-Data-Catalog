@@ -1,5 +1,5 @@
 {% extends "template_home.html" %}
-{% load staticfiles %}
+{% load static %}
 
 {% block title %} - Connecting People With Data{% endblock %}
 
@@ -17,7 +17,7 @@
 <div id="home_idea_label">
   <a href="{{SITE_ROOT}}{{idea.get_absolute_url}}">{{idea.title}}</a> by {{idea.author}}
 </div>
-<a id="home_idea_callout" href="/ideas/">Need Inspiration? Visit the Idea Gallery</a>
+<a id="home_idea_callout" href="{% url 'ideas' %}">Need Inspiration? Visit the Idea Gallery</a>
 
 <div id="home_twitter">
 	<script type="text/javascript" src="{% static "tumbo.min.js" %}"></script>
