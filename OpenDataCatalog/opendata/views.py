@@ -225,12 +225,15 @@ def send_email(user, data):
 
     # Prep data for serialization
     data['submit_date'] = str(data.get('submit_date', ''))
+    data['release_date'] = str(data.get('release_date', ''))
 
     try:
         sug_object.json_text = json.dumps(data)
-    except TypeError:
+    except TypeError as ex:
+        print data
+        raise TypeError(ex)
         # Something was not consumed by the json serializer..
-        sug_object.json_text = ''
+        # sug_object.json_text = ''
 
     # Save the submission
     sug_object.save()
