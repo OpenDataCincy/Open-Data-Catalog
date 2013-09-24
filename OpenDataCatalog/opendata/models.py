@@ -18,7 +18,7 @@ class Tag(models.Model):
     tag_name = models.CharField(max_length=150)
 
     def __unicode__(self):
-        return '%s' % self.tag_name
+        return u'%s' % self.tag_name
 
     class Meta: 
         ordering = ['tag_name']
@@ -28,7 +28,7 @@ class DataType(models.Model):
     data_type = models.CharField(max_length=50)
     
     def __unicode__(self):
-        return '%s' % self.data_type
+        return u'%s' % self.data_type
         
     class Meta: 
         ordering = ['data_type']
@@ -38,7 +38,7 @@ class UrlType(models.Model):
     url_type = models.CharField(max_length=50)
     
     def __unicode__(self):
-        return '%s' % self.url_type
+        return u'%s' % self.url_type
     
     class Meta: 
         ordering = ['url_type']
@@ -48,7 +48,7 @@ class UpdateFrequency(models.Model):
     update_frequency = models.CharField(max_length=50)
     
     def __unicode__(self):
-        return '%s' % self.update_frequency
+        return u'%s' % self.update_frequency
     
     class Meta: 
         ordering = ['update_frequency']
@@ -61,7 +61,7 @@ class CoordSystem(models.Model):
     EPSG_code = models.IntegerField(blank=True, help_text="Official EPSG code, numbers only")
     
     def __unicode__(self):
-        return '%s, %s' % (self.EPSG_code, self.name)
+        return u'%s, %s' % (self.EPSG_code, self.name)
         
     class Meta: 
         ordering = ['EPSG_code']
