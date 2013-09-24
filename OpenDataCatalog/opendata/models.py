@@ -18,7 +18,7 @@ class Tag(models.Model):
     tag_name = models.CharField(max_length=150)
 
     def __unicode__(self):
-        return '%s' % self.tag_name
+        return u'%s' % self.tag_name
 
     class Meta: 
         ordering = ['tag_name']
@@ -28,7 +28,7 @@ class DataType(models.Model):
     data_type = models.CharField(max_length=50)
     
     def __unicode__(self):
-        return '%s' % self.data_type
+        return u'%s' % self.data_type
         
     class Meta: 
         ordering = ['data_type']
@@ -38,7 +38,7 @@ class UrlType(models.Model):
     url_type = models.CharField(max_length=50)
     
     def __unicode__(self):
-        return '%s' % self.url_type
+        return u'%s' % self.url_type
     
     class Meta: 
         ordering = ['url_type']
@@ -48,10 +48,11 @@ class UpdateFrequency(models.Model):
     update_frequency = models.CharField(max_length=50)
     
     def __unicode__(self):
-        return '%s' % self.update_frequency
+        return u'%s' % self.update_frequency
     
     class Meta: 
         ordering = ['update_frequency']
+        verbose_name_plural = 'update frequencies'
 
 
 class CoordSystem(models.Model):
@@ -60,7 +61,7 @@ class CoordSystem(models.Model):
     EPSG_code = models.IntegerField(blank=True, help_text="Official EPSG code, numbers only")
     
     def __unicode__(self):
-        return '%s, %s' % (self.EPSG_code, self.name)
+        return u'%s, %s' % (self.EPSG_code, self.name)
         
     class Meta: 
         ordering = ['EPSG_code']
@@ -68,27 +69,6 @@ class CoordSystem(models.Model):
 
 
 class Resource(models.Model):
-    @classmethod
-    def search(cls, qs=None, objs=None):
-        if objs is None:
-            objs = cls.objects.filter(is_published=True)
-
-        if qs:
-            objs = objs.filter(
-                Q(name__icontains=qs) | Q(description__icontains=qs) |
-                Q(organization__icontains=qs) | Q(division__icontains=qs)
-            )
-
-        return objs
-
-    def save(self, *args, **kwargs):
-        if not self.pk:
-            super(Resource, self).save(*args, **kwargs)
-
-        self.csw_xml = self.gen_csw_xml()
-        self.csw_anytext = self.gen_csw_anytext()
-        super(Resource, self).save(*args, **kwargs)
-
     # Basic Info
     name = models.CharField(max_length=255)
     short_description = models.CharField(max_length=255)    
@@ -131,7 +111,29 @@ class Resource(models.Model):
     csw_mdsource = models.CharField(max_length=100,default="local") 
     csw_xml = models.TextField(blank=True)
     csw_anytext = models.TextField(blank=True)
-    
+
+    @classmethod
+    def search(cls, qs=None, objs=None):
+        if objs is None:
+            objs = cls.objects.filter(is_published=True)
+
+        if qs:
+            objs = objs.filter(
+                Q(name__icontains=qs) | Q(description__icontains=qs) |
+                Q(organization__icontains=qs) | Q(division__icontains=qs)
+            )
+
+        return objs
+
+    def save(self, *args, **kwargs):
+        if not self.pk:
+            super(Resource, self).save(*args, **kwargs)
+
+        self.csw_xml = self.gen_csw_xml()
+        self.csw_anytext = self.gen_csw_anytext()
+
+        return super(Resource, self).save(*args, **kwargs)
+
     def get_distinct_url_types(self):
         types = []
         for url in self.url_set.all():
@@ -162,7 +164,7 @@ class Resource(models.Model):
         return "/opendata/resource/%i/%s/" % (self.id, slug)
 
     def __unicode__(self):
-        return '%s' % self.name
+        return u'%s' % self.name
 
     # CSW specific properties
     @property 
@@ -216,7 +218,7 @@ class Resource(models.Model):
 
         nsmap = {
             'csw': 'http://www.opengis.net/cat/csw/2.0.2',
-            'dc' : 'http://purl.org/dc/elements/1.1/',
+            'dc': 'http://purl.org/dc/elements/1.1/',
             'dct': 'http://purl.org/dc/terms/',
             'ows': 'http://www.opengis.net/ows',
             'xsi': 'http://www.w3.org/2001/XMLSchema-instance',
@@ -267,14 +269,16 @@ class Resource(models.Model):
         xml = etree.fromstring(self.csw_xml)
         return ' '.join([value.strip() for value in xml.xpath('//text()')])
 
+
 class Url(models.Model):
-    url = models.CharField(max_length=255)
+    url = models.URLField(max_length=255)
     url_label = models.CharField(max_length=255)
     url_type = models.ForeignKey(UrlType)
     resource = models.ForeignKey(Resource)
 
     def __unicode__(self):
-        return '%s - %s - %s' % (self.url_label, self.url_type, self.url)
+        return u'%s - %s - %s' % (self.url_label, self.url_type, self.url)
+
 
 class UrlImage(models.Model):
     def get_image_path(instance, filename):
@@ -294,7 +298,7 @@ class UrlImage(models.Model):
     source_url = models.CharField(max_length=255, blank=True)
     
     def __unicode__(self):
-        return '%s' % (self.image)
+        return u'%s' % (self.image)
 
 
 class Idea(models.Model):
@@ -323,7 +327,7 @@ class Idea(models.Model):
         return "/idea/%i/%s" % (self.id, slug)
 
     def __unicode__(self):
-        return '%s' % (self.title)
+        return u'%s' % (self.title)
 
 
 class IdeaImage(models.Model):
