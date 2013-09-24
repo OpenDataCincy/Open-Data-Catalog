@@ -242,7 +242,7 @@ LOCAL_TEMPLATE_DIR = ()
 
 try:
     from local_settings import *
-except Exception:
+except ImportError:
     pass
 
 # Additional locations of static files
