@@ -14,7 +14,8 @@ class SubmissionForm(forms.Form):
     area_of_interest = forms.CharField(max_length=255, label="Geographic area")
     
     update_frequency = forms.ModelChoiceField(required=False, queryset=UpdateFrequency.objects.all())
-    coord_system = forms.ModelMultipleChoiceField(required=False, queryset=CoordSystem.objects.all(), label="Coordinate system")
+    coord_system = forms.ModelMultipleChoiceField(required=False, queryset=CoordSystem.objects.all(),
+                                                  label="Coordinate system")
     wkt_geometry = forms.CharField(widget=forms.Textarea, label="Well known Text (WKT) geometry of the dataset")
     types = forms.ModelMultipleChoiceField(required=False, queryset=UrlType.objects.all(), label="Data types")
     formats = forms.ModelMultipleChoiceField(required=False, queryset=DataType.objects.all(), label="Data formats")
@@ -25,6 +26,8 @@ class SubmissionForm(forms.Form):
     data_purpose = forms.CharField(max_length=1000, widget=forms.Textarea, label="Why was the data collected?")
     intended_audience = forms.CharField(max_length=1000, widget=forms.Textarea, label="Who is the intended audience?")
     why = forms.CharField(max_length=1000, widget=forms.Textarea, label="Why should the data be included in this site?")
-    certified = forms.BooleanField(required=False, label="", help_text="I am the copyright holder or have permission to release this data")
-    terms = forms.BooleanField(label="", help_text="I have read and agree with the site's <a href='/terms/' target='_blank'>terms of use</a>")
+    certified = forms.BooleanField(required=False, label="", help_text="I am the copyright holder or have "
+                                                                       "permission to release this data")
+    terms = forms.BooleanField(label="", help_text="I have read and agree with the site's <a href='/terms/' "
+                                                   "target='_blank'>terms of use</a>")
 
