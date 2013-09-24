@@ -52,6 +52,7 @@ class UpdateFrequency(models.Model):
     
     class Meta: 
         ordering = ['update_frequency']
+        verbose_name_plural = 'update frequencies'
 
 
 class CoordSystem(models.Model):
