@@ -164,7 +164,7 @@ class Resource(models.Model):
         return "/opendata/resource/%i/%s/" % (self.id, slug)
 
     def __unicode__(self):
-        return '%s' % self.name
+        return u'%s' % self.name
 
     # CSW specific properties
     @property 
@@ -277,7 +277,7 @@ class Url(models.Model):
     resource = models.ForeignKey(Resource)
 
     def __unicode__(self):
-        return '%s - %s - %s' % (self.url_label, self.url_type, self.url)
+        return u'%s - %s - %s' % (self.url_label, self.url_type, self.url)
 
 
 class UrlImage(models.Model):
@@ -298,7 +298,7 @@ class UrlImage(models.Model):
     source_url = models.CharField(max_length=255, blank=True)
     
     def __unicode__(self):
-        return '%s' % (self.image)
+        return u'%s' % (self.image)
 
 
 class Idea(models.Model):
@@ -327,7 +327,7 @@ class Idea(models.Model):
         return "/idea/%i/%s" % (self.id, slug)
 
     def __unicode__(self):
-        return '%s' % (self.title)
+        return u'%s' % (self.title)
 
 
 class IdeaImage(models.Model):
