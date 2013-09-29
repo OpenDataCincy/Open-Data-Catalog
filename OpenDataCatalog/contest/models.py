@@ -18,7 +18,8 @@ DATA_STATUS = (
 
 
 class Contest(models.Model):
-    title = models.CharField(max_length=255)    
+    title = models.CharField(max_length=255)
+    description = models.TextField(default=u'Contest description')
     start_date = models.DateTimeField()
     end_date = models.DateTimeField()
     vote_frequency = models.IntegerField(help_text=u'You may vote one time every X days.')

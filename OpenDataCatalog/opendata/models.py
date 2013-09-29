@@ -92,7 +92,7 @@ class Resource(models.Model):
     
     created_by = models.ForeignKey(User, related_name='created_by')
     last_updated_by = models.ForeignKey(User, related_name='updated_by')
-    created = models.DateTimeField()
+    created = models.DateTimeField(auto_now_add=True)
     last_updated = models.DateTimeField(auto_now=True)
     metadata_contact = models.CharField(max_length=255, blank=True)
     metadata_notes = models.TextField(blank=True)
@@ -129,8 +129,15 @@ class Resource(models.Model):
         if not self.pk:
             super(Resource, self).save(*args, **kwargs)
 
-        self.csw_xml = self.gen_csw_xml()
-        self.csw_anytext = self.gen_csw_anytext()
+        try:
+            self.csw_xml = self.gen_csw_xml()
+        except Exception:  # TODO: This is slop
+            pass
+
+        try:
+            self.csw_anytext = self.gen_csw_anytext()
+        except Exception:  # TODO: This is slop
+            pass
 
         return super(Resource, self).save(*args, **kwargs)
 
