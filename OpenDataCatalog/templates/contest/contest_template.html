@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block js_ready %}
 	<script>
@@ -55,7 +56,9 @@
 	<div id="center_container">
     {% include "loginlogout.html" %}
         <div id="contest_header">
-            <a href="{% if contest.has_ended %}{% url 'contest-winners' %}{% else %}{% url 'contest' %}?sort=vote_count{% endif %}" id="logo">Contest Logo</a>
+            <a href="{% if contest.has_ended %}{% url 'contest-winners' %}{% else %}{% url 'contest' %}?sort=vote_count{% endif %}" id="logo">
+                <img src="{% static "images/open_data_race.png" %}">
+            </a>
             <div id="contest_menu">
                 <ul>
                     {% if contest.has_ended %}<li id="menu_winner" class="contest_menu"><a href="{% url 'contest-winners' %}">CONTEST WINNERS</a></li>{% endif %}
@@ -67,7 +70,7 @@
                 </ul>
             </div>
             <div id="contest_desc">
-                {% block header_description %}   {% endblock %}
+                {% block header_description %}{% endblock %}
             </div>
         </div>
 
