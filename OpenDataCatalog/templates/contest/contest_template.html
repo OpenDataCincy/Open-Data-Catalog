@@ -59,9 +59,9 @@
             <div id="contest_menu">
                 <ul>
                     {% if contest.has_ended %}<li id="menu_winner" class="contest_menu"><a href="{% url 'contest-winners' %}">CONTEST WINNERS</a></li>{% endif %}
+                    <li id="menu_table" class="contest_menu"><a href="{% url 'contest-entries' %}">ALL ENTRIES</a></li>
                     <li id="menu_vote" class="contest_menu"><a href="{% url 'contest' %}?sort=vote_count&dir=desc">
                         {% if contest.has_ended %}VIEW RESULTS{% else %}CAST YOUR VOTE{% endif %}</a></li>
-                    <li id="menu_table" class="contest_menu"><a href="{% url 'contest-entries' %}">ALL ENTRIES</a></li>
                     <li id="menu_rules" class="contest_menu"><a href="{% url 'contest-rules' %}">RULES</a></li>
                     <li id="menu_odp" class="contest_menu"><a href="{% url 'home' %}">OpenDataCincy</a></li>
                 </ul>
