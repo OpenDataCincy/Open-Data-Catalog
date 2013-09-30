@@ -2,6 +2,7 @@
 
 {% load sorting_tags %}
 {% load humanize %}
+{% load thumbnail %}
 
 {% block body_id %}id="contest"{% endblock %}
 
@@ -58,7 +59,14 @@
     <ul id="contest_list">
     {% for entry in entries %}
         <li class="resource">
-			<div id="entry_logo">{% if entry.nominator_image %}<a href="{{entry.nominator_link}}" target="_blank"><img src='{{entry.nominator_image.url}}'/></a>{% endif %}</div>
+			<div id="entry_logo">
+                {% if entry.nominator_image %}
+                    {% thumbnail entry.nominator_image "80x90" as im %}
+                    <a href="{{ entry.nominator_link }}" target="_blank">
+                        <img src="{{ im }}"/>
+                    </a>
+                {% endif %}
+            </div>
             <div id="entry_info">
                 <div id="entry_place">{{entry.get_place|ordinal}} PLACE</div>
                 <div id="entry_title">{{entry.title}}</div>
