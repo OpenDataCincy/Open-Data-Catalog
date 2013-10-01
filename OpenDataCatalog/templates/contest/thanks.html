@@ -2,6 +2,21 @@
 
 {% block body_id %}id="contest"{% endblock %}
 
+{% block js_ready %}
+	<script>
+		$(document).ready(function () {
+            $(".contest_menu").removeClass('selected');
+            $("#menu_nominate").addClass('selected');
+		});
+	</script>
+{% endblock %}
+
+{% block header_description %}
+
+    <div style="padding-left: 20px;">{{ contest.description }}</div>
+
+{% endblock %}
+
 {% block center_container %}
 
 <div id="contest_rules" class="resource">
