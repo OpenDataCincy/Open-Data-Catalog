@@ -40,7 +40,8 @@ class ContestEntriesView(ContestTemplateView):
 
         return {
             'contest': contest,
-            'entries': contest.entries.filter(is_visible=True).order_by('-vote_count')
+            'entries': contest.entries.filter(is_visible=True).order_by('-vote_count'),
+            'user': self.request.user,
         }
 
 

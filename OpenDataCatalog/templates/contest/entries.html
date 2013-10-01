@@ -42,7 +42,9 @@
      {% endfor %}
 	<div id="results_info">
         {% if not contest.has_ended %}
-		<div id="info_text">You may vote once per {{contest.vote_frequency}} days and must be <a href="{{SITE_ROOT}}/accounts/register/">registered</a> to vote. </div>
+		<div id="info_text">You may vote once per {{ contest.vote_frequency }} day.
+            {% if not user.is_authenticated %}You must be <a href="{{ SITE_ROOT }}/accounts/register/">registered</a> to vote.{% endif %}
+        </div>
         {% endif %}
 		<div id="sort">
 			<ul>
