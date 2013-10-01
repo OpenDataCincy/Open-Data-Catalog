@@ -14,7 +14,7 @@
 
 {% block header_description %}
 
-    <div>{{contest.title}} is a contest to do something. Nominate a data set now by filling out the following form. </div>
+    <div style="padding-left: 20px;">{{ contest.description }}</div>
 
 {% endblock %}
 
@@ -22,10 +22,10 @@
 
 <div id="contest_form" class="resource">
 
-<div id="nomination_text">Complete contest rules are available <a href="{{SITE_ROOT}}/contest/rules/">here</a>. 
-    Brief statement about how things will work. </div>
+<div id="nomination_text">Complete contest rules are available <a href="{% url 'contest-rules' %}">here</a>.
+    Submit your idea here and share it to gain votes!</div>
 
-<form action="{{SITE_ROOT}}/contest/add/" method="POST">   
+<form action="{% url 'contest-add' %}" method="POST">
 	{% csrf_token %}
 	{% if form.errors %}
 	<div class="error_message resource">All fields below are required. Please add any missing information and click Submit again.</div>
