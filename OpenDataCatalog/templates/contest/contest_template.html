@@ -57,7 +57,7 @@
     {% include "loginlogout.html" %}
         <div id="contest_header">
             <a href="{% if contest.has_ended %}{% url 'contest-winners' %}{% else %}{% url 'contest' %}?sort=vote_count{% endif %}" id="logo">
-                <img src="{% static "images/open_data_race.png" %}">
+                <img src="{% static "images/contest-ndc.png" %}">
             </a>
             <div id="contest_menu">
                 <ul>
