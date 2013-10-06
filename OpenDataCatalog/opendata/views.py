@@ -124,14 +124,21 @@ class ResultsView(TemplateView):
         return {'results': resources}
 
 
-def tag_results(request, tag_id):
-    tag = Tag.objects.get(pk=tag_id)
-    tag_resources = Resource.objects.filter(tags=tag)
-    if 'filter' in request.GET:
-        f = request.GET['filter']
-        tag_resources = tag_resources.filter(url__url_type__url_type__icontains=f).distinct()
-    
-    return render_to_response('results.html', {'results': tag_resources, 'tag': tag}, context_instance=RequestContext(request))
+class TagResultsView(TemplateView):
+    template_name = 'results.html'
+
+    def get_context_data(self, **kwargs):
+        tag = Tag.objects.get(pk=kwargs.get('tag_id'))
+        tag_resources = Resource.objects.filter(tags=tag, is_published=True)
+
+        if 'filter' in self.request.GET:
+            f = self.request.GET['filter']
+            tag_resources = tag_resources.filter(url__url_type__url_type__icontains=f).distinct()
+
+        return {
+            'results': tag_resources,
+            'tag': tag,
+        }
 
 
 def search_results(request):
