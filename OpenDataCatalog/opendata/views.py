@@ -124,8 +124,6 @@ class ResultsView(TemplateView):
         return {'results': resources}
 
 
-
-
 def thanks(request):
     return render_to_response('thanks.html', context_instance=RequestContext(request))
 
