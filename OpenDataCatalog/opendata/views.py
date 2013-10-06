@@ -111,12 +111,19 @@ class HomeView(TemplateView):
         }
 
 
-def results(request):
-    resources = Resource.objects.all()
-    if 'filter' in request.GET:
-        f = request.GET['filter']
-        resources = resources.filter(url__url_type__url_type__iexact=f).distinct()
-    return render_to_response('results.html', {'results': resources}, context_instance=RequestContext(request))
+class ResultsView(TemplateView):
+    template_name = 'results.html'
+
+    def get_context_data(self, **kwargs):
+        resources = Resource.objects.all()
+
+        if 'filter' in self.request.GET:
+            f = self.request.GET.get('filter')
+            resources = resources.filter(url__url_type__url_type__iexact=f).distinct()
+
+        return {'results': resources}
+
+
 
 
 def thanks(request):

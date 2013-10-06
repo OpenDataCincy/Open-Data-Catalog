@@ -10,7 +10,7 @@ from OpenDataCatalog.opendata.feeds import ResourcesFeed, TagFeed, IdeasFeed, Up
 from OpenDataCatalog.opendata.models import Resource, Idea
 from OpenDataCatalog.registration_backend import CatalogRegistrationView
 
-from OpenDataCatalog.opendata.views import ResourceView, UserView, SubmitDataView, HomeView
+from OpenDataCatalog.opendata.views import ResourceView, UserView, SubmitDataView, HomeView, ResultsView
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -28,7 +28,7 @@ urlpatterns = patterns('',
     # The API urls
     url(r'^api/', include('OpenDataCatalog.api.urls')),
 
-    url(r'^opendata/$', 'OpenDataCatalog.opendata.views.results'),
+    url(r'^opendata/$', ResultsView.as_view(), name='results'),
 
     url(r'^opendata/tag/(?P<tag_id>\d+)/$', 'OpenDataCatalog.opendata.views.tag_results', name='tag'),
     url(r'^opendata/search/$', 'OpenDataCatalog.opendata.views.search_results'),
