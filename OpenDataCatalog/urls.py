@@ -39,7 +39,7 @@ urlpatterns = patterns('',
     url(r'^opendata/submit/thanks/$', TemplateView.as_view(template_name='thanks.html'), name='submit-thanks'),
     url(r'^ideas/$', 'OpenDataCatalog.opendata.views.idea_results', name='ideas'),
     url(r'^idea/(?P<idea_id>\d+)/$', 'OpenDataCatalog.opendata.views.idea_results'),
-    url(r'^idea/(?P<idea_id>\d+)/(?P<slug>[-\w]+)/$', 'OpenDataCatalog.opendata.views.idea_results'),
+    url(r'^idea/(?P<idea_id>\d+)/(?P<slug>[-\w]+)/$', 'OpenDataCatalog.opendata.views.idea_results', name='idea-slug'),
     url(r'^thanks/$', TemplateView.as_view(template_name='thanks.html'), name='thanks'),
     
     url(r'^tags/$', 'OpenDataCatalog.opendata.views.get_tag_list'),

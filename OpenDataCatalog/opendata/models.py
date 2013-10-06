@@ -328,10 +328,11 @@ class Idea(models.Model):
             else:
                 return images[0]
         return home[0]
-    
+
+    @models.permalink
     def get_absolute_url(self):
         slug = slugify(self.title)
-        return "/idea/%i/%s" % (self.id, slug)
+        return ('idea-slug', [self.pk, slug])
 
     def __unicode__(self):
         return u'%s' % (self.title)
