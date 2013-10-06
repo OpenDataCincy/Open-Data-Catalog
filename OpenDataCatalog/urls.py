@@ -32,6 +32,7 @@ urlpatterns = patterns('',
     url(r'^catalog/', include("OpenDataCatalog.catalog.urls")),
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^contest/', include('OpenDataCatalog.contest.urls')),
+    url(r'^opendata/nominate/', include('OpenDataCatalog.suggestions.urls'), name='nominate'),
 
     url(r'^opendata/$', ResultsView.as_view(), name='results'),
 
@@ -47,8 +48,6 @@ urlpatterns = patterns('',
     url(r'^thanks/$', TemplateView.as_view(template_name='thanks.html'), name='thanks'),
     
     url(r'^tags/$', TagListView.as_view(), name='tag-list'),
-
-    url(r'^opendata/nominate/', include('OpenDataCatalog.suggestions.urls'), name='nominate'),
 
     url(r'^feeds/$', 'OpenDataCatalog.opendata.views.feed_list'),
     url(r'^feeds/resources/$', ResourcesFeed()),
