@@ -5,7 +5,7 @@ from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.core import serializers
 from django.template import RequestContext
 from django.contrib.auth.decorators import login_required
-from django.views.generic import TemplateView, FormView
+from django.views.generic import TemplateView, FormView, View
 from django.utils.decorators import method_decorator
 from django.core.cache import cache
 
@@ -249,7 +249,13 @@ class SubmitDataView(FormView):
         return super(SubmitDataView, self).form_valid(form)
 
 
-## views called by js ajax for object lists
-def get_tag_list(request):
-    tags = Tag.objects.all()
-    return HttpResponse(serializers.serialize("json", tags)) 
+class TagListView(View):
+    http_method_names = ['get', ]
+
+    def get(self, request, *args, **kwargs):
+        """
+        Gets the tags and serializes them for ajax requests
+        """
+        tags = Tag.objects.all()
+        return HttpResponse(serializers.serialize("json", tags))
+

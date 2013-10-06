@@ -11,7 +11,7 @@ from OpenDataCatalog.opendata.models import Resource, Idea
 from OpenDataCatalog.registration_backend import CatalogRegistrationView
 
 from OpenDataCatalog.opendata.views import ResourceView, UserView, SubmitDataView, HomeView, ResultsView, \
-    TagResultsView, SearchResultsView, IdeaResultsView, IdeaDetailView
+    TagResultsView, SearchResultsView, IdeaResultsView, IdeaDetailView, TagListView
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -42,7 +42,7 @@ urlpatterns = patterns('',
     url(r'^idea/(?P<idea_id>\d+)/(?P<slug>[-\w]+)/$', IdeaDetailView.as_view(), name='idea-slug'),
     url(r'^thanks/$', TemplateView.as_view(template_name='thanks.html'), name='thanks'),
     
-    url(r'^tags/$', 'OpenDataCatalog.opendata.views.get_tag_list'),
+    url(r'^tags/$', TagListView.as_view(), name='tag-list'),
     
     url(r'^comments/', include('django.contrib.comments.urls')),
     url(r'^accounts/register/$', CatalogRegistrationView.as_view(), name='registration_register'),
