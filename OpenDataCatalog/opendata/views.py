@@ -170,13 +170,27 @@ class SearchResultsView(TemplateView):
         }
 
 
-def idea_results(request, idea_id=None, slug=""):
-    if idea_id:
-        idea = Idea.objects.get(pk=idea_id)
-        return render_to_response('idea_details.html', {'idea': idea}, context_instance=RequestContext(request)) 
-    
-    ideas = Idea.objects.order_by("-created_by_date")
-    return render_to_response('ideas.html', {'ideas': ideas}, context_instance=RequestContext(request)) 
+class IdeaResultsView(TemplateView):
+    template_name = 'ideas.html'
+
+    def get_context_data(self, **kwargs):
+
+        ideas = Idea.objects.order_by("-created_by_date")
+        return {
+            'ideas': ideas
+        }
+
+
+class IdeaDetailView(TemplateView):
+    template_name = 'idea_details.html'
+
+    def get_context_data(self, **kwargs):
+        # If we have a specific idea, we are going to show a certain view.
+        idea = get_object_or_404(Idea, pk=kwargs.get('idea_id'))
+
+        return {
+            'idea': idea
+        }
 
 
 def feed_list(request):
