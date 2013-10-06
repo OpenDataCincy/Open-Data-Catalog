@@ -124,10 +124,6 @@ class ResultsView(TemplateView):
         return {'results': resources}
 
 
-def thanks(request):
-    return render_to_response('thanks.html', context_instance=RequestContext(request))
-
-
 def tag_results(request, tag_id):
     tag = Tag.objects.get(pk=tag_id)
     tag_resources = Resource.objects.filter(tags=tag)
