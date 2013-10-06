@@ -121,7 +121,9 @@ class ResultsView(TemplateView):
             f = self.request.GET.get('filter')
             resources = resources.filter(url__url_type__url_type__iexact=f).distinct()
 
-        return {'results': resources}
+        return {
+            'results': resources
+        }
 
 
 class TagResultsView(TemplateView):
