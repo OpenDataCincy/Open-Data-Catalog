@@ -28,6 +28,10 @@ urlpatterns = patterns('',
 
     # The API urls
     url(r'^api/', include('OpenDataCatalog.api.urls')),
+    url(r'^comments/', include('django.contrib.comments.urls')),
+    url(r'^catalog/', include("OpenDataCatalog.catalog.urls")),
+    url(r'^accounts/', include('registration.backends.default.urls')),
+    url(r'^contest/', include('OpenDataCatalog.contest.urls')),
 
     url(r'^opendata/$', ResultsView.as_view(), name='results'),
 
@@ -43,29 +47,26 @@ urlpatterns = patterns('',
     url(r'^thanks/$', TemplateView.as_view(template_name='thanks.html'), name='thanks'),
     
     url(r'^tags/$', TagListView.as_view(), name='tag-list'),
-    
-    url(r'^comments/', include('django.contrib.comments.urls')),
-    url(r'^accounts/register/$', CatalogRegistrationView.as_view(), name='registration_register'),
-    url(r'^accounts/password_reset', 'django.contrib.auth.views.password_reset'),
-    url(r'^accounts/', include('registration.backends.default.urls')),
+
     url(r'^opendata/nominate/', include('OpenDataCatalog.suggestions.urls'), name='nominate'),
-    url(r'^contest/', include('OpenDataCatalog.contest.urls')),
 
     url(r'^feeds/$', 'OpenDataCatalog.opendata.views.feed_list'),
     url(r'^feeds/resources/$', ResourcesFeed()),
     url(r'^feeds/updates/$', UpdatesFeed()),
     url(r'^feeds/ideas/$', IdeasFeed()),
     url(r'^feeds/tag/(?P<tag_id>\d+)/$', TagFeed()),
-    url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
-    url(r'^robots\.txt$', TemplateView.as_view(template_name='robots.txt')),
-
-    url(r'^catalog/', include("OpenDataCatalog.catalog.urls")),
 
     # User specific
     url(r'^users/(?P<username>\w+)/', UserView.as_view(), name='user'),
+    url(r'^accounts/register/$', CatalogRegistrationView.as_view(), name='registration_register'),
+    url(r'^accounts/password_reset/', 'django.contrib.auth.views.password_reset'),
 
     # Uncomment the next line to enable the admin:
     url(r'^_admin_/', include(admin.site.urls)),
+
+    url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps}),
+    url(r'^robots\.txt$', TemplateView.as_view(template_name='robots.txt')),
+
 
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
