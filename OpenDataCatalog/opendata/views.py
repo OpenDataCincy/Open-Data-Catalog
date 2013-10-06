@@ -151,16 +151,23 @@ class TagResultsView(TemplateView):
         }
 
 
-def search_results(request):
-    search_resources = Resource.objects.all()
-    if 'qs' in request.GET:
-        qs = request.GET['qs'].replace("+", " ")
-        search_resources = Resource.search(qs, search_resources)
-    if 'filter' in request.GET:
-        f = request.GET['filter']
-        search_resources = search_resources.filter(url__url_type__url_type__iexact=f).distinct()
-    
-    return render_to_response('results.html', {'results': search_resources}, context_instance=RequestContext(request))
+class SearchResultsView(TemplateView):
+    template_name = 'results.html'
+
+    def get_context_data(self, **kwargs):
+        search_resources = Resource.objects.all()
+
+        if 'qs' in self.request.GET:
+            qs = self.request.GET.get('qs', '').replace("+", " ")
+            search_resources = Resource.search(qs, search_resources)
+
+        if 'filter' in self.request.GET:
+            f = self.request.GET.get('filter')
+            search_resources = search_resources.filter(url__url_type__url_type__iexact=f).distinct()
+
+        return {
+            'results': search_resources,
+        }
 
 
 def idea_results(request, idea_id=None, slug=""):
