@@ -9,10 +9,11 @@ from django.template.loader import render_to_string
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView, FormView
 from django.utils.decorators import method_decorator
-
-import pytz
-from pytz import timezone
 from django.core.cache import cache
+
+from pytz import timezone
+from pytz import utc
+
 from models import TwitterCache
 import twitter
 import simplejson as json
@@ -76,27 +77,35 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         tweets = cache.get('tweets')
 
-        utc = pytz.utc
         local = timezone('US/Eastern')
 
         if not tweets and settings.TWITTER_USER:
-            tweets = twitter.Api().GetUserTimeline( settings.TWITTER_USER )[:4]
+            tweets = twitter.Api().GetUserTimeline(settings.TWITTER_USER)[:4]
             if tweets.count < 4:
                 tweet_cache = []
                 for t in TwitterCache.objects.all():
                     tc = json.JSONDecoder().decode(t.text)
-                    tc['date'] = datetime.strptime(tc['created_at'], "%a %b %d %H:%M:%S +0000 %Y").replace(tzinfo=utc).astimezone(local)
+                    tc['date'] = datetime.strptime(tc['created_at'], "%a %b %d %H:%M:%S +0000 %Y")\
+                        .replace(tzinfo=utc).astimezone(local)
                     tweet_cache.append(tc)
                 tweets = tweet_cache
             else:
                 TwitterCache.objects.all().delete()
+
                 for tweet in tweets:
-                    tweet.date = datetime.strptime(tweet.created_at, "%a %b %d %H:%M:%S +0000 %Y").replace(tzinfo=utc).astimezone(local)
+                    tweet.date = datetime.strptime(tweet.created_at, "%a %b %d %H:%M:%S +0000 %Y")\
+                        .replace(tzinfo=utc).astimezone(local)
+
                     t = TwitterCache(text=tweet.AsJsonString())
                     t.save()
+
                 cache.set('tweets', tweets, settings.TWITTER_TIMEOUT)
 
-        recent = Resource.objects.order_by("-created")[:3]
+        # Cache these for three minutes
+        recent = cache.get('recent_resources')
+        if not recent:
+            recent = Resource.objects.order_by("-created")[:3]
+            cache.set('recent_resources', recent, 180)
 
         if Idea.objects.count() > 0:
             ideas = Idea.objects.order_by("-created_by_date")[:4]
