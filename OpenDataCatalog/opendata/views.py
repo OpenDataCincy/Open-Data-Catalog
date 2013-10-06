@@ -70,40 +70,45 @@ class UserView(TemplateView):
         }
 
 
-def home(request):
-    tweets = cache.get('tweets')
+class HomeView(TemplateView):
+    template_name = 'home.html'
 
-    utc = pytz.utc
-    local = timezone('US/Eastern')
+    def get_context_data(self, **kwargs):
+        tweets = cache.get('tweets')
 
-    if not tweets and settings.TWITTER_USER:    
-        tweets = twitter.Api().GetUserTimeline( settings.TWITTER_USER )[:4]
-        if tweets.count < 4:
-            tweet_cache = []
-            for t in TwitterCache.objects.all():
-                tc = json.JSONDecoder().decode(t.text)
-                tc['date'] = datetime.strptime(tc['created_at'], "%a %b %d %H:%M:%S +0000 %Y").replace(tzinfo=utc).astimezone(local)
-                tweet_cache.append(tc)
-            tweets = tweet_cache
+        utc = pytz.utc
+        local = timezone('US/Eastern')
+
+        if not tweets and settings.TWITTER_USER:
+            tweets = twitter.Api().GetUserTimeline( settings.TWITTER_USER )[:4]
+            if tweets.count < 4:
+                tweet_cache = []
+                for t in TwitterCache.objects.all():
+                    tc = json.JSONDecoder().decode(t.text)
+                    tc['date'] = datetime.strptime(tc['created_at'], "%a %b %d %H:%M:%S +0000 %Y").replace(tzinfo=utc).astimezone(local)
+                    tweet_cache.append(tc)
+                tweets = tweet_cache
+            else:
+                TwitterCache.objects.all().delete()
+                for tweet in tweets:
+                    tweet.date = datetime.strptime(tweet.created_at, "%a %b %d %H:%M:%S +0000 %Y").replace(tzinfo=utc).astimezone(local)
+                    t = TwitterCache(text=tweet.AsJsonString())
+                    t.save()
+                cache.set('tweets', tweets, settings.TWITTER_TIMEOUT)
+
+        recent = Resource.objects.order_by("-created")[:3]
+
+        if Idea.objects.count() > 0:
+            ideas = Idea.objects.order_by("-created_by_date")[:4]
+            idea = ideas[random.randint(0, ideas.count() - 1)]
         else:
-            TwitterCache.objects.all().delete()
-            for tweet in tweets:
-                tweet.date = datetime.strptime(tweet.created_at, "%a %b %d %H:%M:%S +0000 %Y").replace(tzinfo=utc).astimezone(local)
-                t = TwitterCache(text=tweet.AsJsonString())
-                t.save()
-            cache.set('tweets', tweets, settings.TWITTER_TIMEOUT)
-    
-    recent = Resource.objects.order_by("-created")[:3]
-    idea = Idea.objects.order_by("-created_by_date")[:4]
+            idea = None
 
-    if idea.count() > 0:
-        ct = idea.count() - 1     
-        ran = random.randint(0, ct)
-
-        return render_to_response('home.html', {'recent': recent, 'idea': idea[ran], 'tweets': tweets},
-                                  context_instance=RequestContext(request))
-
-    return render_to_response('home.html', {'recent': recent, 'idea': idea, 'tweets': tweets},  context_instance=RequestContext(request))
+        return {
+            'recent': recent,
+            'idea': idea,
+            'tweets': tweets
+        }
 
 
 def results(request):

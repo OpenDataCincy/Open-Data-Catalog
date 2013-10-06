@@ -10,7 +10,7 @@ from OpenDataCatalog.opendata.feeds import ResourcesFeed, TagFeed, IdeasFeed, Up
 from OpenDataCatalog.opendata.models import Resource, Idea
 from OpenDataCatalog.registration_backend import CatalogRegistrationView
 
-from OpenDataCatalog.opendata.views import ResourceView, UserView, SubmitDataView
+from OpenDataCatalog.opendata.views import ResourceView, UserView, SubmitDataView, HomeView
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -23,7 +23,7 @@ sitemaps = {
 }
 
 urlpatterns = patterns('',
-    url(r'^$', 'OpenDataCatalog.opendata.views.home', name='home'),
+    url(r'^$', HomeView.as_view(), name='home'),
 
     # The API urls
     url(r'^api/', include('OpenDataCatalog.api.urls')),
