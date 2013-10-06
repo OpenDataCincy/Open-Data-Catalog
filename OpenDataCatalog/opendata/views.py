@@ -3,9 +3,7 @@ from datetime import datetime
 from django.http import HttpResponse
 from django.shortcuts import render_to_response, get_object_or_404, redirect
 from django.core import serializers
-from django.core.mail import send_mail, mail_managers, EmailMessage
 from django.template import RequestContext
-from django.template.loader import render_to_string
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView, FormView
 from django.utils.decorators import method_decorator
@@ -21,6 +19,7 @@ import simplejson as json
 from OpenDataCatalog.opendata.models import *
 from OpenDataCatalog.opendata.forms import *
 from OpenDataCatalog.contest.models import Vote
+from .utils import send_email
 
 
 class ResourceView(TemplateView):
@@ -227,42 +226,6 @@ class SubmitDataView(FormView):
         send_email(self.request.user, data)
 
         return super(SubmitDataView, self).form_valid(form)
-
-
-def send_email(user, data):
-    """
-    Sends an email with a new data submission, and stores the submission as a suggestion
-    """
-    subject, user_email = 'OpenDataCincy - Data Submission', (user.get_full_name(), user.email)
-    text_content = render_to_string('submit_email.txt', data)
-    text_content_copy = render_to_string('submit_email_copy.txt', data)
-
-    mail_managers(subject, text_content)
-    
-    msg = EmailMessage(subject, text_content_copy, to=user_email)
-    msg.send()
-
-    # Create new user submission object.
-    sug_object = Submission()
-    sug_object.user = user
-    sug_object.email_text = text_content
-
-    # Prep data for serialization
-    data['submit_date'] = str(data.get('submit_date', ''))
-    data['release_date'] = str(data.get('release_date', ''))
-
-    try:
-        sug_object.json_text = json.dumps(data)
-    except TypeError as ex:
-        print data
-        raise TypeError(ex)
-        # Something was not consumed by the json serializer..
-        # sug_object.json_text = ''
-
-    # Save the submission
-    sug_object.save()
-
-    return sug_object
 
 
 ## views called by js ajax for object lists
