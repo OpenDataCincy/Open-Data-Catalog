@@ -240,6 +240,12 @@ LOGGING = {
 LOCAL_STATICFILE_DIR = ()
 LOCAL_TEMPLATE_DIR = ()
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+    }
+}
+
 try:
     from local_settings import *
 except ImportError:

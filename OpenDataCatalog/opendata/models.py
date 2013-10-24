@@ -7,8 +7,8 @@ from django.db import models
 from django.db.models import Q 
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.contrib.sites.models import Site
 from django.template.defaultfilters import slugify
-from django.db.models.signals import post_save
 
 from sorl.thumbnail.fields import ImageWithThumbnailsField
 from djangoratings.fields import RatingField
@@ -328,10 +328,11 @@ class Idea(models.Model):
             else:
                 return images[0]
         return home[0]
-    
+
+    @models.permalink
     def get_absolute_url(self):
         slug = slugify(self.title)
-        return "/idea/%i/%s" % (self.id, slug)
+        return ('idea-slug', [self.pk, slug])
 
     def __unicode__(self):
         return u'%s' % (self.title)
@@ -386,6 +387,9 @@ class ODPUserProfile(models.Model):
 
 
 def gen_website_url():
+    """
+    Get the current website's url
+    """
     if not settings.SITEHOST:
         raise RuntimeError('settings.SITEHOST is not set')
     if not settings.SITEPORT:
@@ -396,6 +400,8 @@ def gen_website_url():
 
     if settings.SITEPORT == 443:
         scheme = 'https'
+
     if settings.SITEPORT == 80:
         port = ''
-    return '%s://%s%s' % (scheme, settings.SITEHOST, port)
+
+    return '%s://%s%s' % (scheme, Site.objects.get_current().domain, port)
