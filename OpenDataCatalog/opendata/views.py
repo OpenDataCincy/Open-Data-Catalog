@@ -257,5 +257,5 @@ class TagListView(View):
         Gets the tags and serializes them for ajax requests
         """
         tags = Tag.objects.all()
-        return HttpResponse(serializers.serialize("json", tags))
+        return HttpResponse(serializers.serialize("json", tags), content_type='application/json')
 
