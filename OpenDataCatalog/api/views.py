@@ -1,12 +1,53 @@
 # Create your views here
 from django.http import HttpResponse, Http404, HttpResponseNotFound
+from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import View
+
 from OpenDataCatalog.opendata.models import *
 from OpenDataCatalog.opendata.views import send_email
 from OpenDataCatalog.suggestions.models import Suggestion
+
 from datetime import datetime
 from .encoder import *
 from .rest import login_required
-from django.views.decorators.csrf import csrf_exempt
+
+import json
+
+
+class JSONResponseMixin(object):
+    """
+    A mixin that can be used to render a JSON response.
+    """
+    response_class = HttpResponse
+
+    def render_to_response(self, context, **response_kwargs):
+        """
+        Returns a JSON response, transforming 'context' to make the payload.
+        """
+        response_kwargs['content_type'] = 'application/json'
+        return self.response_class(
+            self.convert_context_to_json(context),
+            **response_kwargs
+        )
+
+    def convert_context_to_json(self, context):
+        "Convert the context dictionary into a JSON object"
+        return json.dumps(context)
+
+
+class CrimeDataView(JSONResponseMixin, View):
+    http_method_names = ['get', ]
+
+    def get(self, request, *args, **kwargs):
+        """
+        Get the crime data.  This may be date filtered
+        """
+        data = {
+            'some': 'such',
+            'stuff': 'goes here',
+        }
+
+        return self.render_to_response(data)
 
 
 def http_badreq(body = ""):
@@ -58,6 +99,7 @@ def add_suggestion_view(request):
 
     return HttpResponse(json_encode(add_suggestion(request.user, text, request.META['REMOTE_ADDR'])))
 
+
 def suggestion(request, suggestion_id):
     objs = Suggestion.objects.filter(pk = suggestion_id)
 
@@ -75,6 +117,7 @@ def suggestions(request):
     else:
         raise Http404
 
+
 def search_suggestions(request):
     if 'qs' in request.GET:
         qs = request.GET['qs'].replace("+"," ")
@@ -83,8 +126,10 @@ def search_suggestions(request):
     else:
         return http_badreq("Missing required parameter qs")
 
+
 def ideas(request):
     return HttpResponse(json_encode(list(Idea.objects.all()), tiny_resource_encoder))
+
 
 def idea(request, idea_id):
     obj = Idea.objects.filter(id = idea_id)
@@ -200,3 +245,5 @@ def submit(request):
         return HttpResponse("Created")
     else:
         raise Http404
+
+

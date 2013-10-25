@@ -1,5 +1,7 @@
 from django.conf.urls import patterns, url
 
+from .views import CrimeDataView
+
 
 urlpatterns = patterns('',
     # API urls (all are GET urls unless stated otherwise)
@@ -18,4 +20,8 @@ urlpatterns = patterns('',
     url(r'^suggestions/(?P<suggestion_id>\d+)/vote$', 'OpenDataCatalog.api.views.vote'),
     # POST to create
     url(r'^submit/$', 'OpenDataCatalog.api.views.submit'),
+
+    url(r'^crime/$', CrimeDataView.as_view(), name='api-crime-data'),
+
+
 )
