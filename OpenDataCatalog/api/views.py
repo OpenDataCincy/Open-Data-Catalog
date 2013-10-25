@@ -108,6 +108,7 @@ def suggestion(request, suggestion_id):
     else:
         raise Http404
 
+
 @csrf_exempt
 def suggestions(request):
     if (request.method == 'POST'):
@@ -138,11 +139,14 @@ def idea(request, idea_id):
     else:
         raise Http404
 
+
 def tags(request):
     return HttpResponse(json_encode(list(Tag.objects.all())))
 
+
 def by_tag(request, tag_name):
     return HttpResponse(json_encode(list(Resource.objects.filter(tags__tag_name = tag_name))))
+
 
 def resource_search(request):
     if 'qs' in request.GET:

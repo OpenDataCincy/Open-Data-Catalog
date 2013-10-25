@@ -28,6 +28,7 @@ def short_resource_encoder(obj):
                  "url" : "/api/resources/%s/" %(obj.id)
                  }
 
+
 def full_resource_encoder(obj):
         return { "name" : obj.name,
                  "short_description" : obj.short_description,
@@ -63,6 +64,7 @@ def full_resource_encoder(obj):
                  "urls" : list(obj.url_set.all()),
                  "id" : obj.id
                  }
+
 
 def encode_resource(resource_encoder):
     def encode_resource_with_encoder(obj):
@@ -118,8 +120,10 @@ def encode_resource(resource_encoder):
             raise TypeError(repr(obj) + " is not JSON serializable")
     return encode_resource_with_encoder
 
-def json_encode(obj, rsrc = short_resource_encoder):
-    return j.dumps(obj, default = encode_resource(rsrc))
+
+def json_encode(obj, rsrc=short_resource_encoder):
+    return j.dumps(obj, default=encode_resource(rsrc))
+
 
 def json_load(jsonstr):
     return j.loads(jsonstr)
