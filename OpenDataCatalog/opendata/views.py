@@ -193,9 +193,15 @@ class IdeaDetailView(TemplateView):
         }
 
 
-def feed_list(request):
-    tags = Tag.objects.all()
-    return render_to_response('feeds/list.html', {'tags': tags}, context_instance=RequestContext(request)) 
+class FeedListView(View):
+    http_method_names = ['get', ]
+
+    def get(self, request, *args, **kwargs):
+        """
+        Return the list of feeds
+        """
+        tags = Tag.objects.all()
+        return render_to_response('feeds/list.html', context_instance=RequestContext(request, {'tags': tags}))
 
 
 class SubmitDataView(FormView):
@@ -257,5 +263,5 @@ class TagListView(View):
         Gets the tags and serializes them for ajax requests
         """
         tags = Tag.objects.all()
-        return HttpResponse(serializers.serialize("json", tags))
+        return HttpResponse(serializers.serialize("json", tags), content_type='application/json')
 

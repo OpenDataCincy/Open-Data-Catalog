@@ -11,7 +11,7 @@ from OpenDataCatalog.opendata.models import Resource, Idea
 from OpenDataCatalog.registration_backend import CatalogRegistrationView
 
 from OpenDataCatalog.opendata.views import ResourceView, UserView, SubmitDataView, HomeView, ResultsView, \
-    TagResultsView, SearchResultsView, IdeaResultsView, IdeaDetailView, TagListView
+    TagResultsView, SearchResultsView, IdeaResultsView, IdeaDetailView, TagListView, FeedListView
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -49,11 +49,11 @@ urlpatterns = patterns('',
     
     url(r'^tags/$', TagListView.as_view(), name='tag-list'),
 
-    url(r'^feeds/$', 'OpenDataCatalog.opendata.views.feed_list'),
-    url(r'^feeds/resources/$', ResourcesFeed()),
-    url(r'^feeds/updates/$', UpdatesFeed()),
-    url(r'^feeds/ideas/$', IdeasFeed()),
-    url(r'^feeds/tag/(?P<tag_id>\d+)/$', TagFeed()),
+    url(r'^feeds/$', FeedListView.as_view(), name='feed-list'),
+    url(r'^feeds/resources/$', ResourcesFeed(), name='resources-feed'),
+    url(r'^feeds/updates/$', UpdatesFeed(), name='updates-feed'),
+    url(r'^feeds/ideas/$', IdeasFeed(), name='ideas-feed'),
+    url(r'^feeds/tag/(?P<tag_id>\d+)/$', TagFeed(), name='tag-feed'),
 
     # User specific
     url(r'^users/(?P<username>\w+)/', UserView.as_view(), name='user'),
