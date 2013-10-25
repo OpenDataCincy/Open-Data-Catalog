@@ -193,9 +193,15 @@ class IdeaDetailView(TemplateView):
         }
 
 
-def feed_list(request):
-    tags = Tag.objects.all()
-    return render_to_response('feeds/list.html', {'tags': tags}, context_instance=RequestContext(request)) 
+class FeedListView(View):
+    http_method_names = ['get', ]
+
+    def get(self, request, *args, **kwargs):
+        """
+        Return the list of feeds
+        """
+        tags = Tag.objects.all()
+        return render_to_response('feeds/list.html', context_instance=RequestContext(request, {'tags': tags}))
 
 
 class SubmitDataView(FormView):
