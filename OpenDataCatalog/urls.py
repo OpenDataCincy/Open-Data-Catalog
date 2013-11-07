@@ -33,6 +33,7 @@ urlpatterns = patterns('',
     url(r'^accounts/', include('registration.backends.default.urls')),
     url(r'^contest/', include('OpenDataCatalog.contest.urls')),
     url(r'^opendata/nominate/', include('OpenDataCatalog.suggestions.urls'), name='nominate'),
+    url(r'^visualization/', include('OpenDataCatalog.visualization.urls')),
 
     url(r'^opendata/$', ResultsView.as_view(), name='results'),
 
