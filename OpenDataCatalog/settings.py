@@ -167,11 +167,14 @@ INSTALLED_APPS = (
     'pagination',
     'django_sorting',
     'djangoratings',
+
+    # Local
     'OpenDataCatalog.comments',
     'OpenDataCatalog.suggestions',
     'OpenDataCatalog.contest',
     'OpenDataCatalog.catalog',
     'OpenDataCatalog.api',
+    'OpenDataCatalog.visualization',
 )
 
 # the hostname of the deployment
