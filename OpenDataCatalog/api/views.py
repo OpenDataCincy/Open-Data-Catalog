@@ -10,8 +10,12 @@ from OpenDataCatalog.suggestions.models import Suggestion
 from datetime import datetime
 from .encoder import *
 from .rest import login_required
+from rest_framework import viewsets
 
 import json
+
+from .models import ThreeOneOne
+from .serializers import ThreeOneOneSerializer
 
 
 class JSONResponseMixin(object):
@@ -48,6 +52,11 @@ class CrimeDataView(JSONResponseMixin, View):
         }
 
         return self.render_to_response(data)
+
+
+class ThreeOneOneViewSet(viewsets.ModelViewSet):
+    queryset = ThreeOneOne.objects.all()
+    serializer_class = ThreeOneOneSerializer
 
 
 def http_badreq(body = ""):

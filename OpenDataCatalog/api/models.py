@@ -16,10 +16,10 @@ class ThreeOneOne(models.Model):
     date_answered = models.DateField()
     user_id = models.CharField(max_length=20)
     planned_completion_date = models.DateField(null=True)
-    revised_completion_date = models.DateField(null=True)
+    revised_completion_date = models.DateField(null=True, blank=True)
     actual_completion_date = models.DateField(null=True)
     status_date = models.DateField(null=True)
-    assignee_id = models.CharField(max_length=20)
+    assignee_id = models.CharField(max_length=20, blank=True,)
 
     latitude = models.FloatField(null=True, default=0.0)
     longitude = models.FloatField(null=True, default=0.0)

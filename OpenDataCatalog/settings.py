@@ -167,6 +167,7 @@ INSTALLED_APPS = (
     'pagination',
     'django_sorting',
     'djangoratings',
+    'rest_framework',
 
     # Local
     'OpenDataCatalog.comments',
@@ -176,6 +177,11 @@ INSTALLED_APPS = (
     'OpenDataCatalog.api',
     'OpenDataCatalog.visualization',
 )
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSIONS_CLASSES': ('rest_framework.permissions.AllowAny', ),
+    'PAGINATE_BY': 50,
+}
 
 # the hostname of the deployment
 SITEHOST = None
