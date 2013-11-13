@@ -36,30 +36,28 @@ class Command(BaseCommand):
             # row[3] is description
             # row[4] is the date MM/DD/YYYY HH:MM:SS AM
 
-            if 'trash' in row[2]:
-                count += 1
+            if row[7]:
+                address = u'%s Cincinnati, OH' % row[7]
 
-                if row[7]:
-                    address = u'%s Cincinnati, OH' % row[7]
+                if not address in addresses:
+                    try:
+                        place, (lat, lon) = google.geocode(address, exactly_one=False)[0]
+                    except Exception:
+                        print 'could not geocode %s' % address
 
-                    if not address in addresses:
-                        place, (lat, lon) = google.geocode(address)
-                        addresses[address] = {
-                            'lat': lat,
-                            'lon': lon,
-                        }
-                    else:
-                        lat = addresses[address].get('lat')
-                        lon = addresses[address].get('lon')
+                    addresses[address] = {
+                        'lat': lat,
+                        'lon': lon,
+                    }
+                else:
+                    lat = addresses[address].get('lat')
+                    lon = addresses[address].get('lon')
 
-                    js = 'var myLatLng = new google.maps.LatLng(%s, %s); ' % (lat, lon)
-                    js += 'var marker = new google.maps.Marker({ position: myLatLng, title: "%s" }); ' % row[2]
-                    js += 'marker.setMap(map);'
+                js = 'var myLatLng = new google.maps.LatLng(%s, %s); ' % (lat, lon)
+                js += 'var marker = new google.maps.Marker({ position: myLatLng, title: "%s" }); ' % row[2]
+                js += 'marker.setMap(map);'
 
-                    self.stdout.write(js)
-                    self.stdout.write("\n")
-
-                if count == 100:
-                    break
+                self.stdout.write(js)
+                self.stdout.write("\n")
 
         print count

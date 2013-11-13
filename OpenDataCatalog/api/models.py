@@ -1,5 +1,7 @@
 from django.db import models
 
+from geopy import geocoders
+
 
 class ThreeOneOne(models.Model):
     csr = models.CharField(max_length=15, help_text=u'CSR #')
@@ -23,3 +25,22 @@ class ThreeOneOne(models.Model):
 
     latitude = models.FloatField(null=True, default=0.0)
     longitude = models.FloatField(null=True, default=0.0)
+
+    def __unicode__(self):
+
+        return unicode(self.request_type)
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+
+        if self.latitude == 0 and self.longitude == 0:
+
+            address = '%s Cincinnati, OH' % self.street_address
+
+            google = geocoders.GoogleV3()
+            place, (lat, lon) = google.geocode(address, exactly_one=False)[0]
+
+            self.latitude = lat
+            self.longitude = lon
+
+        return super(ThreeOneOne, self).save(force_insert, force_update, using, update_fields)
