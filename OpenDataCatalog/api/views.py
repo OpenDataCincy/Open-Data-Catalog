@@ -61,6 +61,8 @@ class ThreeOneOneViewSet(viewsets.ModelViewSet):
     filter_backends = [filters.SearchFilter, ]
     search_fields = ('request_type', 'description', )
 
+    http_method_names = ['get', ]
+
 
 def http_badreq(body = ""):
     res = HttpResponse("Bad Request\n" + body)
