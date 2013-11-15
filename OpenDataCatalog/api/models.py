@@ -27,6 +27,10 @@ class ThreeOneOne(models.Model):
     latitude = models.FloatField(null=True, default=0.0)
     longitude = models.FloatField(null=True, default=0.0)
 
+    class Meta:
+        verbose_name = u'311 report'
+        verbose_name_plural = u'311 reports'
+
     def __unicode__(self):
 
         return unicode(self.request_type)

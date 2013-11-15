@@ -57,6 +57,8 @@ class CrimeDataView(JSONResponseMixin, View):
 class ThreeOneOneViewSet(viewsets.ModelViewSet):
     queryset = ThreeOneOne.objects.all()
     serializer_class = ThreeOneOneSerializer
+    # filter_backends = (filters.SearchFilter, )
+    search_fields = ('request_type', 'description', )
 
 
 def http_badreq(body = ""):
