@@ -10,9 +10,10 @@ from OpenDataCatalog.suggestions.models import Suggestion
 from datetime import datetime
 from .encoder import *
 from .rest import login_required
-from rest_framework import viewsets
+from rest_framework import viewsets, filters
 
 import json
+
 
 from .models import ThreeOneOne
 from .serializers import ThreeOneOneSerializer
@@ -57,7 +58,7 @@ class CrimeDataView(JSONResponseMixin, View):
 class ThreeOneOneViewSet(viewsets.ModelViewSet):
     queryset = ThreeOneOne.objects.all()
     serializer_class = ThreeOneOneSerializer
-    # filter_backends = (filters.SearchFilter, )
+    filter_backends = [filters.SearchFilter, ]
     search_fields = ('request_type', 'description', )
 
 
