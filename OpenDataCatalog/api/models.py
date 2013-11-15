@@ -1,6 +1,7 @@
 from django.db import models
 
 from geopy import geocoders
+from geopy.geocoders.googlev3 import GQueryError, GTooManyQueriesError
 
 
 class ThreeOneOne(models.Model):
@@ -38,7 +39,15 @@ class ThreeOneOne(models.Model):
             address = '%s Cincinnati, OH' % self.street_address
 
             google = geocoders.GoogleV3()
-            place, (lat, lon) = google.geocode(address, exactly_one=False)[0]
+
+            try:
+                place, (lat, lon) = google.geocode(address, exactly_one=False)[0]
+            except GQueryError:
+                lat = 0
+                lon = 0
+            except GTooManyQueriesError:
+                lat = 0
+                lon = 0
 
             self.latitude = lat
             self.longitude = lon
