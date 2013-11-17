@@ -2,12 +2,11 @@ from django.conf.urls import patterns, url, include
 
 from rest_framework import routers
 
-from .views import CrimeDataView, ThreeOneOneViewSet
+from .views import CrimeDataView, ThreeOneOneViewSet, ResourceViewSet
 
 router = routers.DefaultRouter()
 router.register(r'threeoneones', ThreeOneOneViewSet)
-
-
+router.register(r'resources', ResourceViewSet)
 
 
 urlpatterns = patterns('',
@@ -30,6 +29,5 @@ urlpatterns = patterns('',
     url(r'^submit/$', 'OpenDataCatalog.api.views.submit'),
 
     url(r'^crime/$', CrimeDataView.as_view(), name='api-crime-data'),
-
 
 )

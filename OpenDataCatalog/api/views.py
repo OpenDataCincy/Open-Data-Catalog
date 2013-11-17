@@ -16,7 +16,7 @@ import json
 
 
 from .models import ThreeOneOne
-from .serializers import ThreeOneOneSerializer
+from .serializers import ThreeOneOneSerializer, ResourceSerializer
 
 
 class JSONResponseMixin(object):
@@ -62,6 +62,13 @@ class ThreeOneOneViewSet(viewsets.ModelViewSet):
     search_fields = ('request_type', 'description', )
 
     http_method_names = ['get', ]
+
+
+class ResourceViewSet(viewsets.ModelViewSet):
+    queryset = Resource.objects.all()
+    serializer_class = ResourceSerializer
+    filter_backends = [filters.SearchFilter, ]
+    search_fields = ('name', )
 
 
 def http_badreq(body = ""):
