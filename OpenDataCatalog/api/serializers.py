@@ -7,7 +7,7 @@ from rest_framework import serializers
 class ThreeOneOneSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = ThreeOneOne
-        fields = ('csr', 'request_type', 'status', 'date_received', 'latitude', 'longitude')
+        fields = ('csr', 'request_type', 'description', 'status', 'date_received', 'latitude', 'longitude')
 
 
 class ResourceSerializer(serializers.HyperlinkedModelSerializer):
