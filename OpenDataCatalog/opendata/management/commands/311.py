@@ -95,6 +95,11 @@ class Command(BaseCommand):
             except (ValueError, TypeError):
                 status_date = None
 
+            try:
+                census_tract = float(row[9])
+            except ValueError:
+                census_tract = 0
+
             t = ThreeOneOne.objects.create(
                 csr=row[0],
                 status=row[1],
@@ -103,7 +108,7 @@ class Command(BaseCommand):
                 date_received=date_received,
                 street_address=row[7],
                 community=row[8],
-                census_tract=row[9],
+                census_tract=census_tract,
                 priority=row[10],
                 method=row[11],
                 parcel_number=row[12],
