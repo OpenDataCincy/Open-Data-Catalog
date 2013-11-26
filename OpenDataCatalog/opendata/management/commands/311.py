@@ -37,6 +37,9 @@ class Command(BaseCommand):
             if 'CSR #' in unicode(row[0]) or 'DESCRIPTION' in unicode(row[3]):
                 continue
 
+            if ThreeOneOne.objects.filter(csr=row[0]).exists():
+                continue
+
             # if row[7]:
             #     address = u'%s Cincinnati, OH' % row[7]
             #
