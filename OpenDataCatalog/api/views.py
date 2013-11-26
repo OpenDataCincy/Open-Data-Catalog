@@ -76,6 +76,7 @@ def http_badreq(body = ""):
     res.status_code = 400
     return res
 
+
 @login_required
 def vote(request, suggestion_id):
     suggestion = Suggestion.objects.get(pk=suggestion_id)
