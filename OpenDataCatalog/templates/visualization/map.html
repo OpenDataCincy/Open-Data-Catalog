@@ -19,11 +19,57 @@
         };
         var map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
+
+          var myLatLng = new google.maps.LatLng(39.1031182, -84.5120196);
+          var marker = new google.maps.Marker({ position: myLatLng, title: "Service complaint trash" });
+          marker.setMap(map);
+
+        window.map = map;
+
       }
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
   </head>
   <body>
-    <div id="map-canvas"/>
+  <div id="header" style="width: 100%; position: fixed; top: 0; height: 50px; text-align: center; z-index: 10;">
+      <a href="#" class="toggle" data-toggle="trash">Trash</a>&nbsp;|&nbsp;
+      <a href="#" class="toggle" data-toggle="dead animal">Dead animal</a>&nbsp;|&nbsp;
+      <a href="#" class="toggle" data-toggle="duke">Duke</a><br>
+    <input type="text" name="search" id="id_search"> <button id="button_search">Search</button>
+  </div>
+    <div id="map-canvas" style="padding-top:100px; margin-top: 50px;"></div>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        $(function() {
+            $('#header').on('click', '.toggle', function(e) {
+                var toggle = $(this).data('toggle');
+                var uri = '/api/threeoneones/?format=json&search=' + encodeURIComponent(toggle);
+                $.get(uri, function(response) {
+                    $.each(response.results, function(i, result) {
+                        if( result.latitude != 0 && result.longitude != 0) {
+                            var ll = new google.maps.LatLng(result.latitude, result.longitude);
+                            var m = new google.maps.Marker({ position: ll, title: result.csr });
+                            m.setMap(window.map);
+
+                            // Create the info window
+                            var content = "<div><h1>" + result.request_type + "</h1>";
+                            content += "<div class='body'>" + result.description + "</div></div>";
+
+                            var infowindow = new google.maps.InfoWindow({
+                                content: content
+                            });
+
+                            google.maps.event.addListener(m, 'click', function() {
+                                infowindow.open(window.map, m);
+                            });
+                        }
+                    });
+                });
+            });
+      });
+
+  </script>
+
   </body>
 </html>

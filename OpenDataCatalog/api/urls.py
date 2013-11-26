@@ -1,9 +1,16 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import patterns, url, include
 
-from .views import CrimeDataView
+from rest_framework import routers
+
+from .views import CrimeDataView, ThreeOneOneViewSet, ResourceViewSet
+
+router = routers.DefaultRouter()
+router.register(r'threeoneones', ThreeOneOneViewSet)
+router.register(r'resources', ResourceViewSet)
 
 
 urlpatterns = patterns('',
+    url('^', include(router.urls)),
     # API urls (all are GET urls unless stated otherwise)
     url(r'^resources/$', 'OpenDataCatalog.api.views.resources'),
     url(r'^resources/(?P<resource_id>\d+)/$', 'OpenDataCatalog.api.views.resource'),
@@ -22,6 +29,5 @@ urlpatterns = patterns('',
     url(r'^submit/$', 'OpenDataCatalog.api.views.submit'),
 
     url(r'^crime/$', CrimeDataView.as_view(), name='api-crime-data'),
-
 
 )

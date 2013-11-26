@@ -10,8 +10,13 @@ from OpenDataCatalog.suggestions.models import Suggestion
 from datetime import datetime
 from .encoder import *
 from .rest import login_required
+from rest_framework import viewsets, filters
 
 import json
+
+
+from .models import ThreeOneOne
+from .serializers import ThreeOneOneSerializer, ResourceSerializer
 
 
 class JSONResponseMixin(object):
@@ -50,10 +55,27 @@ class CrimeDataView(JSONResponseMixin, View):
         return self.render_to_response(data)
 
 
+class ThreeOneOneViewSet(viewsets.ModelViewSet):
+    queryset = ThreeOneOne.objects.filter().exclude(latitude=0)
+    serializer_class = ThreeOneOneSerializer
+    filter_backends = [filters.SearchFilter, ]
+    search_fields = ('request_type', 'description', )
+
+    http_method_names = ['get', ]
+
+
+class ResourceViewSet(viewsets.ModelViewSet):
+    queryset = Resource.objects.all()
+    serializer_class = ResourceSerializer
+    filter_backends = [filters.SearchFilter, ]
+    search_fields = ('name', )
+
+
 def http_badreq(body = ""):
     res = HttpResponse("Bad Request\n" + body)
     res.status_code = 400
     return res
+
 
 @login_required
 def vote(request, suggestion_id):
