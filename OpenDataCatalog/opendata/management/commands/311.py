@@ -34,7 +34,7 @@ class Command(BaseCommand):
         # for i in range(50):
             row = sheet.row_values(i)
 
-            if 'CSR #' in unicode(row[0]) or 'DESCRIPTION' in unicode(row[3]):
+            if u'CSR #' in unicode(row[0]) or u'DESCRIPTION' in unicode(row[3]):
                 continue
 
             if ThreeOneOne.objects.filter(csr=row[0]).exists():

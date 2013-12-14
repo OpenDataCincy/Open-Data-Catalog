@@ -4,6 +4,28 @@ from geopy import geocoders
 from geopy.geocoders.googlev3 import GQueryError, GTooManyQueriesError
 
 
+class CincinnatiPolice(models.Model):
+    event_number = models.CharField(max_length=50, help_text=u'Event #')
+    create_date = models.DateField()
+    address = models.CharField(max_length=30, blank=True, default='')
+    description = models.CharField(max_length=50)
+    location = models.CharField(max_length=20, blank=True, default='')
+
+    latitude = models.FloatField(null=True, default=0.0)
+    longitude = models.FloatField(null=True, default=0.0)
+
+    def __unicode__(self):
+        return u'%s' % self.description
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        self.address = self.address.strip()
+        self.description = self.description.strip()
+        self.location = self.location.strip()
+
+        return super(CincinnatiPolice, self).save(force_insert, force_update, using, update_fields)
+
+
 class ThreeOneOne(models.Model):
     csr = models.CharField(max_length=15, help_text=u'CSR #')
     status = models.CharField(max_length=20, help_text=u'Status of the call')
