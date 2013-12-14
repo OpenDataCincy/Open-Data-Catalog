@@ -32,8 +32,8 @@ class Command(BaseCommand):
             raise CommandError('I have no idea why this thing will nt open')
 
         # # Go through each row and handle.
-        # for i in range(sheet.nrows):
-        for i in range(10):
+        for i in range(sheet.nrows):
+        # for i in range(10):
             row = sheet.row_values(i)
 
             if u'Event_Number' in row[0]:
@@ -53,4 +53,4 @@ class Command(BaseCommand):
                 location=row[4],
             )
 
-            self.stdout.write('Created: %s' % c)
+            self.stdout.write('%s. Created: %s' % (i, c))

@@ -15,8 +15,8 @@ from rest_framework import viewsets, filters
 import json
 
 
-from .models import ThreeOneOne
-from .serializers import ThreeOneOneSerializer, ResourceSerializer
+from .models import ThreeOneOne, CincinnatiPolice
+from .serializers import ThreeOneOneSerializer, ResourceSerializer, CincinnatiPoliceSerializer
 
 
 class JSONResponseMixin(object):
@@ -69,6 +69,13 @@ class ResourceViewSet(viewsets.ModelViewSet):
     serializer_class = ResourceSerializer
     filter_backends = [filters.SearchFilter, ]
     search_fields = ('name', )
+
+
+class CPDViewSet(viewsets.ModelViewSet):
+    queryset = CincinnatiPolice.objects.all()
+    serializer_class = CincinnatiPoliceSerializer
+    filter_backends = [filters.SearchFilter, ]
+    search_fields = ('event_number', 'location', 'create_date', )
 
 
 def http_badreq(body = ""):
