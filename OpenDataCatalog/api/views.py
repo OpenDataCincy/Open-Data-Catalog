@@ -78,7 +78,7 @@ class CPDViewSet(viewsets.ModelViewSet):
     search_fields = ('event_number', 'location', 'create_date', )
 
 
-def http_badreq(body = ""):
+def http_badreq(body=""):
     res = HttpResponse("Bad Request\n" + body)
     res.status_code = 400
     return res
