@@ -19,4 +19,4 @@ class ResourceSerializer(serializers.HyperlinkedModelSerializer):
 class CincinnatiPoliceSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = CincinnatiPolice
-        fields = ['event_number', 'create_date', 'description', 'location',]
+        fields = ['event_number', 'anon_address', 'create_date', 'description', 'location', ]

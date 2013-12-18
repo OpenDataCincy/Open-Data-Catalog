@@ -3,11 +3,14 @@ from django.db import models
 from geopy import geocoders
 from geopy.geocoders.googlev3 import GQueryError, GTooManyQueriesError
 
+from streetaddress import StreetAddressParser
+
 
 class CincinnatiPolice(models.Model):
     event_number = models.CharField(max_length=50, help_text=u'Event #')
     create_date = models.DateField(null=True)
     address = models.CharField(max_length=30, blank=True, default='')
+    anon_address = models.CharField(max_length=50, blank=True, default='')
     description = models.CharField(max_length=50)
     location = models.CharField(max_length=50, blank=True, default='')
 
@@ -22,6 +25,15 @@ class CincinnatiPolice(models.Model):
         self.address = self.address.strip()
         self.description = self.description.strip()
         self.location = self.location.strip()
+
+        if self.address and not self.anon_address:
+            # Let's anonymize this address
+            address = StreetAddressParser().parse(self.address)
+
+            if address.get('block') and int(address.get('block')) > 0:
+                self.anon_address = u'%s block of %s' % (address.get('block'), address.get('street_full'))
+            else:
+                self.anon_address = self.address
 
         return super(CincinnatiPolice, self).save(force_insert, force_update, using, update_fields)
 
