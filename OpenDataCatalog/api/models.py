@@ -8,6 +8,7 @@ class CincinnatiPolice(models.Model):
     event_number = models.CharField(max_length=50, help_text=u'Event #')
     create_date = models.DateField(null=True)
     address = models.CharField(max_length=30, blank=True, default='')
+    anon_address = models.CharField(max_length=50, blank=True, default='')
     description = models.CharField(max_length=50)
     location = models.CharField(max_length=50, blank=True, default='')
 
