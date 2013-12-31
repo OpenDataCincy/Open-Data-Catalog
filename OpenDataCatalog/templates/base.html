@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -9,7 +9,8 @@
 		<title>OpenDataCincy{% block title %}{% endblock %}</title>
 
 			{% block tophead %}{# Additional head items go here #}{% endblock %}
-			<script type="text/javascript" src="{% static "jquery-1.5.2.js" %}"></script>
+{#			<script type="text/javascript" src="{% static "jquery-1.5.2.js" %}"></script>#}
+            <script src="//code.jquery.com/jquery-latest.min.js"></script>
 			<script type="text/javascript" src="{% static "jQueryUI/js/jquery-ui-1.8.11.min.js" %}"></script>
 			<script type="text/javascript" src="{% static "StarRating/jquery.rating.js" %}"></script>
 			<script type="text/javascript" src="{% static "jquery.query-2.1.7.js" %}"></script>
@@ -57,7 +58,8 @@
 
 	{% block endpage %}{% endblock %}
 
-
     {% include "_ga.html" %}
+
+    {% block js_bottom %}{% endblock %}
 	</body>
 </html>
