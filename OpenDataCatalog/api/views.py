@@ -61,7 +61,7 @@ class ThreeOneOneViewSet(viewsets.ModelViewSet):
     filter_backends = [filters.SearchFilter, ]
     search_fields = ('request_type', 'description', )
 
-    http_method_names = ['get', ]
+    http_method_names = ['get', ]  # No need to allow creation
 
 
 class ResourceViewSet(viewsets.ModelViewSet):
@@ -70,12 +70,16 @@ class ResourceViewSet(viewsets.ModelViewSet):
     filter_backends = [filters.SearchFilter, ]
     search_fields = ('name', )
 
+    http_method_names = ['get', ]  # May allow creation later.
+
 
 class CPDViewSet(viewsets.ModelViewSet):
     queryset = CincinnatiPolice.objects.all()
     serializer_class = CincinnatiPoliceSerializer
     filter_backends = [filters.SearchFilter, ]
     search_fields = ('event_number', 'location', 'create_date', )
+
+    http_method_names = ['get', ]  # No need to allow creation.
 
 
 def http_badreq(body=""):
