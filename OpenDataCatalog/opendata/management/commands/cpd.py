@@ -9,12 +9,12 @@ from OpenDataCatalog.api.models import CincinnatiPolice
 
 class Command(BaseCommand):
     help = "Supply an xls or xlsx file to be parsed"
-    args = "<something.xlsx>"
+    args = "<file.xls(x)>"
 
     def handle(self, *args, **options):
 
         if not len(args):
-            raise CommandError('You did not supply an xls document...')
+            raise CommandError('You must supply an xls or xlsx document')
 
         try:
             workbook = xlrd.open_workbook(args[0])
@@ -29,7 +29,7 @@ class Command(BaseCommand):
         try:
             sheet = workbook.sheet_by_index(0)
         except AttributeError:
-            raise CommandError('I have no idea why this thing will nt open')
+            raise CommandError('Could not open first sheet.  Check file format.')
 
         # # Go through each row and handle.
         for i in range(sheet.nrows):

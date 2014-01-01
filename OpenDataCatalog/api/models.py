@@ -55,12 +55,14 @@ class Arrest(models.Model):
     badge_number = models.IntegerField(null=True)
     officer = models.CharField(max_length=30, blank=True, default='')
     nature = models.IntegerField(null=True)
+    report_number = models.CharField(max_length=30, default='', blank=True)
 
     # These will be anonymized into new fields
     arrest_address = models.CharField(max_length=30, default='', blank=True)
     home_address = models.CharField(max_length=30, default='', blank=True)
     home_city = models.CharField(max_length=50, default=u'Cincinnati', blank=True)
     home_state = models.CharField(max_length=2, default=u'OH', blank=True)
+    home_zip = models.IntegerField(null=True)
 
     anon_arrest_address = models.CharField(max_length=30, default='', blank=True)
     anon_home_address = models.CharField(max_length=30, default='', blank=True)
