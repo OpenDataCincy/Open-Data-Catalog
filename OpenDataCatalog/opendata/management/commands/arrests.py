@@ -44,7 +44,7 @@ class Command(BaseCommand):
             # Get the time of arrest
             arrest_time = self.parse_time(row[8])
 
-            arrest = Arrest(
+            arrest = Arrest.objects.create(
                 arrest_type=int(row[0]),
                 control_number=int(row[1]),
                 rac=row[2].strip(),
