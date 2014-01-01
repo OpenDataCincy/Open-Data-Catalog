@@ -38,6 +38,60 @@ class CincinnatiPolice(models.Model):
         return super(CincinnatiPolice, self).save(force_insert, force_update, using, update_fields)
 
 
+class Arrest(models.Model):
+    arrest_type = models.IntegerField(default=0, null=True)
+    control_number = models.IntegerField(default=0, null=True)
+    rac = models.CharField(max_length=10, blank=True, default='')  # TODO: Determine meaning
+    sex = models.CharField(max_length=1, default='', blank=True)
+    ra = models.IntegerField(default=0, null=True)  # TODO: Determine meaning
+    event_date = models.DateField()
+    event_time = models.TimeField()
+    secno = models.CharField(max_length=20, blank=True, default='')
+    seccode = models.CharField(max_length=20, blank=True, default='')
+    dob_year = models.IntegerField(null=True)
+    charge_code = models.IntegerField(null=True)
+    charge_type = models.IntegerField(null=True)
+    arrest_disp_code = models.IntegerField(null=True)
+    badge_number = models.IntegerField(null=True)
+    officer = models.CharField(max_length=30, blank=True, default='')
+    nature = models.IntegerField(null=True)
+
+    # These will be anonymized into new fields
+    arrest_address = models.CharField(max_length=30, default='', blank=True)
+    home_address = models.CharField(max_length=30, default='', blank=True)
+    home_city = models.CharField(max_length=50, default=u'Cincinnati', blank=True)
+    home_state = models.CharField(max_length=2, default=u'OH', blank=True)
+
+    anon_arrest_address = models.CharField(max_length=30, default='', blank=True)
+    anon_home_address = models.CharField(max_length=30, default='', blank=True)
+
+    def __unicode__(self):
+        return u'Arrest at %s' % self.anon_arrest_address
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        self.arrest_address = self.arrest_address.strip()
+        self.home_address = self.home_address.strip()
+
+        if self.arrest_address and not self.anon_arrest_address:
+            address = StreetAddressParser().parse(self.arrest_address)
+
+            if address.get('block') and int(address.get('block')) > 0:
+                self.anon_arrest_address = u'%s block of %s' % (address.get('block'), address.get('street_full'))
+            else:
+                self.anon_arrest_address = self.arrest_address
+
+        if self.home_address and not self.anon_home_address:
+            address = StreetAddressParser().parse(self.home_address)
+
+            if address.get('block') and int(address.get('block')) > 0:
+                self.anon_home_address = u'%s block of %s' % (address.get('block'), address.get('street_full'))
+            else:
+                self.anon_home_address = self.arrest_address
+
+        return super(Arrest, self).save(force_insert, force_update, using, update_fields=update_fields)
+
+
 class ThreeOneOne(models.Model):
     csr = models.CharField(max_length=15, help_text=u'CSR #')
     status = models.CharField(max_length=20, help_text=u'Status of the call')
