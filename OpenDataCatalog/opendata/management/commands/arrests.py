@@ -44,6 +44,12 @@ class Command(BaseCommand):
             # Get the time of arrest
             arrest_time = self.parse_time(row[8])
 
+            # Clean up some data so it works with the DB
+            try:
+                badge_number = int(row[17])
+            except ValueError:
+                badge_number = None
+
             try:
                 home_zip = int(row[23])
             except ValueError:
@@ -63,7 +69,7 @@ class Command(BaseCommand):
                 charge_code=int(row[14]),
                 charge_type=int(row[15]),
                 arrest_disp_code=int(row[16]),
-                badge_number=int(row[17]),
+                badge_number=badge_number,
                 officer=row[18].strip(),
                 nature=int(row[19]),
                 arrest_address=row[12].strip(),
