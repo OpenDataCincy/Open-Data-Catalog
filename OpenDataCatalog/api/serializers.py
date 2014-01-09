@@ -25,4 +25,5 @@ class CincinnatiPoliceSerializer(serializers.HyperlinkedModelSerializer):
 class ArrestSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Arrest
-        fields = ['arrest_type', 'event_date', 'event_time', 'dob_year', 'charge_code', 'anon_arrest_address', ]
+        fields = ['arrest_type', 'event_date', 'event_time', 'dob_year', 'charge_code', 'anon_arrest_address',
+                  'badge_number']
