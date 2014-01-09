@@ -31,8 +31,8 @@ class Command(BaseCommand):
             raise CommandError('Could not open first sheet.  Check file format.')
 
         # # Go through each row and handle.
-        #for i in range(sheet.nrows):
-        for i in range(10):
+        for i in range(sheet.nrows):
+        # for i in range(10):
             row = sheet.row_values(i)
 
             if u'ARR_TYPE' in unicode(row[0]):
@@ -43,6 +43,11 @@ class Command(BaseCommand):
 
             # Get the time of arrest
             arrest_time = self.parse_time(row[8])
+
+            try:
+                home_zip = int(row[23])
+            except ValueError:
+                home_zip = None
 
             arrest = Arrest.objects.create(
                 arrest_type=int(row[0]),
@@ -65,7 +70,7 @@ class Command(BaseCommand):
                 home_address=row[20].strip(),
                 home_city=row[21].strip(),
                 home_state=row[22].strip(),
-                home_zip=int(row[23]),
+                home_zip=home_zip,
                 report_number=row[24].strip(),
             )
 
