@@ -15,8 +15,8 @@ from rest_framework import viewsets, filters
 import json
 
 
-from .models import ThreeOneOne, CincinnatiPolice
-from .serializers import ThreeOneOneSerializer, ResourceSerializer, CincinnatiPoliceSerializer
+from .models import ThreeOneOne, CincinnatiPolice, Arrest
+from .serializers import ThreeOneOneSerializer, ResourceSerializer, CincinnatiPoliceSerializer, ArrestSerializer
 
 
 class JSONResponseMixin(object):
@@ -61,7 +61,7 @@ class ThreeOneOneViewSet(viewsets.ModelViewSet):
     filter_backends = [filters.SearchFilter, ]
     search_fields = ('request_type', 'description', )
 
-    http_method_names = ['get', ]
+    http_method_names = ['get', ]  # No need to allow creation
 
 
 class ResourceViewSet(viewsets.ModelViewSet):
@@ -70,12 +70,25 @@ class ResourceViewSet(viewsets.ModelViewSet):
     filter_backends = [filters.SearchFilter, ]
     search_fields = ('name', )
 
+    http_method_names = ['get', ]  # May allow creation later.
+
 
 class CPDViewSet(viewsets.ModelViewSet):
-    queryset = CincinnatiPolice.objects.all()
+    queryset = CincinnatiPolice.objects.all().order_by('-create_date')
     serializer_class = CincinnatiPoliceSerializer
     filter_backends = [filters.SearchFilter, ]
     search_fields = ('event_number', 'location', 'create_date', )
+
+    http_method_names = ['get', ]  # No need to allow creation.
+
+
+class ArrestViewSet(viewsets.ModelViewSet):
+    queryset = Arrest.objects.all().order_by('-event_date')
+    serializer_class = ArrestSerializer
+    filter_backends = [filters.SearchFilter, ]
+    search_fields = ('arrest_type', 'event_date', 'anon_arrest_address', )
+
+    http_method_names = ['get', ]  # No record creation
 
 
 def http_badreq(body=""):
