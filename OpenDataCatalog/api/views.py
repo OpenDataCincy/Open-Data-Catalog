@@ -74,7 +74,7 @@ class ResourceViewSet(viewsets.ModelViewSet):
 
 
 class CPDViewSet(viewsets.ModelViewSet):
-    queryset = CincinnatiPolice.objects.all()
+    queryset = CincinnatiPolice.objects.all().order_by('-create_date')
     serializer_class = CincinnatiPoliceSerializer
     filter_backends = [filters.SearchFilter, ]
     search_fields = ('event_number', 'location', 'create_date', )
