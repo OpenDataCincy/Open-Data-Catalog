@@ -55,6 +55,9 @@ class Command(BaseCommand):
             except ValueError:
                 home_zip = None
 
+            if Arrest.objects.filter(control_number=int(row[1])).exists():
+                self.stdout.write('Found existing control number: %s' % int(row[1]))
+
             arrest = Arrest.objects.create(
                 arrest_type=int(row[0]),
                 control_number=int(row[1]),
