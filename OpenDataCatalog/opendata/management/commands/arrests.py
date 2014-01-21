@@ -51,6 +51,11 @@ class Command(BaseCommand):
                 badge_number = None
 
             try:
+                nature = int(row[19])
+            except ValueError:
+                nature = 0
+
+            try:
                 home_zip = int(row[23])
             except ValueError:
                 home_zip = None
@@ -74,7 +79,7 @@ class Command(BaseCommand):
                 arrest_disp_code=int(row[16]),
                 badge_number=badge_number,
                 officer=row[18].strip(),
-                nature=int(row[19]),
+                nature=nature,
                 arrest_address=row[12].strip(),
                 home_address=row[20].strip(),
                 home_city=row[21].strip(),
