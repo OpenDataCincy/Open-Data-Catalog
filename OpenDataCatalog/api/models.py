@@ -5,6 +5,8 @@ from geopy.geocoders.googlev3 import GQueryError, GTooManyQueriesError
 
 from streetaddress import StreetAddressParser
 
+from urllib2 import HTTPError
+
 
 class CincinnatiPolice(models.Model):
     event_number = models.CharField(max_length=50, help_text=u'Event #')
@@ -135,15 +137,18 @@ class ThreeOneOne(models.Model):
             google = geocoders.GoogleV3()
 
             try:
-                place, (lat, lon) = google.geocode(address, exactly_one=False)[0]
+                place, (latitude, longitude) = google.geocode(address, exactly_one=False)[0]
             except GQueryError:
-                lat = 0
-                lon = 0
+                latitude = 0
+                longitude = 0
             except GTooManyQueriesError:
-                lat = 0
-                lon = 0
+                latitude = 0
+                longitude = 0
+            except HTTPError, e:
+                latitude = 0
+                longitude = 0
 
-            self.latitude = lat
-            self.longitude = lon
+            self.latitude = latitude
+            self.longitude = longitude
 
         return super(ThreeOneOne, self).save(force_insert, force_update, using, update_fields)
