@@ -5,6 +5,8 @@ from geopy.geocoders.googlev3 import GQueryError, GTooManyQueriesError
 
 from streetaddress import StreetAddressParser
 
+from urllib2 import HTTPError
+
 
 class CincinnatiPolice(models.Model):
     event_number = models.CharField(max_length=50, help_text=u'Event #')
@@ -140,6 +142,9 @@ class ThreeOneOne(models.Model):
                 lat = 0
                 lon = 0
             except GTooManyQueriesError:
+                lat = 0
+                lon = 0
+            except HTTPError, e:
                 lat = 0
                 lon = 0
 
