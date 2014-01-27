@@ -10,10 +10,12 @@ class ThreeOneOneSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('csr', 'request_type', 'description', 'status', 'date_received', 'latitude', 'longitude')
 
 
-class ResourceSerializer(serializers.HyperlinkedModelSerializer):
+class ResourceSerializer(serializers.ModelSerializer):
+    resource_urls = serializers.RelatedField(many=True)
+
     class Meta:
         model = Resource
-        fields = ('name', 'short_description', 'description', )
+        fields = ('name', 'short_description', 'description', 'resource_urls',)
 
 
 class CincinnatiPoliceSerializer(serializers.HyperlinkedModelSerializer):

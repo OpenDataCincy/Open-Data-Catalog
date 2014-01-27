@@ -88,7 +88,7 @@ class ResourceAdmin(admin.ModelAdmin):
     verbose_name_plural = 'Resource Urls'
     list_display = ('name', 'organization', 'release_date', 'is_published')
     search_fields = ['name', 'description', 'organization']
-    list_filter = ['tags', 'url__url_type', 'is_published']
+    list_filter = ['tags', 'is_published']
     date_heirarchy = 'release_date'
 
     def save_model(self, request, obj, form, change):
