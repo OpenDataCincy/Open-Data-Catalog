@@ -2,13 +2,14 @@ from django.conf.urls import patterns, url, include
 
 from rest_framework import routers
 
-from .views import CrimeDataView, ThreeOneOneViewSet, ResourceViewSet, CPDViewSet, ArrestViewSet
+from .views import CrimeDataView, ThreeOneOneViewSet, ResourceViewSet, CPDViewSet, ArrestViewSet, BikeRackViewSet
 
 router = routers.DefaultRouter()
 router.register(r'threeoneones', ThreeOneOneViewSet)
 router.register(r'resources', ResourceViewSet)
 router.register(r'cpd', CPDViewSet)
 router.register(r'arrests', ArrestViewSet)
+router.register(r'bike-racks', BikeRackViewSet)
 
 
 urlpatterns = patterns('',

@@ -169,3 +169,6 @@ class BikeRack(models.Model):
     def __unicode__(self):
         return u'Bike rack at %s' % self.street
 
+    class Meta:
+        ordering = ['rack_number', ]
+

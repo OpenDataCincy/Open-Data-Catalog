@@ -15,8 +15,9 @@ from rest_framework import viewsets, filters
 import json
 
 
-from .models import ThreeOneOne, CincinnatiPolice, Arrest
-from .serializers import ThreeOneOneSerializer, ResourceSerializer, CincinnatiPoliceSerializer, ArrestSerializer
+from .models import ThreeOneOne, CincinnatiPolice, Arrest, BikeRack
+from .serializers import ThreeOneOneSerializer, ResourceSerializer, CincinnatiPoliceSerializer, ArrestSerializer, \
+    BikeRackSerializer
 
 
 class JSONResponseMixin(object):
@@ -89,6 +90,15 @@ class ArrestViewSet(viewsets.ModelViewSet):
     search_fields = ('arrest_type', 'event_date', 'anon_arrest_address', )
 
     http_method_names = ['get', ]  # No record creation
+
+
+class BikeRackViewSet(viewsets.ModelViewSet):
+    queryset = BikeRack.objects.all()
+    serializer_class = BikeRackSerializer
+    filter_backends = [filters.SearchFilter, ]
+    search_fields = ('description', 'location', 'street', )
+
+    http_method_names = ['get', ]
 
 
 def http_badreq(body=""):
