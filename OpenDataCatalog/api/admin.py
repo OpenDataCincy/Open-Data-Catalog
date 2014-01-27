@@ -8,4 +8,4 @@ class BikeRackAdmin(admin.ModelAdmin):
 
 admin.site.register(ThreeOneOne)
 admin.site.register(Arrest)
-admin.site.register(BikeRack)
+admin.site.register(BikeRack, BikeRackAdmin)
