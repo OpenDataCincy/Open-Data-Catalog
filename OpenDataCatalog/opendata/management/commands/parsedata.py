@@ -3,6 +3,7 @@ from optparse import make_option
 
 import xlrd
 from datetime import date, time
+import re
 
 from OpenDataCatalog.api.models import BikeRack
 
@@ -17,10 +18,19 @@ class Command(BaseCommand):
             default=False,),
     )
 
+    available_data_options = [
+        'bikeracks',
+        'vacant',
+    ]
+
     def handle(self, *args, **options):
 
         if not 'data' in options:
             raise CommandError('You must specify a type of data to parse.')
+
+        else:
+            if not options.get('data') in self.available_data_options:
+                raise CommandError('The data type you specified is not available.')
 
         if not len(args):
             raise CommandError('You must supply an xls or xlsx document')
@@ -42,4 +52,28 @@ class Command(BaseCommand):
 
         # # Go through each row and handle.
         for i in range(sheet.nrows):
-            print i
+
+            row = sheet.row_values(i)
+
+            if options.get('data') == 'bikeracks':
+
+                try:
+                    rack_number = int(row[4])
+                except ValueError:
+                    rack_number = 0
+
+                # Get the street and lat/lon in one fell swoop
+
+                rack = BikeRack.objects.create(
+                    rack_number=rack_number,
+                    neighborhood=row[0].strip(),
+                    location=row[1].strip(),
+                    street='',
+                    latitude='',
+                    longitude='',
+                    placement=row[7].strip(),
+                    rack_type=row[8].strip(),
+                    description='',
+                )
+
+                self.stdout.write('Created bike rack: %s' % rack)
