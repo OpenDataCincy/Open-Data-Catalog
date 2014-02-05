@@ -142,10 +142,15 @@ class Resource(models.Model):
         return super(Resource, self).save(*args, **kwargs)
 
     def get_distinct_url_types(self):
+
+        if not hasattr(self, 'url_set'):
+            return []
+
         types = []
         for url in self.url_set.all():
             if url.url_type not in types:
                 types.append(url.url_type)
+                
         return sorted(types, key=attrgetter('url_type'))
     
     def get_grouped_urls(self):
