@@ -284,7 +284,7 @@ var odp = {
               return false;
            });
            // close the window when clicking the overlay background
-           $('.ui-widget-overlay').live("click", function() {
+           $('body').on('click', '.ui-widget-overlay', function() {
               $dialog.dialog("close");
           });   
          });
