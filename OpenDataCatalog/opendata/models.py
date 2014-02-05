@@ -143,11 +143,11 @@ class Resource(models.Model):
 
     def get_distinct_url_types(self):
 
-        if not hasattr(self, 'url_set'):
+        if not hasattr(self, 'resource_urls'):
             return []
 
         types = []
-        for url in self.url_set.all():
+        for url in self.resource_urls.all():
             if url.url_type not in types:
                 types.append(url.url_type)
                 
@@ -205,11 +205,11 @@ class Resource(models.Model):
 
     @property
     def csw_links(self):
-        if not hasattr(self, 'url_set'):
+        if not hasattr(self, 'resource_urls'):
             return []
 
         links = []
-        for url in self.url_set.all():
+        for url in self.resource_urls.all():
             tmp = '%s,%s,%s,%s' % (url.url_label, url.url_type.url_type, 'WWW:DOWNLOAD-1.0-http--download', url.url)
             links.append(tmp)
         abs_url = '%s%s' % (gen_website_url(), self.get_absolute_url())
@@ -257,7 +257,7 @@ class Resource(models.Model):
         abs_url = '%s%s' % (gen_website_url(), self.get_absolute_url())
         etree.SubElement(record, nspath(nsmap['dct'], 'references'), scheme='WWW:LINK-1.0-http--link').text = abs_url
 
-        for link in self.url_set.all():
+        for link in self.resource_urls.all():
             etree.SubElement(record, nspath(nsmap['dct'], 'references'),
                              scheme='WWW:DOWNLOAD-1.0-http--download').text = link.url
 
