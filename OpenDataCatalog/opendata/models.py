@@ -154,6 +154,9 @@ class Resource(models.Model):
         return sorted(types, key=attrgetter('url_type'))
     
     def get_grouped_urls(self):
+        if not hasattr(self, 'url_set'):
+            return {}
+
         urls = {}
         for utype in UrlType.objects.all():
             urls[utype.url_type] = self.url_set.filter(url_type=utype)            
@@ -202,6 +205,9 @@ class Resource(models.Model):
 
     @property
     def csw_links(self):
+        if not hasattr(self, 'url_set'):
+            return []
+
         links = []
         for url in self.url_set.all():
             tmp = '%s,%s,%s,%s' % (url.url_label, url.url_type.url_type, 'WWW:DOWNLOAD-1.0-http--download', url.url)
