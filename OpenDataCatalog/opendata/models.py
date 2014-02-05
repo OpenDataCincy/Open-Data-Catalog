@@ -281,10 +281,11 @@ class Url(models.Model):
     url = models.URLField(max_length=255)
     url_label = models.CharField(max_length=255)
     url_type = models.ForeignKey(UrlType)
-    resource = models.ForeignKey(Resource)
+    resource = models.ForeignKey(Resource, related_name='resource_urls')
 
     def __unicode__(self):
-        return u'%s - %s - %s' % (self.url_label, self.url_type, self.url)
+        #return u'%s - %s - %s' % (self.url_label, self.url_type, self.url)
+        return unicode(self.url)
 
 
 class UrlImage(models.Model):

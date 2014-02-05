@@ -1,4 +1,4 @@
-from .models import ThreeOneOne, CincinnatiPolice, Arrest
+from .models import ThreeOneOne, CincinnatiPolice, Arrest, BikeRack
 from OpenDataCatalog.opendata.models import Resource
 
 from rest_framework import serializers
@@ -10,10 +10,12 @@ class ThreeOneOneSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('csr', 'request_type', 'description', 'status', 'date_received', 'latitude', 'longitude')
 
 
-class ResourceSerializer(serializers.HyperlinkedModelSerializer):
+class ResourceSerializer(serializers.ModelSerializer):
+    resource_urls = serializers.RelatedField(many=True)
+
     class Meta:
         model = Resource
-        fields = ('name', 'short_description', 'description', )
+        fields = ('name', 'short_description', 'description', 'resource_urls',)
 
 
 class CincinnatiPoliceSerializer(serializers.HyperlinkedModelSerializer):
@@ -27,3 +29,10 @@ class ArrestSerializer(serializers.HyperlinkedModelSerializer):
         model = Arrest
         fields = ['arrest_type', 'event_date', 'event_time', 'dob_year', 'charge_code', 'charge_type', 'anon_arrest_address',
                   'badge_number', 'control_number', ]
+
+
+class BikeRackSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = BikeRack
+        fields = ['rack_number', 'neighborhood', 'location', 'latitude', 'longitude', 'street', 'placement',
+                  'rack_type', 'description']

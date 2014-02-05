@@ -152,3 +152,23 @@ class ThreeOneOne(models.Model):
             self.longitude = longitude
 
         return super(ThreeOneOne, self).save(force_insert, force_update, using, update_fields)
+
+
+class BikeRack(models.Model):
+    rack_number = models.IntegerField(null=True, help_text=u'The unique rack identifier')
+    neighborhood = models.CharField(max_length=200, help_text=u'Where it is, Cincy-hood-wise')
+    location = models.CharField(max_length=200)
+    street = models.CharField(max_length=200)
+    latitude = models.FloatField(null=True, default=0)
+    longitude = models.FloatField(null=True, default=0)
+
+    placement = models.CharField(max_length=100)
+    rack_type = models.CharField(max_length=50)
+    description = models.CharField(max_length=300)
+
+    def __unicode__(self):
+        return u'Bike rack at %s' % self.street
+
+    class Meta:
+        ordering = ['rack_number', ]
+
