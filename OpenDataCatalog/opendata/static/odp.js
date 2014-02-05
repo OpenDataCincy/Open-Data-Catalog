@@ -286,7 +286,9 @@ var odp = {
            // close the window when clicking the overlay background
            $('body').on('click', '.ui-widget-overlay', function() {
               $dialog.dialog("close");
-          });   
+          }).on('click', '.ui-icon-closethick', function() {
+                $dialog.dialog('close');
+            });
          });
       },
     
