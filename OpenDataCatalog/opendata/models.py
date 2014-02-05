@@ -154,12 +154,12 @@ class Resource(models.Model):
         return sorted(types, key=attrgetter('url_type'))
     
     def get_grouped_urls(self):
-        if not hasattr(self, 'url_set'):
+        if not hasattr(self, 'resource_urls'):
             return {}
 
         urls = {}
         for utype in UrlType.objects.all():
-            urls[utype.url_type] = self.url_set.filter(url_type=utype)            
+            urls[utype.url_type] = self.resource_urls.filter(url_type=utype)
         return urls
     
     def get_first_image(self):
