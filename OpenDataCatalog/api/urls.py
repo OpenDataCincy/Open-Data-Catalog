@@ -13,7 +13,7 @@ router.register(r'bike-racks', BikeRackViewSet)
 
 
 urlpatterns = patterns('',
-    url('^', include(router.urls)),
+    url('^', include(router.urls), name='api-root'),
     # API urls (all are GET urls unless stated otherwise)
     url(r'^resources/$', 'OpenDataCatalog.api.views.resources'),
     url(r'^resources/(?P<resource_id>\d+)/$', 'OpenDataCatalog.api.views.resource'),

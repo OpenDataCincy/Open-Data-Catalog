@@ -262,6 +262,10 @@ margin-top: -14px;
 	padding-left: 30px;
 	background: url(/static/images/icon_add_xsm.png) 0 2px no-repeat; 
 }
+#left_container ul li#api {
+    padding-left: 30px;
+    background: url(/static/images/icon_idea_gallery_xsm.png) 0 2px no-repeat;
+}
 
 #left_container ul li.icon-xsm:hover  {
 	background-position: 0 -25px !important;

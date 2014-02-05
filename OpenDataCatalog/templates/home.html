@@ -19,7 +19,7 @@
 {% block center_container %}
 <a class="resource" id="home_idea" href="{{ SITE_ROOT }}{{ idea.get_absolute_url }}" style="background: #ffffff url({% if idea.get_home_page_image.image %}/media/{{ idea.get_home_page_image.image|urlencode }}{% else %}/static/images/detail_no_image.gif{% endif %}) center no-repeat;"></a>
 <div id="home_idea_label">
-  <a href="{{SITE_ROOT}}{{idea.get_absolute_url}}">{{idea.title}}</a> by {{idea.author}}
+  <a href="{{ SITE_ROOT }}{{ idea.get_absolute_url }}">{{ idea.title }}</a> by {{idea.author}}
 </div>
 <a id="home_idea_callout" href="{% url 'ideas' %}">Need Inspiration? Visit the Idea Gallery</a>
 
