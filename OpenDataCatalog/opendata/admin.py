@@ -11,6 +11,8 @@ from django.contrib.auth.tokens import default_token_generator
 
 from simplejson import loads, JSONDecodeError
 
+from datetime import date
+
 
 class UserAdmin(UserAdmin):
     """
@@ -151,13 +153,45 @@ class SubmissionAdmin(admin.ModelAdmin):
     search_fields = ['email_text', 'user']
     readonly_fields = ['user', ]
 
-    actions = ['convert_to_resource', ]
+    actions = ['convert_to_resource', 'convert_to_nomination', ]
 
     def save_model(self, request, obj, form, change):
         if not change:
             obj.user = request.user
         
         obj.save()
+
+    def convert_to_nomination(self, request, queryset):
+        """
+        Converts the submission to a nomination
+        """
+        count = 0
+
+        for submission in queryset:
+            try:
+                data = loads(submission.json_text)
+            except JSONDecodeError:
+                data = None
+
+            print data
+
+            if data:
+                suggestion = Suggestion()
+                suggestion.text = data.get('dataset_name')[:255]
+                suggestion.description = data.get('description') if data.get('description') else ''
+                suggestion.suggested_by = submission.user
+                # suggestion.suggested_date = submission.sent_date
+                suggestion.last_modified_date = date.today()
+                suggestion.save()
+
+                count += 1
+
+        if count == 1:
+            message = '1 submission was converted to a nomination'
+        else:
+            message = '%s submissions were converted to nominations' % count
+
+        self.message_user(request, message)
 
     def convert_to_resource(self, request, queryset):
         """
@@ -229,6 +263,7 @@ class SubmissionAdmin(admin.ModelAdmin):
         self.message_user(request, message)
 
     convert_to_resource.short_description = 'Convert selected submission(s) to resource(s)'
+    convert_to_nomination.short_description = 'Convert selected submission(s) to nomination(s)'
 
 
 class ODPUserProfileAdmin(admin.ModelAdmin):
