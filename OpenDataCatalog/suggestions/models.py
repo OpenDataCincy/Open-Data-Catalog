@@ -7,6 +7,7 @@ from OpenDataCatalog.opendata.models import Resource
 
 class Suggestion(models.Model):
     text = models.CharField(max_length=255)
+    description = models.TextField(blank=True)
     suggested_by = models.ForeignKey(User, related_name="suggested_by")
     suggested_date = models.DateTimeField(auto_now_add=True)
     last_modified_date = models.DateTimeField(auto_now=True)

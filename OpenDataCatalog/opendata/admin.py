@@ -178,6 +178,7 @@ class SubmissionAdmin(admin.ModelAdmin):
             if data:
                 suggestion = Suggestion()
                 suggestion.text = data.get('dataset_name')[:255]
+                suggestion.description = data.get('description') if data.get('description') else ''
                 suggestion.suggested_by = submission.user
                 # suggestion.suggested_date = submission.sent_date
                 suggestion.last_modified_date = date.today()
