@@ -230,6 +230,7 @@ class SubmitDataView(FormView):
             "submitter": self.request.user.username,
             "submit_date": datetime.now(),
             "dataset_name": form.cleaned_data.get("dataset_name"),
+            "description": form.cleaned_data.get('description'),
             "organization": form.cleaned_data.get("organization"),
             "copyright_holder": form.cleaned_data.get("copyright_holder"),
             "contact_email": form.cleaned_data.get("contact_email"),
