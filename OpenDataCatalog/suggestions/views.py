@@ -24,7 +24,7 @@ def list_all(request):
             if f == 'done':                  
                 suggestions = suggestions.exclude(completed=False)
                 
-        except:
+        except Exception as ex:
             pass    
 
     form = SuggestionForm()
