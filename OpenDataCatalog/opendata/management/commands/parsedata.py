@@ -63,14 +63,16 @@ class Command(BaseCommand):
                     rack_number = 0
 
                 # Get the street and lat/lon in one fell swoop
+                s = row[2].splitlines()
+                (latitude, longitude) = s[2].strip('()').split(',')
 
                 rack = BikeRack.objects.create(
                     rack_number=rack_number,
                     neighborhood=row[0].strip(),
                     location=row[1].strip(),
-                    street='',
-                    latitude='',
-                    longitude='',
+                    street=s[0].strip(),
+                    latitude=latitude.strip(),
+                    longitude=longitude.strip(),
                     placement=row[7].strip(),
                     rack_type=row[8].strip(),
                     description='',
