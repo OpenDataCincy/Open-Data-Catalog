@@ -49,13 +49,20 @@ class Command(BaseCommand):
             sheet = workbook.sheet_by_index(0)
         except AttributeError:
             raise CommandError('Could not open first sheet.  Check file format.')
+        except IndexError:
+            raise CommandError('Could not open first sheet.')
 
         # # Go through each row and handle.
         for i in range(sheet.nrows):
 
             row = sheet.row_values(i)
 
+            print row
+
             if options.get('data') == 'bikeracks':
+
+                if u'NEIGHBORHOOD' in row[0]:
+                    continue
 
                 try:
                     rack_number = int(row[4])
@@ -75,7 +82,7 @@ class Command(BaseCommand):
                     longitude=longitude.strip(),
                     placement=row[7].strip(),
                     rack_type=row[8].strip(),
-                    description='',
+                    description=row[9].strip()[:300],
                 )
 
                 self.stdout.write('Created bike rack: %s' % rack)
