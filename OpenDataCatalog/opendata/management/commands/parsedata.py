@@ -57,8 +57,6 @@ class Command(BaseCommand):
 
             row = sheet.row_values(i)
 
-            print row
-
             if options.get('data') == 'bikeracks':
 
                 if u'NEIGHBORHOOD' in row[0]:
