@@ -1,13 +1,13 @@
 *.pyc
 *.db
-*.csv
+#*.csv
 local_settings.py
 OpenDataCatalog/local_settings.py
 OpenDataCatalog/media/
 admin_media
 media/*
 static/*
-OpenDataCatalog/static/*
+#OpenDataCatalog/static/*
 *~
 *#	
 .#*
