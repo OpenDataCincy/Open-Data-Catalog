@@ -1,0 +1,839 @@
+NEIGHBORHOOD,LOCATION,Location 1,ID,RACK_NO,POSITION_X,POSITION_Y,BFCC,TYPE,DESCOver the Rhine,Over-the-Rhine Community Center,"1715 Republic St.
+Cincinnati, OH
+(39.11544762256443, -84.51724756224093)",1,1,1396224.56,412418.68,recreation center,??,west entrance south of indoor poolBanks,Great American Ballpark,"100 Main Street
+Cincinnati, OH
+(39.13701738719195, -84.70873694389039)",2,2,1398551,405738,public sidewalk,ring,sidewalk west of stadiumCBD,Downtown Library,"800 Vine St.
+Cincinnati, OH
+(39.105231324311546, -84.51394705039337)",3,3,1397119.77,408797.48,library,wave,east entrance to buildingCBD,Fountain Square East,"corner of 5th and Walnut
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",4,4,1397682.3,407490.22,public sidewalk,wave,"SE corner, near 5th @ Walnut"CUF,Campus Cyclery,"241 W McMillan St
+Cincinnati, OH
+(39.1279392055514, -84.52096176222193)",5,5,1395254,417201,public sidewalk,ring,near front entranceBanks,Great American Ballpark,"100 Main Street
+Cincinnati, OH
+(39.13701738719195, -84.70873694389039)",6,6,1398556,405710,public sidewalk,ring,sidewalk west of stadiumCBD,John Weld Peck (Federal Building),"550 Main St.
+Cincinnati, OH
+(39.10278516839185, -84.51002600634564)",7,7,1398239.99,407761.44,public sidewalk,??,S. walk of 6th StreetWestwood,YMCA/ Gamble -Nippert,"3159 Montana
+Cincinnati, OH
+(39.14876289614153, -84.60564803404134)",8,8,1371258.34,425222.57,public sidewalk,??,in grass on S. side of MontanaWestwood,Westwood School,"2981 Montana Ave
+Cincinnati, OH
+(39.148551666462936, -84.5984473482664)",9,9,1373517,424933,school,??,S. side of buildingCBD,Elm St. Garage,"435 Elm St.
+Cincinnati, OH
+(39.09989818354296, -84.51606092405198)",10,10,1396354,407047,public sidewalk,,east end of building the left of entrance (can not see from street)Banks,Great American Ballpark,"100 Main Street
+Cincinnati, OH
+(39.13701738719195, -84.70873694389039)",11,11,1398568,405631,public sidewalk,ring,sidewalk west of stadiumPrice Hill-West,Phillips Swim Club,"5245 Glenway
+Cincinnati, OH
+(39.124988626865466, -84.60379092271324)",12,12,1371201.59,416643.82,public space,comb,near main entrancePrice Hill-West,Carson Elementary,"4323 Glenway
+Cincinnati, OH
+(39.11386808529942, -84.58563370539291)",13,13,1376670.31,412327.69,school,??,near main entrancePrice Hill-West,Rapid Run Park,"Rapid Run @ Rutledge
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",14,14,1376471.83,413744.41,park,??,N. walk of Rapid Run @ Rutledge near entranceBanks,Great American Ballpark,"100 Main Street
+Cincinnati, OH
+(39.13701738719195, -84.70873694389039)",15,15,1398654,405556,public sidewalk,ring,sidewalk south of stadiumCBD,Theodore M. Berry International Friendship Park,"1135 Riverside Drive
+Cincinnati, OH
+(39.10774043277331, -84.49228238270757)",16,16,1403054,409269,,special,on edge of plazaCBD,Cincinnati Commerce Center,"600 Vine St.
+Cincinnati, OH
+(39.102596310765705, -84.51330853175256)",17,17,1397234.31,408133.53,public sidewalk,comb,N. side of building on Gano alleywayWalnut Hills,Williams YMCA,"1228 E. McMillan
+Cincinnati, OH
+(39.12556001954148, -84.48410106131996)",18,18,1405895,416225.6,public space,comb,N. side of McMillan S. side of buildingAvondale,Avondale Library,"3566 Reading Rd.
+Cincinnati, OH
+(39.14667208342172, -84.4895214640776)",19,19,1404418.6,423832.2,library,??,Next to main entranceAvondale,Hirsch Rec. Center,"3630 Reading Rd.
+Cincinnati, OH
+(39.14883944951231, -84.48820845391481)",20,20,1404756.92,424577.21,recreation center,??,west side of poolWest End,Lincoln Park Public Library,"805 Ezzard Charles Rd.
+Cincinnati, OH
+(39.10925491619724, -84.52796719441807)",21,21,1393060,410410,library,comb,north side of buildingOakley,Oakley Library,"4033 Gilmore Ave.
+Cincinnati, OH
+(39.15251767661215, -84.43026513556703)",22,22,1421112.3,425594.25,library,wave,S. side of buildingPleasant Ridge,Pleasant Ridge NBD/ Walgreen's,"6204 Montgomery Rd
+Cincinnati, OH
+(39.18332844933599, -84.42509403389852)",23,23,1421341.3,426020.8,public sidewalk,??,Walgreens on Montgomery RdPleasant Ridge,Pleasant Ridge School,"5945 Montgomery Ave.
+Cincinnati, OH
+(39.180356202147195, -84.43299221829027)",24,24,1420697.69,436029,school,??,in front of school by entrancePleasant Ridge,Pleasant Ridge Library,"6233 Montgomery Ave.
+Cincinnati, OH
+(39.18381413508951, -84.42440092997623)",25,25,1423170,437119,library,??,near front entranceCBD,Theodore M. Berry International Friendship Park,"1135 Riverside Drive
+Cincinnati, OH
+(39.10774043277331, -84.49228238270757)",26,26,1403093,409127,,special,on edge of plazaSpring Grove Village,Kroger Food and Drugs,"4777 Kenard St.
+Cincinnati, OH
+(39.16351283803318, -84.51393027464722)",27,27,1397350,430434,grocery,??,Mt. Auburn,Inwood Park Basketball Courts,"Vine and Inwood
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",28,28,1397260.67,415974.65,park,??,near Vine and OrtizHartwell,Hartwell Community Center,"8275 Vine St.
+Cincinnati, OH
+(39.21168760535947, -84.47430809506608)",29,29,1408954.7,447628.9,recreation center,??,E. side of building next to pool entranceCorryville,Short Vine,"Vine @ Daniels
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",30,30,1398583,418466,public sidewalk,lollypop,SE walk @ intersection of Vine and DanielsCorryville,Short Vine,"2634 Vine St. @ Charlton
+Cincinnati, OH
+(39.130259456386966, -84.50954936567013)",31,31,1398593.8,417991.4,public sidewalk,lollypop,NW walk @ intersection of Vine & CharltonCorryville,Short Vine,"2701 Vine St. @ Charlton
+Cincinnati, OH
+(39.13049328011459, -84.50959433177155)",32,32,1398533,418008,public sidewalk,lollypop,SE walk @ intersection of Vine & CharltonCorryville,Short Vine,"2601 Vine @ Corry
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",33,33,1398446,417632,public sidewalk,lollypop,NW walk @ intersection of Vine & CorryOver the Rhine,Park+Vine,"1202 Main St
+Cincinnati, OH
+(39.10932323954489, -84.51164478599839)",,34,1397741.5,410350,street,corral,Carthage,Caldwell Park,"North Bend Road @ Mill Creek
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",34,35,1405492.13,443148.6,park,??,West side of poolBond Hill,Jordan Crossing,"7030 Reading Rd.
+Cincinnati, OH
+(39.187501303551926, -84.4644483659007)",35,36,1412050,438224,retail center,??,Price Hill,Quebec Heights School,"1655 Ross
+Cincinnati, OH
+(39.117812939635066, -84.57115804128885)",36,37,1381599.35,414259.1,school,??,West side of buildingPrice Hill-East,Roberts Padeia Academy,"1700 Grand
+Cincinnati, OH
+(39.11708848855198, -84.55990341291145)",37,38,1384656.45,413610.32,school,??,South side of buildingSayler Park,Sayler Park School,"6700 Home City
+Cincinnati, OH
+(39.11602873125383, -84.69098367966288)",38,39,1347067.45,414165.88,school,??,Rear parking lot north of buildingWestwood,Gamble Middle School,"2601 Westwood-Northern Boulvard
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",39,40,1376875.37,424924.83,school,??,North side of building near main entranceMt. Washinton,Mt. Washington Library,"2049 Beechmont
+Cincinnati, OH
+(39.0915282427047, -84.38699071183595)",40,41,1432916.9,403070,library,??,Oakley,Oakley Community Center,"3950 Paxton
+Cincinnati, OH
+(39.1496299109499, -84.42659795338925)",41,42,1422320,424430,recreation center,??,West of building between building and poolOver the Rhine,Higher Branch,"1341 Main St
+Cincinnati, OH
+(39.11103732126184, -84.51217786373843)",,43,1397598.26,411028.51,public sidewalk,A-2,Mt Washington,Eastern Hills School IGE,"6421 Corbly
+Cincinnati, OH
+(39.09444179466776, -84.3791901181429)",42,44,1435237.84,403435.02,school,??,South side of buildingWestwood,Midway School,"3200 Midway
+Cincinnati, OH
+(39.13597549142193, -84.60894826091545)",43,45,1370396.79,420982.75,school,??,South side of buildingCBD,Scripps Howard,"312 Walnut St
+Cincinnati, OH
+(39.18627822559205, -84.48779476578136)",,46,1397945,406699,public sidewalk,A-4,Mt Washington,Mt Washington School,"1730 Mears
+Cincinnati, OH
+(39.08525149908592, -84.38656654940871)",44,47,1433305.61,401014.06,school,??,South side of buildingWestwood,Westwood Library,"3345 Epworth
+Cincinnati, OH
+(39.147802530628695, -84.60004044077532)",45,48,1372958.09,425103.78,library,??,West side of buildingMt Washington,Mt Washington Community Center,"1715 Beacon
+Cincinnati, OH
+(39.084956927828514, -84.38180120180353)",46,49,1434343.1,400768.5,recreation center,??,in front of building near main entranceHyde Park,Hyde Park Library,"2747 Erie
+Cincinnati, OH
+(39.13943853551919, -84.44152254306428)",47,50,1417971.2,420814,library,comb,North side of building on front porchCBD,Mercantile Library,"414 Walnut St
+Cincinnati, OH
+(39.10070773450417, -84.51117713854313)",,51,1397856.5,407244.5,public sidewalk,A-2,Madisonville,Eastwood Padeia School,"5030 Duck Creek
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",48,52,1427487.3,430166.91,school,??,West side of buildingNorthside,Chase Elementary School,"4151 Turrill
+Cincinnati, OH
+(39.162085628041844, -84.54165259260274)",49,53,1389611.41,430201.65,school,??,South side of building near main entranceNorthside,Schwab Middle School,"4370 Beech
+Cincinnati, OH
+(39.15568339174306, -84.44324016211338)",50,54,1391217,431896,school,??,North side of building near main entranceCBD,WCPO - Channel 9,"1720 Gilbert
+Cincinnati, OH
+(39.113895315517944, -84.49951615607787)",,55,1401172,411782,TV station,A-2,front doorBond Hill,Woodward Technical Career  School,"7007 Reading
+Cincinnati, OH
+(39.18682074201245, -84.464875065921)",51,56,1411354.94,438812,school,??,near main entranceRoselawn,Roselawn Condon School,"7735 Greenland
+Cincinnati, OH
+(39.20254030240184, -84.46014643641303)",52,57,1412990,444314,school,??,East side of BuildingCollege Hill,College Hill Branch Library,"1400 West North Bend
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",53,58,1389982.7,444684.2,library,??,Two Racks; East and West side of buildingCollege Hill,Pleasant Hill Academy,"1402 West North Bend
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",54,59,1390032.1,444937.2,school,??,East side of BuildingNorthside,Mayday Bar,"4231 Spring Grove Ave
+Cincinnati, OH
+(39.159730239287114, -84.53256301639988)",,60,1392211,428890.5,public sidewalk,"A-4, A-4, A-2",three racksNorth Avondale,North Avondale Community Center,"617 Clinton Springs
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",55,61,1403920,427399,recreation center,??,South side of building near basketball courtMt Auburn,Taft Elementary School,"270 Southern Ave
+Cincinnati, OH
+(39.120097117455884, -84.5058531521297)",56,62,1399514,414372.23,school,??,West side of building near main entranceCollege Hill,College Hill Fundamental Academy,"1625 Cedar
+Cincinnati, OH
+(39.1987571850911, -84.54771306905576)",57,63,1387937.29,443068.5,school,??,South side of buildingMt Airy,Mt Airy School,"5730 Colerain
+Cincinnati, OH
+(39.19835759114907, -84.5779827039489)",58,64,1379980.27,443264.6,school,??,North side of building near ball feildWinton Place,Cincinnati Waterworks,"4747 Spring Grove
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",59,65,1396933.8,431058.3,public sidewalk,??,East side of building near employee entranceCalifornia,California Ball Fields,"Renslar @ Linneman
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",60,66,1421540,394997,park,??,Edge of ParkEast End,Lunken Terminal,"262 Wilmer @ Beechmont
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",61,67,1421020,407821,park,??,near back entrance to terminal buildingEast End,Lunken Trail,"262 Wilmer
+Cincinnati, OH
+(39.10323256525516, -84.42992249361244)",62,68,1421020,407829,park,??,Outside Terminal Building on Airport sideUniversity Heights,Clifton Natural Foods,"169 W McMillan Ave
+Cincinnati, OH
+(39.12775857169188, -84.51864832927431)",,69,1395785.5,417125.5,public sidewalk,ring,Clifton,Fries CafÃ©,"3427 Jefferson Ave
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",,70,1397662,421453.5,public sidewalk,A-2,Over the Rhine,Music Hall - visitors,"1241 Elm St
+Cincinnati, OH
+(39.1093383036503, -84.51848201064422)",,71,1395774.5,410457.5,venue,U-2 x 4,south of entrance doorsOver the Rhine,Music Hall - employees,"1244 Central Parkway
+Cincinnati, OH
+(39.10869503985892, -84.51968904916528)",,72,1395398.5,410442.5,venue,U-2 x 3,north of entranceCBD,Gwynne Building - SORTA Offices,"602 Main St
+Cincinnati, OH
+(39.103144897203606, -84.51011593854855)",,73,1398146.5,408122,public sidewalk,U-2,Oakley,Hyde Park Square @ McDonalds,"3880 Paxton Ave.
+Cincinnati, OH
+(39.147958632570024, -84.4280839483683)",63,74,1421943.84,423685.68,public sidewalk,comb,CBD,Washington Platform,"1100 Elm St
+Cincinnati, OH
+(39.10678264832472, -84.5176666502796)",,75,1396072,409183,public sidewalk,U-2,Madisonville,Bramble Academy,"North side of Bramble at Homer
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",64,76,1433040.9,425015.77,school,??,Madisonville,Public Pool,"South side of Bramble
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",65,77,1433326.5,424797.91,park,??,Queensgate,Union Terminal,"1301 Western Ave.
+Cincinnati, OH
+(39.10881560247548, -84.53229915404947)",66,78,1390480,410706,public sidewalk,comb,To the left of the main entranceQueensgate,Queen City Metro,"1401 Banks St.
+Cincinnati, OH
+(39.11986266274136, -84.53696830352848)",67,79,1390180,413044,public sidewalk,??,SW corner of parking lotWest End,City Hall,"801 Plum St.
+Cincinnati, OH
+(39.104269049740196, -84.5188033893516)",68,80,1395590,408593,public sidewalk,A-2 x 2,"E side of building, next to north bushes at curb"East End,Boathouse,"925 Eastern Ave
+Cincinnati, OH
+(39.104251063299614, -84.49511524709982)",69,81,1402498.87,408352.69,recreation center,A-2,recreationWest End,Main Post Office,"1623 N. Dalton
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",70,82,1390830.4,412353,public sidewalk,A-2,Over the Rhine,Coffee Emporium Downtown,"110 E Central Parkway
+Cincinnati, OH
+(39.107637828635745, -84.51215802178301)",,83,1397699,409768,public sidewalk,"ring x 3, art rack","3 rings, 1 ArtRack"Avondale,Avondale Post Office,"410 Erkenbrecher
+Cincinnati, OH
+(39.14194359547093, -84.50005160997313)",71,84,1401420,422214,public sidewalk,??,in front of building near main entranceNorthside,McKie Recreation Center,"1655 Chase
+Cincinnati, OH
+(39.163462656248264, -84.54307299108665)",72,85,1389440,430245,recreation center,??,CBD,Yoga Bar,"825 Main St
+Cincinnati, OH
+(39.105555080242084, -84.51077244362995)",,86,1397943,409021,public sidewalk,A-2,West End,Centennial Building,"805 Central Ave.
+Cincinnati, OH
+(39.1037744226241, -84.52028727069995)",73,87,1395229.29,408430.97,public sidewalk,A-2,W. side of CentralClifton,Parking Lot (Subway),"272 Ludlow Ave.
+Cincinnati, OH
+(39.143209693608924, -84.51837171477752)",74,88,1396097.9,422802.41,public sidewalk,??,In Parking LotEast End,Maribelle,"2062 Riverside
+Cincinnati, OH
+(39.12147492806324, -84.47542990579369)",,89,1408210,414645,restaurant,wave,Avondale,Cincinnati Zoo,"3400 Vine St.
+Cincinnati, OH
+(39.143335598693, -84.51020587075152)",75,90,1398710.44,422543.71,,??,Lot across from zoo entrance on DuryOver the Rhine,Bockfest Hall,"1150 Main St
+Cincinnati, OH
+(39.109089415817266, -84.51158183345632)",,91,1397758.87,410307.86,public sidewalk,ring,21 rings 2010Avondale,Cincinnati Zoo,"3400 Vine St.
+Cincinnati, OH
+(39.143335598693, -84.51020587075152)",76,92,1399629.06,423375.09,,??,Mt. Auburn,Jackson Hill Park,"2027 Eleanor Place
+Cincinnati, OH
+(39.118694041142334, -84.51178680655391)",77,93,1397590,413639,park,??,Bond Hill,Bond Hill Recreation Center,"1501 Elizabeth Place
+Cincinnati, OH
+(39.17773466631371, -84.47178683365979)",78,94,1409594.01,434868.59,recreation center,??,Bond Hill,Bond Hill Academy,"1500 California Ave.
+Cincinnati, OH
+(39.17610748487244, -84.47200841820748)",79,95,1409758.08,434725.3,school,??,Over the Rhine,Legend Sportwear,"1209 Main St
+Cincinnati, OH
+(39.10912538869843, -84.51167176565923)",,96,1397713.37,410303.04,public sidewalk,ring,21 rings 2010University Heights,Urban Outfitters,"2508 Ohio St
+Cincinnati, OH
+(39.12762582563853, -84.51468067695347)",80,97,1397039.5,417192,commercial,ring,6 rings - CUF Block 4 - Phase 2Over the Rhine,Atomic Number Ten,"1306 Main St
+Cincinnati, OH
+(39.11016860225243, -84.51186062328543)",,98,1397698.48,410659.71,public sidewalk,ring,21 rings 2010Roselawn,Hillcrest Square Office Center,"1811 Losantiville Road
+Cincinnati, OH
+(39.19243251997116, -84.45928672953414)",81,99,1413143.2,440098.4,retail center,??,Over the Rhine,Common On Main,"1316 Main St
+Cincinnati, OH
+(39.11027652089592, -84.51188760294627)",,100,1397684.32,410742.51,public sidewalk,ring,21 rings 2010Over the Rhine,Urban Eden,"1313 Main St
+Cincinnati, OH
+(39.110329454948804, -84.51200659697489)",,101,1397637.99,410742.63,public sidewalk,ring,21 rings 2010Norwood,Sharpsburg Elementary,"Smith Edwards Road @ Forest
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",82,102,1415765.19,427263.75,school,??,West End,Holiday Office Park,"801-B West Eighth Street
+Cincinnati, OH
+(39.103164085711065, -84.52856994247786)",83,103,1393005,408093.7,retail center,??,Clifton,EPA Building,"King and Vine
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",84,104,1398153.21,420167.45,public sidewalk,??,Over the Rhine,OTR Chamber of Commerce,"1317 Main St
+Cincinnati, OH
+(39.11037544631915, -84.5119865283695)",,105,1397630.95,410783,public sidewalk,ring,21 rings 2010Over the Rhine,Mr. Pitiful,"1321 Main St
+Cincinnati, OH
+(39.1105561147755, -84.51206081351201)",,106,1397626.42,410809.62,public sidewalk,ring,21 rings 2010Over the Rhine,Mr. Pitiful,"1323 Main St
+Cincinnati, OH
+(39.11053732428445, -84.51202250125067)",,107,1397622.5,410832.3,public sidewalk,ring,21 rings 2010Over the Rhine,H&A Convenience Store,"1327 Main St
+Cincinnati, OH
+(39.11066322936853, -84.51204948091157)",,108,1397614.49,410877.57,public sidewalk,ring,21 rings 2010Clifton,Immanuel Presb. Church,"3445 Clifton Avenue
+Cincinnati, OH
+(39.144614850488956, -84.51914124836608)",85,109,1395750,423473,public sidewalk,??,Over the Rhine,Iris CafÃ© Sybylline,"1331 Main St
+Cincinnati, OH
+(39.11077114801202, -84.51208545379274)",,110,1397607.18,410918.93,public sidewalk,ring,21 rings 2010CBD,Tower Place Mall,"450 Race street
+Cincinnati, OH
+(39.100334524138724, -84.51437987909992)",86,111,1396889.78,407104,public sidewalk,A-2,"Race St. entrance, under Sky Walk"CBD,NM Minimart,"823 N Elm Street
+Cincinnati, OH
+(39.104580015043894, -84.51723058063367)",87,112,1396083.11,408763.81,public sidewalk,A-2,"just s of 9th, west side of Elm"CBD,Hamilton County Administration,"138 E. Court St.
+Cincinnati, OH
+(39.10675117854106, -84.51177968430278)",88,113,1397819.06,409496.06,public sidewalk,A-2,"north walk, just west of Main St."CBD,Hamilton County Justice Center,"1000 Sycamore Plaza
+Cincinnati, OH
+(39.10680665832458, -84.50929297469834)",89,114,1398400.32,409377.37,public sidewalk,A-2,south of stairsCBD,Hamilton County Courthouse,"1000 Main St.
+Cincinnati, OH
+(39.10684111074403, -84.51098828091699)",90,115,1397921.5,409488.38,public sidewalk,A-2,W. side of building E. walk of MainCBD,Chong Inc.,"628 Race Street
+Cincinnati, OH
+(39.10294366305562, -84.5150762407577)",91,116,1396725.77,408115.14,public sidewalk,A-2,E walkPrice Hill-East,Post Office of W. Price Hill,"975 Enright
+Cincinnati, OH
+(39.10988540518066, -84.57254827373902)",92,117,1380463.83,411038.37,public sidewalk,A-2,W. walk S. of entrancePrice Hill-Lower,Price Hill Health Center,"2136 W. Eight St. 45204
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",93,118,1386104.3,409287.62,public sidewalk,??,"Concrete pad, just west of entrance"CBD,Antonelli College,"124 East 7th St.
+Cincinnati, OH
+(39.104170124316965, -84.51067351820672)",94,119,1397972.02,408519.77,public sidewalk,A-2,E walk just N of entranceCBD,Sophia's Deli,"811 Main St.
+Cincinnati, OH
+(39.105213337870964, -84.5106915046473)",95,120,1397952.62,408904.95,public sidewalk,A-2,"on pedestrian bumpout, W walk"Corryville,CVS Pharmacy,"2522 Vine St.
+Cincinnati, OH
+(39.12745689622795, -84.51142692969388)",96,121,1398040.86,417096.6,public sidewalk,A-2,corner of Vine and W.H. TaftCUF,Krueck Recreation Center,"270 W. McMillan
+Cincinnati, OH
+(39.12810102306623, -84.52230402093501)",97,122,1394822.81,417319.98,recreation center,??,"on pad/walk, near entrance at SE corner"CBD,Federated Building/Macy's Corporate Office,"7 West Seventh St.
+Cincinnati, OH
+(39.1036395243197, -84.51392906395279)",98,123,1396941.37,408292.69,public sidewalk,A-2,collector strip between treesCBD,Groton Lofts,"704 Race Street
+Cincinnati, OH
+(39.103567578557374, -84.51526006055616)",99,124,1396669.62,408384.01,public sidewalk,A-2,in front of building near main entranceCBD,Skyline,"254 E. 4th St.
+Cincinnati, OH
+(39.10059857708323, -84.50856776787961)",100,125,1398700.31,407238.69,public sidewalk,A-2,"N walk, just W of Sycamore"CBD,Management Recruiters Corp. Center,"14 East 4th Street
+Cincinnati, OH
+(39.10002424976193, -84.51219337243623)",101,126,1397488.6,407031.52,public sidewalk,??,just W of entranceCBD,LPK,"13 Garfield Place
+Cincinnati, OH
+(39.10428703618078, -84.5144057046283)",102,127,1396910.64,408569.53,public sidewalk,A-2,S walkCBD,Chemed Building,"255 5th St.
+Cincinnati, OH
+(39.10178547947439, -84.50860856209319)",103,128,1398593.23,407617.77,public sidewalk,A-2,"S Walk, just E of entrance"CBD,Mercantile Center,"120 E. 4th St.
+Cincinnati, OH
+(39.100292308491355, -84.51051655277452)",104,129,1397960.84,407110.25,public sidewalk,A-2,"N walk, just W of Skywalk entrance"CBD,Convention Center,"5th St. and Elm St.
+Cincinnati, OH
+(39.10072572094475, -84.51622233512751)",105,130,1396207.03,407302.22,public sidewalk,??,along N. walk on 5th St.CBD,4th & Walnut Center,"105 East 4th St.
+Cincinnati, OH
+(39.100150154846006, -84.51087136905318)",106,131,1397924.13,407052.51,public sidewalk,A-2,"S walk, 50' E of Walnut"Walnut Hills,Revco,"934 E. McMillan ave.
+Cincinnati, OH
+(39.12595897601605, -84.4895324718176)",107,132,1404198.42,416311.1,public sidewalk,A-2,CBD,Tower Place Mall,"28 West Fourth (13 W 4th Street)
+Cincinnati, OH
+(39.0997904260343, -84.51380315886871)",108,133,1397087.01,406958.62,public sidewalk,??,4th St. Entrance Magherita's entranceUniversity Heights,Urban Outfitters,"2512 Ohio St
+Cincinnati, OH
+(39.12765135904252, -84.51468205713746)",109,134,1397044.5,417231.5,commercial,ring,6 rings - CUF Block 4 - Phase 2CBD,Sunshine Fine Foods,"720 Elm St.
+Cincinnati, OH
+(39.103427688696144, -84.51684472074109)",110,135,1396204.95,408402.32,public sidewalk,A-2,"E walk, near entrance"Price Hill,Price Hill Pool,"961 Hawthorne Ave
+Cincinnati, OH
+(39.10871612590813, -84.56215289975471)",111,136,1383003.77,410598.36,recreation,??,near pool entranceClifton Heights,Clifton NBD,"230 W. McMillan @ Clifton Ave.
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",112,137,1395331.93,417284.15,public sidewalk,??,Near Hard Ta Knock Shoppe on Clifton Ave. sideCBD,Stockyards Bank,"101 W 4th Street
+Cincinnati, OH
+(39.0996364758641, -84.5142827814849)",113,138,1396844.9,406869.1,public sidewalk,A-2,just W of Race on S walk corner of 4th & RaceClifton Heights,Deaconess Hospital,"311 Straight St.
+Cincinnati, OH
+(39.12969288350854, -84.521024714764)",114,139,1394996.27,417859.77,public space,??,near intersection of Straight @ StratfordOver the Rhine,Hamilton County Department of Jobs and Family Services,"222 E Central Parkway
+Cincinnati, OH
+(39.107815641548214, -84.51090245700381)",115,140,1398004.95,409864.9,public sidewalk,A-2,Over the Rhine,Main Street Business District,"1203 Main Street
+Cincinnati, OH
+(39.10896351073313, -84.51163579277807)",116,141,1397719.58,410262.83,public sidewalk,ring,Over the Rhine,Main Street Business District,"1420 Main Street
+Cincinnati, OH
+(39.11190923763057, -84.51226434709186)",117,142,1397597.41,411298.05,public sidewalk,ring,Over the Rhine,Main Street Business District,"1408 Main Street
+Cincinnati, OH
+(39.11158953105871, -84.5122293453174)",118,143,1397616.98,411171.3,public sidewalk,ring,Over the Rhine,Main Street Business District,"1404 Main Street
+Cincinnati, OH
+(39.11131973444992, -84.5121484063348)",119,144,1397628.39,411116.4,public sidewalk,ring,Over the Rhine,Main Street Business District,"1339 Main Street
+Cincinnati, OH
+(39.11098920057503, -84.51216615870649)",120,145,1397588.71,411016.38,public sidewalk,ring,Classical GlassOver the Rhine,Main Street Business District,"1307 Main Street
+Cincinnati, OH
+(39.11015960903211, -84.51193256904776)",121,146,1397647.96,410690.77,public sidewalk,ring,Original ThoughtOver the Rhine,Main Street Business District,"1233 Main Street
+Cincinnati, OH
+(39.10962900903485, -84.51180666396363)",122,147,1397673.5,410508.13,public sidewalk,ring,Mercy St. JohnOver the Rhine,Main Street Business District,"1225 Main Strett
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",123,148,1397686.01,410435.29,public sidewalk,ring,OTR Contact CenterOver the Rhine,Main Street Business District,"1200 Main Street
+Cincinnati, OH
+(39.109251293782506, -84.5116267995578)",124,149,1397750.15,410368.97,public sidewalk,ring,Over the Rhine,Main Street Business District,"1116 Main Street
+Cincinnati, OH
+(39.108369958193805, -84.51141995549102)",125,150,1397808.86,410033.58,public sidewalk,ring,Grifols Plasma CareOver the Rhine,Main Street Business District,"1142 Main Street
+Cincinnati, OH
+(39.108981497173716, -84.51156384701574)",126,151,1397771.35,410251.56,public sidewalk,ring,Over the Rhine,Main Street Business District,"1123 Main Street
+Cincinnati, OH
+(39.108232956234914, -84.5114877356773)",127,152,1397755.05,410042.28,public sidewalk,ring,Davis FurnitureOver the Rhine,Main Street Business District,"1334 Main Street
+Cincinnati, OH
+(39.11088923433384, -84.51199803854861)",128,153,1397657.2,410935.93,public sidewalk,ring,BloomOver the Rhine,Main Street Business District,"1211 Main Street
+Cincinnati, OH
+(39.10922431412166, -84.51168975209981)",129,154,1397703.41,410331.46,public sidewalk,ring,MetronationOver the Rhine,Main Street Business District,"1306 Main Street
+Cincinnati, OH
+(39.11016860225243, -84.51186062328543)",130,155,1397700.69,410670.66,public sidewalk,ring,Atomic TenWest End,Elm Street Health Clinic,"1525 Elm St.
+Cincinnati, OH
+(39.11228200902127, -84.51919009782421)",131,156,1395390.73,411418.94,public sidewalk,A-2,west side of buildingWest End,Bloom School,"1941 Baymiller
+Cincinnati, OH
+(39.11882428202238, -84.52908784061039)",132,157,1392796.79,413942.87,school,??,"on the east side of school, just south of center entrance"Over the Rhine,Mercy Housing,"1340 Main St
+Cincinnati, OH
+(39.111045626434745, -84.51203607987046)",,158,1397653.61,410918.83,public sidewalk,ring,21 rings 2010Over the Rhine,The Tax Place,"1335 Main St
+Cincinnati, OH
+(39.110924032757055, -84.51211243345364)",,159,1397599.77,410962.3,public sidewalk,ring,21 rings 2010Over the Rhine,Vacant,"1342 Main St
+Cincinnati, OH
+(39.110986985299064, -84.51205847413183)",,160,1397646.25,410962.21,public sidewalk,ring,21 rings 2010Over the Rhine,H R Block,"1346 Main St
+Cincinnati, OH
+(39.11120201853564, -84.5120741211923)",,161,1397639.17,411004.63,public sidewalk,ring,21 rings 2010Over the Rhine,MOTR Pub,"1345 Main St
+Cincinnati, OH
+(39.11113356254002, -84.51220127377907)",,162,1397584.76,411049.01,public sidewalk,ring,21 rings 2010Winton Place,Salway Park,"Across From S.G. Cemetery @ 4521 Spring Grove
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",133,163,1394934.27,430326.58,park,??,in grass near parking lot and tennis courtsPleasant Ridge,Pleasant Ridge Community Ctr.,"5915 Ridge Rd.
+Cincinnati, OH
+(39.17979901367104, -84.42755983768566)",134,164,1421783.49,435604.17,recreation center,??,next to tennis courtsCorryville,Cincinnati Board of Health,"3101 Burnet
+Cincinnati, OH
+(39.135681320855966, -84.5010640505558)",135,165,1400765.31,419871.69,public space,A-2,near entrance on southern face of buildingEvanston,Owl's Nest Park,"Madison Rd. near Elmhurst
+Cincinnati, OH
+(39.129899727575236, -84.47235340653828)",136,166,1411403.21,418818.68,park,??,near entrance gate to parkPrice Hill-East,Price Hill Community Center,"959 Hawthorne
+Cincinnati, OH
+(39.108659710860806, -84.56215876553944)",137,167,1383350.66,410632.74,recreation center,??,S. side near entrancePrice Hill-East,Harry L. Olden Playground,"3440 Warsaw
+Cincinnati, OH
+(39.11025750826429, -84.56672395958509)",138,168,1381568.23,410829.54,park,??,near water fountain on corner of Warsaw and WoodlawnMt. Adams,Eden Park,"on Fulton St.
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",139,169,1403006,412456,park,wave,to the N of public restrooms on Fulton St.CBD,Bicentennial Commons at Sawyer Point,"801 E. Pete Rose Way (705 Pete Rose Way?)
+Cincinnati, OH
+(39.10131674360406, -84.50017286626266)",140,170,1401125.02,407575.36,park,wave,next to main entrance on bump-outOver the Rhine,Tees Beads,"1349 Main St
+Cincinnati, OH
+(39.1113107412296, -84.51221135887681)",,171,1397571.42,411125.9,public sidewalk,ring,21 rings 2010CBD,Garfield Place Garage,"13 W. 9th St.
+Cincinnati, OH
+(39.10519535143038, -84.51513415547208)",141,172,1396881.44,408918.99,public sidewalk,wave,NE cornerCBD,Yeatman's Cove,"Butler Ave
+Cincinnati, OH
+(39.103629712261665, -84.5035762599639)",142,173,1400945.1,406894.79,park,??,under L&N Bridge on Butler Ave.Over the Rhine,Grant Playground,"Walnut @ McMicken
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",143,176,1396911.44,412251.17,park,??,SE side of playgroundWest End,Dyer Park & Playground,"2110 Freeman Avenue
+Cincinnati, OH
+(39.11966544895533, -84.53101252680638)",144,177,1391987.35,414257.37,park,??,on the south side of park next to bleachersClifton Heights,Burnet Woods near Gazebo,"Martin Luther King &amp; Clifton
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",145,178,1396325.14,421813.17,park,??,near transformerOakley,Oakley Recreation Center,"3882 Paxton Avenue
+Cincinnati, OH
+(39.14802472456983, -84.42803092106612)",146,179,1422462.27,423742.84,recreation center,??,Price Hill-Lower,Price Hill Playground,"2113 Hatmaker Street
+Cincinnati, OH
+(39.10421994323381, -84.55130316933685)",147,180,1386298.31,408938.7,park,??,SW corner of parkSouth Cumminsville,Wayne Playground,"Beekman between Dreman and Elmore
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",148,181,1387002.65,427160.64,park,??,West side of tennis courts next to picnic tableBond Hill,Bond Hill Library,"1740 Langdon Farm Road at Jordan Crossing
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",149,182,1411824.27,437673.02,library,??,connected to Jordan CrossingPaddock Hills,Cincinnati Firehouse,"4379 Reading Road
+Cincinnati, OH
+(39.163759201978394, -84.47229045399621)",150,183,1409341.13,430041.52,public sidewalk,??,in front of building near main entranceCamp Washington,Camp Washington Recreation Center,"1201 Stock Street
+Cincinnati, OH
+(39.13972049829278, -84.53556339748606)",151,184,1391027.66,421615.83,recreation center,??,Camp Washington,Good Stuff,"2844 Spring Grove Avenue
+Cincinnati, OH
+(39.13379907304941, -84.53756150520753)",152,185,1390569.65,419584.06,public sidewalk,??,near front entranceCarthage,Carthage Recreation Center,"19 East 72nd Street
+Cincinnati, OH
+(39.19482178487044, -84.47818101328812)",153,186,1407845.51,441353.37,recreation center,??,in front of building near main entranceCarthage,Carthage Elementary School,"125 W. North Bend Rd.
+Cincinnati, OH
+(39.19817625603969, -84.48019549463373)",154,187,1407541.15,442392.81,school,??,side of school facing W. North BendCBD,19 Garfield Place,"19 Garfield Place
+Cincinnati, OH
+(39.104251063299614, -84.5145945622545)",155,188,1396896.56,408567.56,public sidewalk,??,West of EntranceCBD,Freedom Center East,"Walnut Street @ 2nd Street
+Cincinnati, OH
+(39.098198626042404, -84.51054761312264)",156,190,1397910.05,406236.97,public sidewalk,ring,CBD,Freedom Center West,"Rosa Parks Street @ 2nd Street
+Cincinnati, OH
+(39.09793782265393, -84.51218437921597)",157,191,1397540.26,406171.35,public sidewalk,ring,CBD,Sycamore Garage,"300 E 7th Street
+Cincinnati, OH
+(39.104520859908405, -84.50839823347258)",158,192,1398542.52,408634.46,public sidewalk,box,College Hill,College Hill Recreation Center,"5545 Belmont Ave
+Cincinnati, OH
+(39.19129644251558, -84.54715001971516)",159,193,1388098.98,440560.05,recreation center,??,2 bike racks East and West of Main EntranceCollege Hill,NBD,"5918 Hamilton Avenue
+Cincinnati, OH
+(39.199490819431375, -84.54696744863168)",160,194,1388473.94,443408.09,public sidewalk,??,College Hill,NBD,"5939 Hamilton Avenue
+Cincinnati, OH
+(39.19968161383555, -84.5472117779915)",161,195,1388381.83,443530.48,public sidewalk,??,College Hill,NBD,"5911 Hamilton Avenue
+Cincinnati, OH
+(39.19913853061104, -84.54689820954695)",162,196,1388464.48,443300.83,public sidewalk,??,College Hill,NBD,"5846 Hamilton Avenue
+Cincinnati, OH
+(39.19830216112382, -84.5464305620917)",163,197,1388613.13,443020.95,public sidewalk,??,College Hill,College Hill Plaza NBD,"5833 Hamilton Avenue
+Cincinnati, OH
+(39.19785250010915, -84.54628667056699)",164,198,1388598.94,442891.61,public sidewalk,??,College Hill,NBD,"5928 Hamilton Avenue
+Cincinnati, OH
+(39.19980402891275, -84.54715901293542)",165,199,1388422.29,443564.32,public sidewalk,??,Corryville,Corryville Recreation Center,"2823 Eden Avenue
+Cincinnati, OH
+(39.132049979469535, -84.5060554871361)",166,200,1399444.78,418735.94,recreation center,??,in front of building near main entranceCorryville,Short Vine Library,"2802 Vine St.
+Cincinnati, OH
+(39.131914208920875, -84.50933352838308)",167,201,1398736.61,418543.81,library,??,Back of building Daniels entranceCovedale,Covedale Library,"4980 Glenway Avenue
+Cincinnati, OH
+(39.12086154118077, -84.60082155842377)",168,202,1372614.28,415282.73,library,??,in rear of building near entranceElmwood Place,Elmwood Place Library,"6120 Vine Street
+Cincinnati, OH
+(39.18719553406197, -84.48780375900162)",169,203,1405218.23,438518.19,library,??,near main entranceHyde Park,Hyde Park Square,"Erie &amp; Michigan
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",170,204,1417778.69,421029.83,public sidewalk,ring,NW corner of Michigan across from Shell StationHyde Park,Hyde Park Square,"Corner of Erie and Edwards
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",171,205,1417392.23,420949.63,public sidewalk,ring,SE corner of EdwardsMt. Adams,Krohn Conservatory,"1501 Eden Park Dr.
+Cincinnati, OH
+(39.117687977846636, -84.48853139724388)",172,206,1403819.48,412510.73,park,helix,near sidewalk on west side of buildingNorthside,Northside Library,"4219 Hamilton Ave
+Cincinnati, OH
+(39.164038795129414, -84.54037328292239)",173,207,1389963.02,430442.69,library,??,Back of building by steps to basementNorwood,Allison Elementary School,"4300 Allison Street
+Cincinnati, OH
+(39.158012534211196, -84.46140865744167)",174,208,1412458.09,427761.2,school,??,near playgroundOver the Rhine,Findlay Market,"Race and Elder
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",175,209,1395628.91,412783.6,public sidewalk,U-2 x 5,east end of market near Race St.Over the Rhine,MuNan Shoes,"1109 Vine St
+Cincinnati, OH
+(39.10736400746447, -84.51459457309767)",176,210,1396860.93,409746.84,public sidewalk,A-2,formerly Park+VinePleasant Ridge,NBD,"6032 Ridge Avenue
+Cincinnati, OH
+(39.18172791619924, -84.42718168081844)",177,211,1422267.26,436310.19,public sidewalk,U-2,Pleasant Ridge,NBD,"6063 Montgomery Rd
+Cincinnati, OH
+(39.18182658154706, -84.42877226099836)",178,212,1421806.85,436297.69,public sidewalk,U-2,Pleasant Ridge,NBD,"6071 Montgomery Rd
+Cincinnati, OH
+(39.18191651374997, -84.42843951184756)",179,213,1421909.97,436325.81,public sidewalk,U-2,Pleasant Ridge,NBD,"6085 Montgomery Rd
+Cincinnati, OH
+(39.18205141205436, -84.42789991862998)",180,214,1422053.72,436366.44,public sidewalk,U-2,Pleasant Ridge,NBD,"6097 Montgomery Rd
+Cincinnati, OH
+(39.18212335781669, -84.4275851559197)",181,215,1422165.18,436401.85,public sidewalk,U-2,Pleasant Ridge,NBD,"6105 Montgomery Rd
+Cincinnati, OH
+(39.182411140866066, -84.42691066439772)",182,216,1422342.26,436490.4,public sidewalk,U-2,Pleasant Ridge,NBD,"6106 Montgomery Rd
+Cincinnati, OH
+(39.18235718154432, -84.42689267795714)",183,217,1422321.43,436398.73,public sidewalk,U-2,Pleasant Ridge,NBD,"6108 Montgomery Rd
+Cincinnati, OH
+(39.18235718154432, -84.42689267795714)",184,218,1422349.55,436423.73,public sidewalk,U-2,Pleasant Ridge,NBD,"6142 Montgomery Rd
+Cincinnati, OH
+(39.183031673066296, -84.4256336271161)",185,219,1422704.76,436664.35,public sidewalk,U-2,CBD,Aronoff Center for Performing Arts,"650 Walnut St
+Cincinnati, OH
+(39.10384636838643, -84.51194156226802)",,220,1397652.5,408223,public sidewalk,MP+sticker,stickers on MP polesPrice Hill-Lower,Oyler School,"2121 Hatmaker Street
+Cincinnati, OH
+(39.104269049740196, -84.55176354172545)",186,221,1386539.99,408484.67,school,??,near basketball courtPrice Hill-West,Dunham Recreation Complex,"Guerley Rd.
+Cincinnati, OH
+(39.12243985134222, -84.58361303139313)",187,222,1376046.42,415673.06,recreation center,??,there are 2 -1) near playset 2) near sand volleyball court next to bleachersCBD,Nada,"600 Walnut St
+Cincinnati, OH
+(39.102875100594815, -84.51170773854045)",,223,1397678.5,408028.5,public sidewalk,MP+sticker,stickers on MP polesCBD,Weston Gallery,"698 Walnut St
+Cincinnati, OH
+(39.10390901271394, -84.51192200796059)",,224,1397618.5,408395,public sidewalk,MP+sticker,stickers on MP polesWalnut Hills,Walnut Hills Library,"2533 Kemper Ln
+Cincinnati, OH
+(39.12687800555682, -84.48783073866252)",188,225,1404568.33,416770.14,library,??,in front of building near main entranceWalnut Hills,Fredrick Douglas School (connected to) Bush (Myron B.) Recreation Center,"2825 Alms Place
+Cincinnati, OH
+(39.1300447853219, -84.48419919686759)",189,226,1405420.31,417746.85,public sidewalk,??,near playground back of schoolWestwood,Ryan Pool,"2856 Fisher
+Cincinnati, OH
+(39.14625857768964, -84.59234099012741)",190,227,1375837.4,424416.62,recreation center,??,near entrance to pool (bottom of hill)Westwood,Oskamp Softball Field,"5652 Glenway Ave
+Cincinnati, OH
+(39.13407391351348, -84.61138577021416)",191,228,1369858,420194,recreation,??,near playset next to tennis courtOver the Rhine,Vacant,"1409 Main St
+Cincinnati, OH
+(39.11165248360078, -84.51231028430004)",,229,1397550.85,411245.13,public sidewalk,ring,21 rings 2010CBD,Kroger Building Parking Garage,"1014 Vine Street
+Cincinnati, OH
+(39.10667923277873, -84.51433375886597)",192,230,1397101.66,409388.82,public sidewalk,??,Over the Rhine,Fine Arts Gallery,"1418 Main St
+Cincinnati, OH
+(39.11184523160189, -84.51224864749992)",,231,1397593.72,411265.72,public sidewalk,ring,21 rings 2010Over the Rhine,Vacant Lot,"1420 Main St
+Cincinnati, OH
+(39.11190923763057, -84.51226434709186)",,232,1397578.43,411352.39,public sidewalk,ring,21 rings 2010Over the Rhine,Southpaw,"1425 Main St
+Cincinnati, OH
+(39.112048185293645, -84.51241820294359)",,233,1397528.1,411378.18,public sidewalk,ring,21 rings 2010Over the Rhine,Tommy's,"1427 Main St
+Cincinnati, OH
+(39.11214453057779, -84.51246521788669)",,234,1397524.86,411397.93,public sidewalk,ring,21 rings 2010Over the Rhine,Vacant,"1437 Main St
+Cincinnati, OH
+(39.11224966675913, -84.5124933304756)",,235,1397511,411563,public sidewalk,A-2,"2010, formerly Fork Heart Knife"CBD,Izzy's Resturant,"800 Elm Street
+Cincinnati, OH
+(39.10432300906194, -84.51707669105537)",193,236,1396242.15,408568.55,public sidewalk,ring,CBD,Downtown Library Annex,"50 E 9th Street
+Cincinnati, OH
+(39.105568387509585, -84.51323763556128)",194,237,1397133,409018.59,public sidewalk,ring,Clifton,Cincinnati State,"3520 Central Parkway
+Cincinnati, OH
+(39.14874052408908, -84.53835465026856)",195,238,1391389.84,425727.41,school,??,near Ludlow Garage lower lotOakley,Oakley Playground,"3900 Paxton Ave
+Cincinnati, OH
+(39.148603806504745, -84.4275626829078)",196,239,1422134.14,424324.87,park,??,near entrance to poolHyde Park,Coffee Emporium,"3316 Erie Ave
+Cincinnati, OH
+(39.141456015651784, -84.42413175932717)",197,240,1422775.27,421630.59,public sidewalk,A-2,on sidewalk at Victora LanePrice Hill-East,Enright Eco-Village,"8th &amp; Enright
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",198,241,1422428.4,421636.84,public sidewalk,A-2,on concrete slab on corner by cemeteryOver the Rhine,Main Street,"1602 Main Street
+Cincinnati, OH
+(39.11279462257795, -84.51252612158709)",199,242,1397535.66,411690.53,public sidewalk,ring,Main & E McMicken StreetscapeOver the Rhine,Main Street,"1603 Main Street
+Cincinnati, OH
+(39.11281592184179, -84.51264140114186)",200,243,1397477.12,411676.63,public sidewalk,ring,Main & E McMicken StreetscapeOver the Rhine,Fitnext,"1435 Main Street
+Cincinnati, OH
+(39.11240791410535, -84.51249914192618)",201,244,1397501.27,411492.23,public sidewalk,ring,Main & E McMicken StreetscapeNorthside,Comet Club,"4579 Hamilton Ave
+Cincinnati, OH
+(39.172475419269745, -84.54333246009809)",202,245,1389300.94,433673.31,public sidewalk,A-4,CBD,College & 6th,"26 W 6th Street
+Cincinnati, OH
+(39.102417793642275, -84.513732466703)",203,246,1396986.97,407902.38,public sidewalk,??,Northside,Northside Playground,"1650 Palm Ave
+Cincinnati, OH
+(39.161110355489754, -84.54074469146929)",204,247,1390244.4,429144.75,,??,Northside,Northside NBD Parking Lot,"4166 Hamilton Ave
+Cincinnati, OH
+(39.16259907656058, -84.53971262653283)",205,248,1390234.79,429981.17,,Special,Mt. Washington,Mt. Washington NBD,"2069 Beechmont Ave
+Cincinnati, OH
+(39.092424978614304, -84.38699875273738)",206,249,1432940.99,403479.64,public sidewalk,ring,Mt. Washington,Mt. Washington NBD,"2110 Beechmont Ave
+Cincinnati, OH
+(39.09291960573046, -84.38694479341564)",207,250,1432998.29,403642.14,public sidewalk,ring,Mt. Washington,Mt. Washington NBD,"2063 Beechmont Ave
+Cincinnati, OH
+(39.09214618878525, -84.38698975951712)",208,251,1432948.69,403379.04,public sidewalk,ring,Northside,NBD,"4019 Hamilton Avenue
+Cincinnati, OH
+(39.15916366640869, -84.5394518231443)",209,252,1390240.95,428710.47,public sidewalk,??,Northside,NBD,"4029 Hamilton Avenue
+Cincinnati, OH
+(39.159342426335755, -84.53948081658342)",210,253,1390247.9,428832.69,public sidewalk,??,Northside,NBD,"4036 Hamilton Avenue
+Cincinnati, OH
+(39.159586347762456, -84.5393618909414)",211,254,1390299.98,428864.63,public sidewalk,??,Northside,NBD,"4037 Hamilton Avenue
+Cincinnati, OH
+(39.1597752053886, -84.53942484348346)",212,255,1390254.15,428936.16,public sidewalk,??,Northside,NBD,"4042 Hamilton Avenue
+Cincinnati, OH
+(39.15978419860892, -84.53935289772113)",213,256,1390302.07,428946.58,public sidewalk,??,Northside,NBD,"4048 Hamilton Avenue
+Cincinnati, OH
+(39.160000035895905, -84.53934390450081)",214,257,1390324.29,429010.47,public sidewalk,??,Northside,NBD,"4112 Hamilton Avenue
+Cincinnati, OH
+(39.1606835206382, -84.53932591806023)",215,258,1390318.04,429266.72,public sidewalk,??,Northside,NBD,"4121 Hamilton Avenue
+Cincinnati, OH
+(39.160800432502015, -84.53939786382256)",216,259,1390274.29,429328.52,public sidewalk,??,Northside,NBD,"4125 Hamilton Avenue
+Cincinnati, OH
+(39.161061235890486, -84.53940685704288)",217,260,1390267.63,429457.33,public sidewalk,??,Northside,NBD,"4142 Hamilton Avenue
+Cincinnati, OH
+(39.1617125065252, -84.5393871850775)",218,261,1390304.15,429629.91,public sidewalk,??,Northside,NBD,"4150 Hamilton Avenue
+Cincinnati, OH
+(39.161928919378326, -84.53940747378249)",219,262,1390295.82,429704.91,public sidewalk,??,Northside,NBD,"4151 Hamilton Avenue
+Cincinnati, OH
+(39.16205753722284, -84.5396002624947)",220,263,1390233.32,429763.94,public sidewalk,??,Northside,NBD,"4152 Hamilton Avenue
+Cincinnati, OH
+(39.16196955114009, -84.53946081636462)",221,264,1390290.26,429747.97,public sidewalk,??,Northside,NBD,"4157 Hamilton Avenue
+Cincinnati, OH
+(39.16226632740978, -84.5396406807705)",222,265,1390209.01,429857.69,public sidewalk,??,Northside,NBD,"4167 Hamilton Avenue
+Cincinnati, OH
+(39.16258109012, -84.5397755790749)",223,266,1390182.62,429956.99,public sidewalk,??,Northside,NBD,"4169 Hamilton Avenue
+Cincinnati, OH
+(39.162644042662066, -84.53979356551548)",224,267,1390174.29,429979.91,public sidewalk,??,Northside,NBD,"4170 Hamilton Avenue
+Cincinnati, OH
+(39.1627429680853, -84.53975759263432)",225,268,1390213.18,430024.36,public sidewalk,??,Northside,NBD,"4172 Hamilton Avenue
+Cincinnati, OH
+(39.16285088672879, -84.53980255873574)",226,269,1390199.29,430075.74,public sidewalk,??,Northside,NBD,"4173 Hamilton Avenue
+Cincinnati, OH
+(39.16277894096646, -84.53983853161691)",227,270,1390161.79,430033.38,public sidewalk,??,Northside,NBD,"4174 Hamilton Avenue
+Cincinnati, OH
+(39.16292283249118, -84.53982953839665)",228,271,1390194.43,430095.58,public sidewalk,??,Northside,NBD,"4177 Hamilton Avenue
+Cincinnati, OH
+(39.162904846050594, -84.53989249093871)",229,272,1390149.29,430075.74,public sidewalk,??,Northside,NBD,"4178 Hamilton Avenue
+Cincinnati, OH
+(39.16308471045642, -84.53989249093871)",230,273,1390177.76,430152.83,public sidewalk,??,Northside,NBD,"4181 Hamilton Avenue
+Cincinnati, OH
+(39.16303974435499, -84.53995544348072)",231,274,1390137.48,430199.49,public sidewalk,??,Northside,NBD,"4185 Hamilton Avenue
+Cincinnati, OH
+(39.16293973922812, -84.53994375202801)",232,275,1390120.82,430179.22,public sidewalk,??,Northside,NBD,"4185 Hamilton Avenue
+Cincinnati, OH
+(39.16293973922812, -84.53994375202801)",233,276,1390114.57,430193.8,public sidewalk,??,Northside,NBD,"4210 Hamilton Avenue
+Cincinnati, OH
+(39.163562097139035, -84.54003957175613)",234,277,1390122.9,430349.05,public sidewalk,??,Northside,NBD,"4200 Hamilton Avenue
+Cincinnati, OH
+(39.16339947316669, -84.54001839602279)",235,278,1390193.73,430250.05,public sidewalk,A-2,Actually on Chase in front of the AcademyCBD,Metro Sales office in Mercantile Center Arcade,"120 E 4th St
+Cincinnati, OH
+(39.100292308491355, -84.51051655277452)",236,279,1398024,407306.5,inside,comb,coveredNorthside,NBD,"1546 Knowlton Ave
+Cincinnati, OH
+(39.161507060144864, -84.53825973388547)",237,280,1390409,429577,public sidewalk,A-2,Clifton,NBD,"268 Ludlow Ave
+Cincinnati, OH
+(39.14310177496537, -84.51814688427021)",238,281,1396164.48,422747.52,public sidewalk,ring,Clifton,NBD,"270 Ludlow Ave
+Cincinnati, OH
+(39.14316472750744, -84.5182817825746)",239,282,1396130.1,422770.44,public sidewalk,ring,Clifton,NBD,"274 Ludlow Ave
+Cincinnati, OH
+(39.14325465971035, -84.51848862664133)",240,283,1396055.1,422813.15,public sidewalk,ring,Clifton,NBD,"302 Ludlow Ave
+Cincinnati, OH
+(39.143551435980044, -84.51948687409384)",241,284,1395783.23,422916.27,public sidewalk,ring,Clifton,NBD,"308 Ludlow Ave
+Cincinnati, OH
+(39.14359640208147, -84.51972969104179)",242,285,1395720.73,422923.69,public sidewalk,ring,Clifton,NBD,"310 Ludlow Ave
+Cincinnati, OH
+(39.143623656219965, -84.51973352491483)",243,286,1395703.02,422932.94,public sidewalk,ring,Clifton,NBD,"312 Ludlow Ave
+Cincinnati, OH
+(39.14362338174237, -84.51990955544767)",244,287,1395676.98,422938.15,public sidewalk,ring,Clifton,NBD,"316 Ludlow Ave
+Cincinnati, OH
+(39.14365935462354, -84.52008941985349)",245,288,1395623.85,422948.56,public sidewalk,ring,Clifton,NBD,"313 Ludlow Ave
+Cincinnati, OH
+(39.14354958171291, -84.51995646093759)",246,289,1395672.85,422887.1,public sidewalk,ring,Clifton,NBD,"315 Ludlow Ave
+Cincinnati, OH
+(39.143560429200306, -84.51989156900703)",247,290,1395654.06,422892.31,public sidewalk,ring,Clifton,NBD,"319 Ludlow Ave
+Cincinnati, OH
+(39.143560429200306, -84.51989156900703)",248,291,1395628.02,422894.56,public sidewalk,ring,Clifton,NBD,"325 Ludlow Ave
+Cincinnati, OH
+(39.143650361403274, -84.52038619612318)",249,292,1395517.6,422919.4,public sidewalk,ring,Clifton,NBD,"329 Ludlow Ave
+Cincinnati, OH
+(39.14368633428444, -84.52055706730874)",250,293,1395488.44,422928.77,public sidewalk,ring,Clifton,NBD,"339 Ludlow Ave
+Cincinnati, OH
+(39.143731300385866, -84.52091679612045)",251,294,1395380.1,422952.73,public sidewalk,ring,Clifton,NBD,"343 Ludlow Ave
+Cincinnati, OH
+(39.14377626648735, -84.52119558594956)",252,295,1395322.81,422961.06,public sidewalk,ring,Clifton,NBD,"332 Ludlow Ave
+Cincinnati, OH
+(39.14376727326709, -84.52076391137547)",253,296,1395424.9,422992.31,public sidewalk,ring,Clifton,NBD,"336 Ludlow Ave
+Cincinnati, OH
+(39.14379826700207, -84.52079565889267)",254,297,1395391.56,423000.65,public sidewalk,ring,Clifton,NBD,"340 Ludlow Ave
+Cincinnati, OH
+(39.14380324614825, -84.52109666052633)",255,298,1395335.31,423012.1,public sidewalk,ring,Clifton,NBD,"342 Ludlow Ave
+Cincinnati, OH
+(39.14383921902942, -84.52130350459305)",256,299,1395285.31,423020.44,public sidewalk,ring,Clifton,NBD,"350 Ludlow Ave
+Cincinnati, OH
+(39.14386619869026, -84.52147437577861)",257,300,1395232.19,423033.98,public sidewalk,ring,Clifton,NBD,"354 Ludlow Ave
+Cincinnati, OH
+(39.14386619869026, -84.52149236221919)",258,301,1395186.35,423043.35,public sidewalk,ring,Clifton,NBD,"369 Ludlow Ave
+Cincinnati, OH
+(39.14382785411272, -84.52177086222007)",259,302,1395034.27,423023.56,public sidewalk,ring,Clifton,NBD,"311 Ludlow Ave
+Cincinnati, OH
+(39.143542442759724, -84.51976566392295)",260,303,1395694.76,422884.07,public sidewalk,ring,Clifton,NBD,"3405 Telford
+Cincinnati, OH
+(39.14386919877302, -84.5206412760958)",261,304,1395464.55,422995.53,public sidewalk,??,Clifton,NBD,"3408 Telford
+Cincinnati, OH
+(39.143986174467734, -84.52048935465746)",262,305,1395496.56,423010.48,public sidewalk,??,Clifton,NBD,"3404 Telford
+Cincinnati, OH
+(39.143861785384814, -84.52050022360643)",263,306,1395502.49,423071.01,public sidewalk,??,Clifton/ UC,UC Medical Campus/ University Hall,"51 Goodman Drive
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",264,307,1398863.36,420370.35,campus,??,Clifton/ UC,UC Medical Campus/Vontz Center,"171 Goodman Drive
+Cincinnati, OH
+(39.13689602521965, -84.50670157743188)",265,308,1399483.15,420270.09,campus,??,Clifton/ UC,UC Medical Campus/ Eden Ave Garage,"3223 Eden Ave
+Cincinnati, OH
+(39.13854023397885, -84.50535336867232)",266,309,1399678.46,420736.24,campus,??,Clifton/ UC,UC Medical Campus/ Wherry Hall,"3225 Eden Ave
+Cincinnati, OH
+(39.138308388549206, -84.50535852501355)",267,310,1399687.58,421146.39,campus,??,Clifton/ UC,UC Medical Campus/ Health Prof Building,"3255 Eden Ave
+Cincinnati, OH
+(39.1390608176502, -84.50528805607398)",268,311,1399718.83,421316.96,campus,??,Clifton/ UC,UC Medical Campus/ CARE Center for Academic and Research Excellence/ Crawley Building,"3230 Eden Ave
+Cincinnati, OH
+(39.13884418188516, -84.5051726546535)",269,312,1399966.22,421171.13,campus,??,Clifton/ UC,UC Medical Campus/ MSB Medical Sciences Building,"231 Albert Sabin Way
+Cincinnati, OH
+(39.13968435125406, -84.50454014196691)",270,313,1400283.63,421210.19,campus,??,Clifton/ UC,UC Uptown West Campus/ DAA Addition,"346 Clifton Ct
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",271,314,1395858.98,419386.58,campus,??,Clifton/ UC,UC Uptown West Campus/ Alms,"348 Clifton Ct
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",272,315,1395845.44,419300.12,campus,??,Clifton/ UC,UC Uptown West Campus/ Clifton Court Plaza,"321 Clifton Ct
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",273,316,1396191.28,419498.04,campus,??,Clifton/ UC,UC Uptown West Campus/ Rieveschl Hall,"318 College Drive
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",274,317,1396193.36,419404.29,campus,??,Clifton/ UC,UC Uptown West Campus/ Zimmer Roof Garden,"315 College Drive
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",275,318,1396535.03,419319.91,campus,??,Clifton/ UC,UC Uptown West Campus/ Langsam Library,"309 College Drive
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",276,319,1396710.03,419347,campus,??,Clifton/ UC,UC Uptown West Campus/ Campus Green Garage,"2935 Campus Green Drive
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",277,320,1397181.9,419563.66,campus,??,Clifton/ UC,UC Uptown West Campus/ Previous Site Facility Center,"2910 Woodside Drive
+Cincinnati, OH
+(39.133978907546414, -84.51484461285372)",278,321,1397050.65,419311.58,campus,??,Clifton/ UC,UC Uptown West Campus/ Engineering Research Center,"2901 Woodside Drive
+Cincinnati, OH
+(39.13374903099341, -84.51502088130887)",279,322,1396914.19,419250.12,campus,??,Clifton/ UC,UC Uptown West Campus/ Baldwin Hall,"2850 Campus Way
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",280,323,1396506.9,418844.91,campus,??,Clifton/ UC,UC Uptown West Campus/ Tangeman University Center North  Entrance,"2766 UC Mainstreet
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",281,324,1396246.48,418714.71,campus,??,Clifton/ UC,UC Uptown West Campus/ Tangeman University Center East  Entrance,"2766 UC Mainstreet
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",282,325,1396390.23,418536.58,campus,??,Clifton/ UC,UC Uptown West Campus/ University Pavillion,"2618 McMicken Circle
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",283,326,1396046.48,418330.33,campus,??,Clifton/ UC,UC Uptown West Campus/ Van Wormer Hall,"2614 McMicken Circle
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",284,327,1395801.69,418311.58,campus,??,Clifton/ UC,UC Uptown West Campus/ Blegen Library,"2602 Backstage Drive
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",285,328,1395793.36,417867.83,campus,??,Clifton/ UC,UC Uptown West Campus/ College of Law Building,"2540 Clifton Avenue
+Cincinnati, OH
+(39.128643166276426, -84.52072205744305)",286,329,1395582.94,417598.04,campus,??,Clifton/ UC,UC Uptown West Campus/ Memorial Hall,"285 CCM Blvd
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",287,330,1396320.44,417837.62,campus,??,Clifton/ UC,UC Uptown West Campus/ Dieterle Vocal Arts Center,"280 CCM Blvd
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",288,331,1396348.57,418026.16,campus,??,Clifton/ UC,UC Uptown West Campus/ University Park Apartments North,"2565 Dennis Street
+Cincinnati, OH
+(39.12899986636704, -84.5136922344996)",289,332,1397301.69,417701.16,campus,??,Clifton/ UC,UC Uptown West Campus/ Marge Schott Stadium,"2601 Champions Ave
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",290,333,1397526.69,418000.12,campus,??,OTR,NBD,"1109 Vine Street
+Cincinnati, OH
+(39.10736400746447, -84.51459457309767)",291,334,1396864.58,409741.25,public sidewalk,ring,Park+VineOTR,NBD,"1111 Vine Street
+Cincinnati, OH
+(39.10761452768918, -84.51462154191535)",292,335,1396858.05,409782.79,public sidewalk,ring,West End LoanOTR,NBD,"1113 Vine Street
+Cincinnati, OH
+(39.10766848701098, -84.51463952835593)",293,336,1396853.31,409804.75,public sidewalk,ring,West End LoanOTR,NBD/ Proposed Ensemble Theater,"1117 Vine Street
+Cincinnati, OH
+(39.10783036497622, -84.51468449445741)",294,337,1396846.78,409850.45,public sidewalk,ring,OTR,NBD,"1121 Vine Street
+Cincinnati, OH
+(39.10791130395887, -84.514702480898)",295,338,1396842.03,409886.05,public sidewalk,ring,OTR,NBD,"1127 Vine Street
+Cincinnati, OH
+(39.10807318192417, -84.51474744699948)",296,339,1396828.38,409950.74,public sidewalk,ring,Ensemble TheaterOTR,NBD,"1135 Vine Street
+Cincinnati, OH
+(39.10819009378798, -84.51477442666032)",297,340,1396825.41,409982.2,public sidewalk,ring,Gateway QuartersOTR,NBD,"1201 Vine Street
+Cincinnati, OH
+(39.10841492429529, -84.51483737920239)",298,341,1396804.64,410083.08,public sidewalk,ring,Mica 12/vOTR,NBD,"1205 Vine Street
+Cincinnati, OH
+(39.10851384971852, -84.51485536564297)",299,342,1396795.74,410129.97,public sidewalk,ring,SwitchOTR,NBD,"1207 Vine Street
+Cincinnati, OH
+(39.10860378192143, -84.51488234530387)",300,343,1396792.77,410154.3,public sidewalk,ring,Incredible CreationOTR,NBD,"1213 Vine Street
+Cincinnati, OH
+(39.10876565988673, -84.5149273114053)",301,344,1396789.21,410174.48,public sidewalk,ring,Duncanson LoftsOTR,NBD,"1215 Vine Street
+Cincinnati, OH
+(39.10848256544868, -84.5148910246917)",302,345,1396782.09,410213.05,public sidewalk,ring,OTR,NBD,"1221 Vine Street
+Cincinnati, OH
+(39.10854777914264, -84.51490758689971)",303,346,1396768.44,410289.02,public sidewalk,ring,OTR,NBD,"1229 Vine Street
+Cincinnati, OH
+(39.10913438191869, -84.51501724360827)",304,347,1396761.32,410328.19,public sidewalk,ring,Masjid-Ul-AshabOTR,NBD,"1233 Vine Street
+Cincinnati, OH
+(39.10921532090134, -84.51503523004885)",305,348,1396753.01,410377.44,public sidewalk,ring,OTR,NBD,"1235 Vine Street
+Cincinnati, OH
+(39.10928726666373, -84.51505321648943)",306,349,1396741.73,410424.33,public sidewalk,ring,Lackman BarOTR,NBD,"1301 Vine Street
+Cincinnati, OH
+(39.10959303615368, -84.51513415547208)",307,350,1396728.08,410512.75,public sidewalk,ring,Venice on VineOTR,NBD,"1303 Vine Street
+Cincinnati, OH
+(39.1095232407484, -84.51515495269689)",308,351,1396723.93,410539.46,public sidewalk,ring,OTR,NBD,"1307 Vine Street
+Cincinnati, OH
+(39.10975491411892, -84.51517012835325)",309,352,1396716.22,410588.72,public sidewalk,ring,Suder's Art StoreOTR,NBD,"1313 Vine Street
+Cincinnati, OH
+(39.109952764965385, -84.515224087675)",310,353,1396712.06,410613.64,public sidewalk,ring,The WarehouseOTR,NBD,"1309 Vine Street
+Cincinnati, OH
+(39.10981786666099, -84.51519710801409)",311,354,1396708.5,410640.94,public sidewalk,ring,OTR,NBD,"1317 Vine Street
+Cincinnati, OH
+(39.1100696768292, -84.51525106733584)",312,355,1396701.97,410662.31,public sidewalk,ring,ParkOTR,NBD,"1329 Vine Street
+Cincinnati, OH
+(39.11030795947192, -84.51535161809738)",313,357,1396690.7,410754.29,public sidewalk,ring,OTR,NBD,"1327 Vine Street
+Cincinnati, OH
+(39.11033947343799, -84.51532301309823)",314,358,1396682.39,410781,public sidewalk,ring,OTR,NBD,"1331 Vine Street
+Cincinnati, OH
+(39.110474371742384, -84.51535898597939)",315,359,1396679.42,410817.2,public sidewalk,ring,East Walnut Hills,vacant,"2550 Woodburn Ave
+Cincinnati, OH
+(39.12657624112943, -84.4791318968536)",,360,1407558,417090,public sidewalk,ring,formerly Lucky JohnsOTR,NBD,"1344 Vine Street
+Cincinnati, OH
+(39.11078913445266, -84.51536797919965)",316,361,1396703.13,410932.93,public sidewalk,ring,OTR,NBD,"1330 Vine Street
+Cincinnati, OH
+(39.110391451976184, -84.51523046630267)",317,362,1396721.56,410844.5,public sidewalk,ring,Trinity FlatsOTR,NBD,"1232 Vine Street
+Cincinnati, OH
+(39.10926928022309, -84.51497227750679)",318,363,1396797.52,410402.96,public sidewalk,ring,OTR,NBD,"1230 Vine Street
+Cincinnati, OH
+(39.10911639547811, -84.51493630462562)",319,364,1396800.49,410370.92,public sidewalk,ring,OTR,NBD,"1228 Vine Street
+Cincinnati, OH
+(39.10903545649552, -84.51491831818504)",320,365,1396800.49,410370.92,public sidewalk,ring,OTR,NBD,"1226 Vine Street
+Cincinnati, OH
+(39.10863419257013, -84.5147855103344)",321,366,1396806.42,410349.55,public sidewalk,ring,OTR,NBD,"1224 Vine Street
+Cincinnati, OH
+(39.108990490394035, -84.51490932496472)",322,367,1396811.17,410329.37,public sidewalk,ring,OTR,NBD,"1222 Vine Street
+Cincinnati, OH
+(39.10859071677415, -84.51477446886241)",323,368,1396820.07,410272.99,public sidewalk,ring,OTR,NBD,"1218 Vine Street
+Cincinnati, OH
+(39.108547240978176, -84.51476342739042)",324,369,1396829.57,410218.99,public sidewalk,ring,Duveneck FlatsOTR,NBD,"1212 Vine Street
+Cincinnati, OH
+(39.10868472090408, -84.51482838598207)",325,370,1396834.31,410186.35,public sidewalk,ring,OTR,NBD,"1210 Vine Street
+Cincinnati, OH
+(39.108639754802596, -84.51481939276181)",326,371,1396839.66,410168.54,public sidewalk,ring,OTR,NBD,"1206 Vine Street
+Cincinnati, OH
+(39.108540829379365, -84.5147924131009)",327,372,1396847.37,410120.47,public sidewalk,ring,OTR,NBD,"1202 Vine Street
+Cincinnati, OH
+(39.108441903956134, -84.51476543344006)",328,373,1396855.09,410077.74,public sidewalk,ring,Northside,parking lot (neighborhood),"3926 Spring Grove Ave
+Cincinnati, OH
+(39.15759203606476, -84.54003446904444)",329,374,1390078.11,428117.55,public sidewalk,??,CBD,Saks Fifth Avenue,"411 Race Street
+Cincinnati, OH
+(39.10014116162574, -84.5144326842892)",330,375,1396828.49,407055.69,public sidewalk,U-2 x 5,near valet stand/ elevator/ sakks employee entranceCBD,Power Building,"224 E 8th Street
+Cincinnati, OH
+(39.10510872056675, -84.50966814488801)",331,376,1398358.46,408869.78,public sidewalk,ring,CBD,Board of Elections,"824 Broadway
+Cincinnati, OH
+(39.1058978747501, -84.50731472606319)",332,377,1398923.85,409245.48,public sidewalk,ring,CBD,Tuckers Resturant,"1637 Vine Street
+Cincinnati, OH
+(39.11426951070604, -84.516330253771)",333,378,1396434.53,412216.77,public sidewalk,A-2,CBD,P&G Plaza at Broadway,"500 Sentinel
+Cincinnati, OH
+(39.1032093534572, -84.50460363450777)",334,379,1399583.75,408219.62,public sidewalk,ring,in parking lotCBD,Downtown Library,"800 Vine St.
+Cincinnati, OH
+(39.105231324311546, -84.51394705039337)",335,380,1397385.54,408860.56,library,wave,West entrance to buildingCBD,Board of Elections,"824 Broadway
+Cincinnati, OH
+(39.1058978747501, -84.50731472606319)",336,381,1398923.29,409208.85,public sidewalk,ring,ring on parking meterCBD,Board of Elections,"824 Broadway
+Cincinnati, OH
+(39.1058978747501, -84.50731472606319)",337,382,1398935.91,409161.91,public sidewalk,ring,ring on parking meterCBD,Gramercy Elm Street Garage,"118 W. Seventh St
+Cincinnati, OH
+(39.103464256850465, -84.51560701221334)",338,383,1396458,408381,public sidewalk,wave,CBD,The Cincinnatian Hotel- employee entrance,"College Street (alley near 6th and Race)
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",339,384,1396963.21,407932.56,,wave,wave rackUniversity Heights,Urban Outfitters,"131 W. Calhoun
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",340,385,1397072,417259,commercial,ring,6 rings - CUF Block 4 - Phase 2Over the Rhine,Findlay Market,"Race and Elder
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",341,386,1395867,412690,public sidewalk,U-2 x 5,5 inverted U racks near gateOver the Rhine,Findlay Market,"Race and Elder
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",342,387,1395882,412617,public sidewalk,U-2 x 5,5 inverted U racks near gateOver the Rhine,Findlay Market,"Elm and Elder
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",343,388,1395484,412622,public sidewalk,U-2 x 5,5 inverted U racks near gateOver the Rhine,Findlay Market,"Elm and Elder
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",344,389,1395497,412548,public sidewalk,U-2 x 5,5 inverted U racks near gateCBD,Silverglades,"236 E 8th St.
+Cincinnati, OH
+(39.1051264731836, -84.50956162918686)",345,390,1398409.27,408884.23,public sidewalk,ring,Powers BuildingCBD,Silverglades,"805 Sycamore St
+Cincinnati, OH
+(39.10536783674396, -84.50907926495536)",346,391,1398420.73,408919.65,public sidewalk,ring,Powers BuildingOver the Rhine,Findlay Market,"1715 Pleasant St
+Cincinnati, OH
+(39.11453930731483, -84.51892929443568)",347,392,1395721,412356,,comb,Over the Rhine,Segway Store,"1101 Vine St
+Cincinnati, OH
+(39.10744365650362, -84.51458556903418)",,393,1396870,409715,public sidewalk,,"Four racks at Segway Store, Vine and Central Parkway, installed 24Jun10"Over the Rhine,Segway Store,"1101 Vine St
+Cincinnati, OH
+(39.10744365650362, -84.51458556903418)",,394,1396869,409705,public sidewalk,,"Four racks at Segway Store, Vine and Central Parkway, installed 24Jun10"Over the Rhine,Segway Store,"1101 Vine St
+Cincinnati, OH
+(39.10744365650362, -84.51458556903418)",,395,1396802,409662,public sidewalk,,"Four racks at Segway Store, Vine and Central Parkway, installed 24Jun10"Over the Rhine,Segway Store,"1101 Vine St.
+Cincinnati, OH
+(39.10744365650362, -84.51458556903418)",,396,1396827,409668,public sidewalk,,"Four racks at Segway Store, Vine and Central Parkway, installed 24Jun10"Queensgate,,"1081 Woodrow St.
+Cincinnati, OH
+(39.109376072780414, -84.54880471575008)",,397,1387168,410855,,wave,"Wastewater Engineering Center, Education Building â€“ Woodrow and Hopkins"Hyde Park,,"2350 Grandin Rd.
+Cincinnati, OH
+(39.12883852758068, -84.45264026765602)",,398,1413607,417764,,comb,"Countryclub parking lot, Grandin Ave"Clifton,,"140 Calhoun St
+Cincinnati, OH
+(39.128235981821035, -84.51466650801683)",,399,1397033,417314,public sidewalk,A-4,Calhoun St at Ohio AveCBD,,"500 Vine St.
+Cincinnati, OH
+(39.10159028722599, -84.51298970032131)",,400,1397381,407439,public sidewalk,wave,Fountain Square - GoVibrantCBD,,"500 Vine St.
+Cincinnati, OH
+(39.10159028722599, -84.51298970032131)",,401,1397468,407468,public sidewalk,wave,Fountain Square - GoVibrantOver the Rhine,Know Theatre,"1120 Jackson St.
+Cincinnati, OH
+(39.108118148025596, -84.51386611141072)",,402,1397113.26,409923.35,public sidewalk,ring,"E side of Jackson St, Central Parkway to 12th"Over the Rhine,Know Theatre,"1128 Jackson St.
+Cincinnati, OH
+(39.1076898312526, -84.5137306874162)",,403,1397101.5,409988.29,public sidewalk,ring,"E side of Jackson St, Central Parkway to 12th"University Heights,Gypsy,"107 W. Calhoun
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",,404,1397267,417236.5,commercial,ring,CUF Block 4 - Phase 2University Heights,Hookah,"119 W. Calhoun
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",,405,1397204.5,417243,commercial,ring,6 rings - CUF Block 4 - Phase 2University Heights,Barbers Electric Tattoo,"125 W. Calhoun
+Cincinnati, OH
+(39.1071299998498, -84.50412999989942)",,406,1397139,417249.5,commercial,ring,6 rings - CUF Block 4 - Phase 2Over the Rhine,Know Theatre,"1118 Jackson St.
+Cincinnati, OH
+(39.10758804269218, -84.51370567158355)",,407,1397135.71,409871.01,commercial,Art,"ArtRack, Know Theatre"Over the Rhine,Art Academy,"1202 Jackson St
+Cincinnati, OH
+(39.10849029439971, -84.51392731666951)",,408,1397080.75,410114.45,school,ring,"E side of Jackson St, 12th & 13th (Art Academy)"Over the Rhine,Art Academy,"1206 Jackson St
+Cincinnati, OH
+(39.10853411524168, -84.51393801309551)",,409,1397073.42,410155.81,school,ring,"E side of Jackson St, 12th & 13th (Art Academy)"Over the Rhine,Art Academy,"1228 Jackson St.
+Cincinnati, OH
+(39.108775129872534, -84.51399684343848)",,410,1397035.47,410370.48,school,ring,"E side of Jackson St, 12th & 13th (Art Academy)"Over the Rhine,Art Academy,"1230 Jackson St.
+Cincinnati, OH
+(39.10879704030376, -84.51400219165397)",,411,1397022.49,410443.33,school,ring,"E side of Jackson St, 12th & 13th (Art Academy)"Over the Rhine,Art Academy,"1234 Jackson St.
+Cincinnati, OH
+(39.10884086114574, -84.51401288807996)",,412,1397017.39,410472.14,school,ring,"E side of Jackson St, 12th & 13th (Art Academy)"Over the Rhine,Art Academy,"1224 Jackson St.
+Cincinnati, OH
+(39.10873130903056, -84.51398614701247)",,413,1397039.24,410348.81,school,ring,"E side of Jackson St, 12th & 13th (Art Academy)"Over the Rhine,,"1233 Jackson St.
+Cincinnati, OH
+(39.108798546126806, -84.51414637689025)",,414,1396986.9,410439.13,public sidewalk,ring,"W side of Jackson St, 12th & 13th (Art Academy)"Clifton,,"2513 Clifton Ave
+Cincinnati, OH
+(39.12857807888402, -84.52087126252991)",,415,1395736,417346,public sidewalk,irng,W. Clifton at Calhoun â€“ Dubois bookstoreCBD,Fountain Square Garage - Inside,"500 Vine St.
+Cincinnati, OH
+(39.10159028722599, -84.51298970032131)",,416,1397333,407598,,hanging,"In Fountain Square Garage, covered"Over the Rhine,YMCA - Central ,"1105 Elm St.
+Cincinnati, OH
+(39.10693104294694, -84.51780514189909)",,417,1395972,409548,public sidewalk,ring,Over the Rhine,YMCA - Central ,"1107 Elm St.
+Cincinnati, OH
+(39.10698500226869, -84.51781413511935)",,418,1395961,409577,public sidewalk,ring,Over the Rhine,YMCA - Central ,"1109 Elm St.
+Cincinnati, OH
+(39.10703896159043, -84.51783212155993)",,419,1395953,409601,public sidewalk,ring,Over the Rhine,Art Academy,"1210 Jackson St.
+Cincinnati, OH
+(39.108577936083655, -84.5139487095215)",,420,1397065.75,410199.14,school,ring,"E side of Jackson St, 12th & 13th (Art Academy)"Over the Rhine,Art Academy,"1212 Jackson St.
+Cincinnati, OH
+(39.108891564970804, -84.51405496903692)",,421,1397061.56,410222.77,school,ring,"E side of Jackson St, 12th & 13th (Art Academy)"Over the Rhine,Art Academy,"1214 Jackson St.
+Cincinnati, OH
+(39.10862175692563, -84.51395940594749)",,422,1397054.59,410262.15,school,ring,"E side of Jackson St, 12th & 13th (Art Academy)"Over the Rhine,Art Academy,"1220 Jackson St.
+Cincinnati, OH
+(39.108687488188586, -84.51397545058649)",,423,1397046.91,410305.48,school,ring,"E side of Jackson St, 12th & 13th (Art Academy)"
