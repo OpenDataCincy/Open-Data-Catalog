@@ -1,6 +1,6 @@
 Django==1.5.5
 OWSLib==0.7.2
-PIL==1.1.7
+Pillow==2.3.0
 Shapely==1.2.17
 South==0.8.1
 argparse==1.2.1
