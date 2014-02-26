@@ -172,3 +172,9 @@ class BikeRack(models.Model):
     class Meta:
         ordering = ['rack_number', ]
 
+
+# class AreaOfInterest(models.Model):
+#     city = models.CharField(max_length=100, default=u'Cincinnati')
+#     state = models.CharField(max_length=2, blank=True, default=u'OH')
+#     community = models.CharField(max_length=100, blank=True)
+
