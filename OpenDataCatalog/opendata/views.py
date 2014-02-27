@@ -251,6 +251,7 @@ class SubmitDataView(FormView):
             "why": form.cleaned_data.get("why"),
         }
 
+        # A Submission() is created in this method.  This is not ideal.
         send_email(self.request.user, data)
 
         return super(SubmitDataView, self).form_valid(form)
