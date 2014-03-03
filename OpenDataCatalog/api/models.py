@@ -72,6 +72,15 @@ class Arrest(models.Model):
     def __unicode__(self):
         return u'Arrest at %s' % self.anon_arrest_address
 
+    def description(self):
+        """
+         A description field to match the other models
+        """
+        if self.anon_arrest_address:
+            return u'Arrest at %s' % self.anon_arrest_address
+        else:
+            return u'Arrest on %s' % self.event_date
+
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
         self.arrest_address = self.arrest_address.strip()
