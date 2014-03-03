@@ -25,10 +25,12 @@ class CincinnatiPoliceSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class ArrestSerializer(serializers.HyperlinkedModelSerializer):
+    description = serializers.CharField(source='description', read_only=True)
+
     class Meta:
         model = Arrest
         fields = ['arrest_type', 'event_date', 'event_time', 'dob_year', 'charge_code', 'charge_type', 'anon_arrest_address',
-                  'badge_number', 'control_number', ]
+                  'badge_number', 'control_number', 'description']
 
 
 class BikeRackSerializer(serializers.HyperlinkedModelSerializer):
