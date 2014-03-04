@@ -2,7 +2,7 @@ from django.conf.urls import patterns, url, include
 
 from rest_framework import routers
 
-from .views import CrimeDataView, ThreeOneOneViewSet, ResourceViewSet, CPDViewSet, ArrestViewSet, BikeRackViewSet
+from .views import ThreeOneOneViewSet, ResourceViewSet, CPDViewSet, ArrestViewSet, BikeRackViewSet
 
 router = routers.DefaultRouter()
 router.register(r'threeoneones', ThreeOneOneViewSet)
