@@ -1,7 +1,6 @@
 # Create your views here
 from django.http import HttpResponse, Http404, HttpResponseNotFound
 from django.views.decorators.csrf import csrf_exempt
-from django.views.generic import View
 
 from OpenDataCatalog.opendata.models import *
 from OpenDataCatalog.opendata.views import send_email

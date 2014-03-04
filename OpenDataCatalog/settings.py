@@ -249,6 +249,7 @@ LOGGING = {
 LOCAL_STATICFILE_DIR = ()
 LOCAL_TEMPLATE_DIR = ()
 
+# This is for development
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
