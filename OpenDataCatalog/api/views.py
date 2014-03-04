@@ -98,7 +98,21 @@ class AnonCPDCSV(View):
         writer = csv.writer(response)
         writer.writerow(['Date', 'Event No.', 'Anon Address', 'Desc', 'Latitude', 'Longitude'])
 
-        crime_data = CincinnatiPolice.objects.filter().order_by('create_date')
+        CSV_DOCUMENT_ROWS = 20000  # That's 20k.  Let's hope this works.
+
+        # Get the page number from he URL
+        page = int(kwargs.get('page', 1))
+
+        # Figure out the max row we are going for
+        high_end = (page * CSV_DOCUMENT_ROWS) - 1
+
+        # Figure out the lowest row we are going for
+        if page > 1:
+            low_end = ((page - 1) * CSV_DOCUMENT_ROWS)
+        else:
+            low_end = 0
+
+        crime_data = CincinnatiPolice.objects.filter().order_by('create_date')[low_end:high_end]
 
         for c in crime_data:
             writer.writerow([
