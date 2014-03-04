@@ -31,6 +31,4 @@ urlpatterns = patterns('',
     # POST to create
     url(r'^submit/$', 'OpenDataCatalog.api.views.submit'),
 
-    url(r'^crime/$', CrimeDataView.as_view(), name='api-crime-data'),
-
 )

@@ -41,21 +41,6 @@ class JSONResponseMixin(object):
         return json.dumps(context)
 
 
-class CrimeDataView(JSONResponseMixin, View):
-    http_method_names = ['get', ]
-
-    def get(self, request, *args, **kwargs):
-        """
-        Get the crime data.  This may be date filtered
-        """
-        data = {
-            'some': 'such',
-            'stuff': 'goes here',
-        }
-
-        return self.render_to_response(data)
-
-
 class ThreeOneOneViewSet(viewsets.ModelViewSet):
     queryset = ThreeOneOne.objects.filter().exclude(latitude=0)
     serializer_class = ThreeOneOneSerializer
