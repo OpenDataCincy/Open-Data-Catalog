@@ -13,6 +13,7 @@ from .rest import login_required
 from rest_framework import viewsets, filters
 
 import json
+import csv
 
 
 from .models import ThreeOneOne, CincinnatiPolice, Arrest, BikeRack
@@ -39,21 +40,6 @@ class JSONResponseMixin(object):
     def convert_context_to_json(self, context):
         "Convert the context dictionary into a JSON object"
         return json.dumps(context)
-
-
-class CrimeDataView(JSONResponseMixin, View):
-    http_method_names = ['get', ]
-
-    def get(self, request, *args, **kwargs):
-        """
-        Get the crime data.  This may be date filtered
-        """
-        data = {
-            'some': 'such',
-            'stuff': 'goes here',
-        }
-
-        return self.render_to_response(data)
 
 
 class ThreeOneOneViewSet(viewsets.ModelViewSet):
@@ -99,6 +85,90 @@ class BikeRackViewSet(viewsets.ModelViewSet):
     search_fields = ('description', 'location', 'street', )
 
     http_method_names = ['get', ]
+
+
+class AnonCPDCSV(View):
+    http_method_names = ['get', ]
+
+    def get(self, request, *args, **kwargs):
+
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="cpd.csv";'
+
+        writer = csv.writer(response)
+        writer.writerow(['Date', 'Event No.', 'Anon Address', 'Desc', 'Latitude', 'Longitude'])
+
+        crime_data = CincinnatiPolice.objects.filter().order_by('create_date')
+
+        for c in crime_data:
+            writer.writerow([
+                str(c.create_date),
+                c.event_number,
+                c.anon_address,
+                c.description,
+                c.latitude,
+                c.longitude,
+            ])
+
+        return response
+
+
+class AnonArrestsCSV(View):
+    http_method_names = ['get', ]
+
+    def get(self, request, *args, **kwargs):
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="arrests.csv";'
+
+        writer = csv.writer(response)
+        writer.writerow([
+            'Arrest Type',
+            'Control No',
+            'RAC',
+            'Sex',
+            'RA',
+            'Date',
+            'Time',
+            'Sec No',
+            'Sec Code',
+            'DOB Year',
+            'Charge Code',
+            'Charge Type',
+            'Arrest Disp Code',
+            'Badge Number',
+            'Officer',
+            'Nature',
+            'Report No'
+            'Arrest Addr',
+            'Home Addr',
+        ])
+
+        arrests = Arrest.objects.filter().order_by('event_date')
+
+        for a in arrests:
+            writer.writerow([
+                a.arrest_type,
+                a.control_number,
+                a.rac,
+                a.sex,
+                a.ra,
+                str(a.event_date),
+                str(a.event_time),
+                a.secno,
+                a.seccode,
+                a.dob_year,
+                a.charge_code,
+                a.charge_type,
+                a.arrest_disp_code,
+                a.badge_number,
+                a.officer,
+                a.nature,
+                a.report_number,
+                a.anon_arrest_address,  # IMPORTANT THIS IS ANON
+                a.anon_home_address,  # Ditto.
+            ])
+
+        return response
 
 
 def http_badreq(body=""):

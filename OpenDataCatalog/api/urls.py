@@ -2,7 +2,8 @@ from django.conf.urls import patterns, url, include
 
 from rest_framework import routers
 
-from .views import CrimeDataView, ThreeOneOneViewSet, ResourceViewSet, CPDViewSet, ArrestViewSet, BikeRackViewSet
+from .views import ThreeOneOneViewSet, ResourceViewSet, CPDViewSet, ArrestViewSet, BikeRackViewSet, AnonCPDCSV, \
+    AnonArrestsCSV
 
 router = routers.DefaultRouter()
 router.register(r'threeoneones', ThreeOneOneViewSet)
@@ -22,15 +23,20 @@ urlpatterns = patterns('',
     url(r'^tags/(?P<tag_name>.*)/$', 'OpenDataCatalog.api.views.by_tag'),
     url(r'^ideas/$', 'OpenDataCatalog.api.views.ideas'),
     url(r'^ideas/(?P<idea_id>\d+)/$', 'OpenDataCatalog.api.views.idea'),
+
     # GET to list, POST to create
     url(r'^suggestions/$', 'OpenDataCatalog.api.views.suggestions'),
     url(r'^suggestions/search$', 'OpenDataCatalog.api.views.search_suggestions'),
     url(r'^suggestions/(?P<suggestion_id>\d+)/$', 'OpenDataCatalog.api.views.suggestion'),
+
     # PUT to vote, DELETE to remove
     url(r'^suggestions/(?P<suggestion_id>\d+)/vote$', 'OpenDataCatalog.api.views.vote'),
+
     # POST to create
     url(r'^submit/$', 'OpenDataCatalog.api.views.submit'),
 
-    url(r'^crime/$', CrimeDataView.as_view(), name='api-crime-data'),
+    # CSV Downloads. These are csv/ instead of /csv because of the router
+    url(r'^csv/cpd/$', AnonCPDCSV.as_view(), name='anon-cpd-csv'),
+    url(r'^csv/arrests/$', AnonArrestsCSV.as_view(), name='anon-arrests-csv'),
 
 )
