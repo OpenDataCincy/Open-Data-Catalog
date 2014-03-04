@@ -36,7 +36,7 @@ urlpatterns = patterns('',
     url(r'^submit/$', 'OpenDataCatalog.api.views.submit'),
 
     # CSV Downloads. These are csv/ instead of /csv because of the router
-    url(r'^csv/cpd/$', AnonCPDCSV.as_view(), name='anon-cpd-csv'),
+    url(r'^csv/cpd/(?P<page>\d+)/$', AnonCPDCSV.as_view(), name='anon-cpd-csv'),
     url(r'^csv/arrests/$', AnonArrestsCSV.as_view(), name='anon-arrests-csv'),
 
 )
