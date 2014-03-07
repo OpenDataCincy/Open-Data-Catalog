@@ -16,7 +16,7 @@ def send_email(user, data):
     text_content = render_to_string('submit_email.txt', data)
     text_content_copy = render_to_string('submit_email_copy.txt', data)
 
-    # mail_managers(subject, text_content)
+    mail_managers(subject, text_content)
 
     msg = EmailMessage(subject, text_content_copy, to=user_email)
     msg.send()
