@@ -1,4 +1,3 @@
-import random
 from datetime import datetime
 from django.http import HttpResponse
 from django.shortcuts import render_to_response, get_object_or_404, redirect
@@ -15,6 +14,7 @@ from pytz import utc
 from models import TwitterCache
 import twitter
 import simplejson as json
+import random
 
 from OpenDataCatalog.opendata.models import *
 from OpenDataCatalog.opendata.forms import *
