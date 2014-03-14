@@ -26,8 +26,8 @@ class SubmissionForm(forms.Form):
     data_purpose = forms.CharField(max_length=1000, widget=forms.Textarea, label="Why was the data collected?")
     intended_audience = forms.CharField(max_length=1000, widget=forms.Textarea, label="Who is the intended audience?")
     why = forms.CharField(max_length=1000, widget=forms.Textarea, label="Why should the data be included in this site?")
-    certified = forms.BooleanField(required=False, label="", help_text="I am the copyright holder or have "
-                                                                       "permission to release this data")
-    terms = forms.BooleanField(label="", help_text="I have read and agree with the site's <a href='/terms/' "
-                                                   "target='_blank'>terms of use</a>")
+    certified = forms.BooleanField(required=False, label="", help_text="<label for='id_certified' style='text-align: left;'>I am the copyright holder or have "
+                                                                       "permission to release this data</label>")
+    terms = forms.BooleanField(label="", help_text="<label for='id_terms' style='text-align: left;'>I have read and agree with the site's <a href='/terms/' "
+                                                   "target='_blank'>terms of use</a></label>")
 

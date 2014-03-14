@@ -7,7 +7,7 @@ OpenDataCatalog/media/
 admin_media
 media/*
 static/*
-#OpenDataCatalog/static/*
+OpenDataCatalog/static/*
 *~
 *#	
 .#*
