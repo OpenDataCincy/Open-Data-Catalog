@@ -177,6 +177,8 @@ INSTALLED_APPS = (
     'OpenDataCatalog.api',
     'OpenDataCatalog.visualization',
     'OpenDataCatalog.gallery',
+
+    'compressor',
 )
 
 REST_FRAMEWORK = {
