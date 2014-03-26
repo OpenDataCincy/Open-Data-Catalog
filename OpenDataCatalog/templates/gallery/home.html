@@ -1,9 +1,12 @@
+{% load compress %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <title>Gallery Home Page</title>
-    <style>
+
+    {% compress css %}
+    <style type="text/css" charset="utf-8">
         /**
          * Eric Meyer's Reset CSS v2.0 (http://meyerweb.com/eric/tools/css/reset/)
          * http://cssreset.com
@@ -52,6 +55,7 @@
             border-spacing: 0;
         }
     </style>
+    {% endcompress %}
 </head>
 <body>
 
