@@ -199,6 +199,8 @@ class GenericData(models.Model):
     y_coordinate = models.FloatField(null=True, default=0)
     parcel = models.CharField(max_length=100, blank=True)  # It may have alpha characters in it.
 
+    approved = models.CharField(max_length=3, blank=True)
+
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
         self.location = self.location.strip()
