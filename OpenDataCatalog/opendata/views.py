@@ -1,4 +1,3 @@
-import random
 from datetime import datetime
 from django.http import HttpResponse
 from django.shortcuts import render_to_response, get_object_or_404, redirect
@@ -15,11 +14,14 @@ from pytz import utc
 from models import TwitterCache
 import twitter
 import simplejson as json
+import random
 
 from OpenDataCatalog.opendata.models import *
 from OpenDataCatalog.opendata.forms import *
 from OpenDataCatalog.contest.models import Vote
+from OpenDataCatalog.suggestions.models import Suggestion
 from .utils import send_email
+from datetime import date
 
 
 class ResourceView(TemplateView):
@@ -253,6 +255,15 @@ class SubmitDataView(FormView):
 
         # A Submission() is created in this method.  This is not ideal.
         send_email(self.request.user, data)
+
+        # Create a nomination (Suggestion)
+        s = Suggestion()
+        s.text = data.get('dataset_name')[:255]
+        s.description = data.get('description') if data.get('description') else ''
+        s.suggested_by = self.request.user
+        # suggestion.suggested_date = submission.sent_date
+        s.last_modified_date = date.today()
+        s.save()
 
         return super(SubmitDataView, self).form_valid(form)
 

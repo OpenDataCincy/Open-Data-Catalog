@@ -5,7 +5,7 @@ import xlrd
 from datetime import date, time
 import re
 
-from OpenDataCatalog.api.models import BikeRack
+from OpenDataCatalog.api.models import BikeRack, GenericData
 
 
 class Command(BaseCommand):
@@ -21,6 +21,7 @@ class Command(BaseCommand):
     available_data_options = [
         'bikeracks',
         'vacant',
+        'graffiti',
     ]
 
     def handle(self, *args, **options):
@@ -35,6 +36,8 @@ class Command(BaseCommand):
         if not len(args):
             raise CommandError('You must supply an xls or xlsx document')
 
+        print args[0]
+
         try:
             workbook = xlrd.open_workbook(args[0])
         except IOError:
@@ -44,15 +47,15 @@ class Command(BaseCommand):
 
         self.stdout.write('Opened workbook: %s' % args[0])
 
-        # We just want the first sheet.
+        # # We just want the first sheet.
         try:
             sheet = workbook.sheet_by_index(0)
         except AttributeError:
             raise CommandError('Could not open first sheet.  Check file format.')
         except IndexError:
             raise CommandError('Could not open first sheet.')
-
-        # # Go through each row and handle.
+        #
+        # # # Go through each row and handle.
         for i in range(sheet.nrows):
 
             row = sheet.row_values(i)
@@ -84,3 +87,33 @@ class Command(BaseCommand):
                 )
 
                 self.stdout.write('Created bike rack: %s' % rack)
+
+            elif options.get('data') == 'graffiti':
+
+                if u'COMMUNITY' in row[0]:
+                    continue
+
+                try:
+                    census_tract = float(row[9])
+                except ValueError:
+                    census_tract = None
+
+                s = row[1].splitlines()
+                (latitude, longitude) = s[2].strip('()').split(',')
+
+                item = GenericData.objects.create(
+                    data_type='graffiti',
+                    community=row[0].strip(),
+                    address=row[1].strip(),
+                    latitude=latitude,
+                    longitude=longitude,
+                    request_type=row[2].strip(),
+                    csr=row[3].strip(),
+                    status=row[4].strip(),
+                    description=row[5].strip(),
+                    location=row[8].strip(),
+                    census_tract=census_tract,
+                    street_direction=row[22].strip()
+                )
+
+                self.stdout.write('Created graffiti record: %s' % item.id)

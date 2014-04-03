@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import ThreeOneOne, Arrest, BikeRack
+from .models import ThreeOneOne, Arrest, BikeRack, GenericData
 
 
 class BikeRackAdmin(admin.ModelAdmin):
@@ -9,3 +9,4 @@ class BikeRackAdmin(admin.ModelAdmin):
 admin.site.register(ThreeOneOne)
 admin.site.register(Arrest)
 admin.site.register(BikeRack, BikeRackAdmin)
+admin.site.register(GenericData)
