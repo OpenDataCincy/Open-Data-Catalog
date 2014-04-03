@@ -100,7 +100,7 @@ class Arrest(models.Model):
             if address.get('block') and int(address.get('block')) > 0:
                 self.anon_home_address = u'%s block of %s' % (address.get('block'), address.get('street_full'))
             else:
-                self.anon_home_address = self.arrest_address
+                self.anon_home_address = self.home_address
 
         return super(Arrest, self).save(force_insert, force_update, using, update_fields=update_fields)
 
@@ -180,6 +180,49 @@ class BikeRack(models.Model):
 
     class Meta:
         ordering = ['rack_number', ]
+
+
+class GenericData(models.Model):
+    """
+    A data model for various data sets that can live together for simplicity.
+    For use in the API.
+    """
+    data_type = models.CharField(max_length=100, help_text=u'The specific type of data.')
+    community = models.CharField(max_length=100, blank=True, default=u'')
+    location = models.CharField(max_length=200, blank=True, default=u'')
+    address = models.CharField(max_length=200, blank=True, default=u'')
+    anon_location = models.CharField(max_length=200, blank=True, default=u'')
+    anon_address = models.CharField(max_length=200, blank=True, default=u'')
+    street_direction = models.CharField(max_length=2, blank=True, default=u'')
+
+    x_coordinate = models.FloatField(null=True, default=0)
+    y_coordinate = models.FloatField(null=True, default=0)
+    parcel = models.CharField(max_length=100, blank=True)  # It may have alpha characters in it.
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        self.location = self.location.strip()
+        self.address = self.address.strip()
+
+        if self.location and not self.anon_location:
+            address = StreetAddressParser().parse(self.location)
+
+            if address.get('block') and int(address.get('block')) > 0:
+                self.anon_location = u'%s block of %s' % (address.get('block'), address.get('street_full'))
+            else:
+                self.anon_location = self.location
+
+        if self.address and not self.anon_address:
+            address = StreetAddressParser().parse(self.address)
+
+            if address.get('block') and int(address.get('block')) > 0:
+                self.anon_address = u'%s block of %s' % (address.get('block'), address.get('street_full'))
+            else:
+                self.anon_address = self.address
+
+        return super(Arrest, self).save(force_insert, force_update, using, update_fields=update_fields)
+
+
 
 
 # class AreaOfInterest(models.Model):
