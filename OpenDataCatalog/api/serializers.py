@@ -44,3 +44,10 @@ class GraffitiSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = GenericData
         fields = ['community', 'address', 'csr', 'latitude', 'longitude', 'census_tract']
+
+
+class VacancySerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = GenericData
+        fields = ['description', 'anon_address', 'latitude', 'longitude', 'parcel', 'approved',
+                  'status', 'comp_type', 'sub_type']

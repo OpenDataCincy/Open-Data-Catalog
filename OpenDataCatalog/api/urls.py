@@ -3,7 +3,7 @@ from django.conf.urls import patterns, url, include
 from rest_framework import routers
 
 from .views import ThreeOneOneViewSet, ResourceViewSet, CPDViewSet, ArrestViewSet, BikeRackViewSet, AnonCPDCSV, \
-    AnonArrestsCSV, GraffitiViewSet
+    AnonArrestsCSV, GraffitiViewSet, VacancyViewSet
 
 router = routers.DefaultRouter()
 router.register(r'threeoneones', ThreeOneOneViewSet)
@@ -12,6 +12,7 @@ router.register(r'cpd', CPDViewSet)
 router.register(r'arrests', ArrestViewSet)
 router.register(r'bike-racks', BikeRackViewSet)
 router.register(r'graffiti', GraffitiViewSet)
+router.register(r'vacant', VacancyViewSet)
 
 
 urlpatterns = patterns('',

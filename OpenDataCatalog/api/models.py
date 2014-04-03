@@ -218,7 +218,7 @@ class GenericData(models.Model):
     def __unicode__(self):
         if self.data_type == 'vacant':
             return u'Vacant lot at %s' % self.address
-        
+
         return u'Record: %s' % self.data_type
 
     def save(self, force_insert=False, force_update=False, using=None,
