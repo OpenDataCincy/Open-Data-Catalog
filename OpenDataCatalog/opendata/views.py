@@ -129,7 +129,7 @@ class ResultsView(TemplateView):
 
         if 'filter' in self.request.GET:
             f = self.request.GET.get('filter')
-            resources = resources.filter(url__url_type__url_type__iexact=f).distinct()
+            resources = resources.filter(resource_urls__url_type__url_type__iexact=f).distinct()
 
         return {
             'results': resources
