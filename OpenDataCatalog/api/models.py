@@ -212,8 +212,13 @@ class GenericData(models.Model):
     csr = models.CharField(max_length=15, blank=True, help_text=u'CSR #')
     approved = models.CharField(max_length=3, blank=True)
     status = models.CharField(max_length=30, blank=True)
+    comp_type = models.CharField(max_length=50, blank=True, help_text=u'Composition Type', default=u'')
+    sub_type = models.CharField(max_length=50, blank=True, default=u'')
 
     def __unicode__(self):
+        if self.data_type == 'vacant':
+            return u'Vacant lot at %s' % self.address
+        
         return u'Record: %s' % self.data_type
 
     def save(self, force_insert=False, force_update=False, using=None,

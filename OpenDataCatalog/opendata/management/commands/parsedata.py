@@ -89,6 +89,38 @@ class Command(BaseCommand):
 
                 self.stdout.write('Created bike rack: %s' % rack)
 
+            elif options.get('data') == 'vacant':
+
+                if u'NOTATION' in row[0]:
+                    continue
+
+                try:
+                    s = row[1].splitlines()
+                    (latitude, longitude) = s[2].strip('()').split(',')
+                    address = s[0]
+                except IndexError:
+                    latitude = 0
+                    longitude = 0
+                    address = 0
+
+                item = GenericData.objects.create(
+                    data_type='vacant',
+                    description=row[0].strip(),
+                    address=address,
+                    latitude=latitude,
+                    longitude=longitude,
+                    location=row[10].strip(),
+                    anon_location=row[9].strip(),
+                    status=row[2].strip(),
+                    comp_type=row[3].strip(),
+                    sub_type=row[4].strip(),
+                    approved=row[5].strip(),
+                    x_coordinate=row[6],
+                    y_coordinate=row[7],
+                    parcel=row[8].strip(),
+                )
+                self.stdout.write(u'Create Vacant record at %s' % item.address)
+
             elif options.get('data') == 'graffiti':
 
                 if u'COMMUNITY' in row[0]:
@@ -101,6 +133,7 @@ class Command(BaseCommand):
 
                 s = row[1].splitlines()
                 (latitude, longitude) = s[2].strip('()').split(',')
+                address = s[0]
 
                 try:
                     date_received = datetime.datetime(*xlrd.xldate_as_tuple(row[6], workbook.datemode)).date()
@@ -123,7 +156,7 @@ class Command(BaseCommand):
                     data_type='graffiti',
                     user_id=row[14].strip(),
                     community=row[0].strip(),
-                    address=row[1].strip(),
+                    address=address,
                     latitude=latitude,
                     longitude=longitude,
                     request_type=row[2].strip(),
