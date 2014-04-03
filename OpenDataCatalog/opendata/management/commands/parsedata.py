@@ -94,6 +94,13 @@ class Command(BaseCommand):
                 if u'NOTATION' in row[0]:
                     continue
 
+                parcel_parts = row[8].splitlines()
+
+                if len(parcel_parts) > 1:
+                    parcel = parcel_parts[0].strip()
+                else:
+                    parcel = row[8].strip()
+
                 try:
                     s = row[1].splitlines()
                     (latitude, longitude) = s[2].strip('()').split(',')
@@ -105,6 +112,7 @@ class Command(BaseCommand):
 
                 item = GenericData.objects.create(
                     data_type='vacant',
+                    community=row[12].strip(),
                     description=row[0].strip(),
                     address=address,
                     latitude=latitude,
@@ -117,7 +125,9 @@ class Command(BaseCommand):
                     approved=row[5].strip(),
                     x_coordinate=row[6],
                     y_coordinate=row[7],
-                    parcel=row[8].strip(),
+                    parcel=parcel,
+                    inspection_area=row[11],
+                    street_direction=row[13].strip(),
                 )
                 self.stdout.write(u'Create Vacant record at %s' % item.address)
 

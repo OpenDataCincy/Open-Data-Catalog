@@ -214,6 +214,7 @@ class GenericData(models.Model):
     status = models.CharField(max_length=30, blank=True)
     comp_type = models.CharField(max_length=50, blank=True, help_text=u'Composition Type', default=u'')
     sub_type = models.CharField(max_length=50, blank=True, default=u'')
+    inspection_area = models.CharField(max_length=30, blank=True, default=u'')
 
     def __unicode__(self):
         if self.data_type == 'vacant':
