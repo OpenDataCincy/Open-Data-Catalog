@@ -4,6 +4,7 @@ from optparse import make_option
 import xlrd
 from datetime import date, time
 import re
+import datetime
 
 from OpenDataCatalog.api.models import BikeRack, GenericData
 
@@ -101,8 +102,26 @@ class Command(BaseCommand):
                 s = row[1].splitlines()
                 (latitude, longitude) = s[2].strip('()').split(',')
 
+                try:
+                    date_received = datetime.datetime(*xlrd.xldate_as_tuple(row[6], workbook.datemode)).date()
+                except (ValueError, TypeError):
+                    date_received = None
+
+                try:
+                    date_planned_completion = datetime.datetime(*xlrd.xldate_as_tuple(row[15], workbook.datemode)).date()
+                except (ValueError, TypeError):
+                    date_planned_completion = None
+
+                try:
+                    x = int(row[7] * 24 * 3600)
+                    time_received = datetime.time(x//3600, (x % 3600)//60, x % 60)
+
+                except ValueError:
+                    time_received = None
+
                 item = GenericData.objects.create(
                     data_type='graffiti',
+                    user_id=row[14].strip(),
                     community=row[0].strip(),
                     address=row[1].strip(),
                     latitude=latitude,
@@ -111,9 +130,11 @@ class Command(BaseCommand):
                     csr=row[3].strip(),
                     status=row[4].strip(),
                     description=row[5].strip(),
+                    date_received=date_received,
+                    time_received=time_received,
+                    date_planned_completion=date_planned_completion,
                     location=row[8].strip(),
                     census_tract=census_tract,
                     street_direction=row[22].strip()
                 )
-
                 self.stdout.write('Created graffiti record: %s' % item.id)

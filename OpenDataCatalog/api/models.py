@@ -189,6 +189,7 @@ class GenericData(models.Model):
     """
     data_type = models.CharField(max_length=100, help_text=u'The specific type of data.')
     description = models.TextField(blank=True, default=u'')
+    user_id = models.CharField(max_length=100, blank=True, default=u'')
     community = models.CharField(max_length=100, blank=True, default=u'')
     location = models.CharField(max_length=200, blank=True, default=u'')
     address = models.CharField(max_length=200, blank=True, default=u'')
@@ -197,6 +198,10 @@ class GenericData(models.Model):
     street_direction = models.CharField(max_length=2, blank=True, default=u'')
     latitude = models.FloatField(null=True, default=0)
     longitude = models.FloatField(null=True, default=0)
+
+    date_received = models.DateField(null=True, blank=True)
+    time_received = models.TimeField(null=True, blank=True)
+    date_planned_completion = models.DateField(null=True, blank=True)
 
     x_coordinate = models.FloatField(null=True, default=0)
     y_coordinate = models.FloatField(null=True, default=0)
