@@ -1,4 +1,4 @@
-from .models import ThreeOneOne, CincinnatiPolice, Arrest, BikeRack
+from .models import ThreeOneOne, CincinnatiPolice, Arrest, BikeRack, GenericData
 from OpenDataCatalog.opendata.models import Resource
 
 from rest_framework import serializers
@@ -38,3 +38,9 @@ class BikeRackSerializer(serializers.HyperlinkedModelSerializer):
         model = BikeRack
         fields = ['rack_number', 'neighborhood', 'location', 'latitude', 'longitude', 'street', 'placement',
                   'rack_type', 'description']
+
+
+class GraffitiSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = GenericData
+        fields = ['community', 'address', 'csr', 'latitude', 'longitude', 'census_tract']
