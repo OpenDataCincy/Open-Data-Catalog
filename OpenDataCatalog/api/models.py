@@ -188,18 +188,28 @@ class GenericData(models.Model):
     For use in the API.
     """
     data_type = models.CharField(max_length=100, help_text=u'The specific type of data.')
+    description = models.TextField(blank=True, default=u'')
     community = models.CharField(max_length=100, blank=True, default=u'')
     location = models.CharField(max_length=200, blank=True, default=u'')
     address = models.CharField(max_length=200, blank=True, default=u'')
     anon_location = models.CharField(max_length=200, blank=True, default=u'')
     anon_address = models.CharField(max_length=200, blank=True, default=u'')
     street_direction = models.CharField(max_length=2, blank=True, default=u'')
+    latitude = models.FloatField(null=True, default=0)
+    longitude = models.FloatField(null=True, default=0)
 
     x_coordinate = models.FloatField(null=True, default=0)
     y_coordinate = models.FloatField(null=True, default=0)
     parcel = models.CharField(max_length=100, blank=True)  # It may have alpha characters in it.
+    census_tract = models.FloatField(null=True, blank=True)
 
+    request_type = models.CharField(max_length=50, blank=True)
+    csr = models.CharField(max_length=15, blank=True, help_text=u'CSR #')
     approved = models.CharField(max_length=3, blank=True)
+    status = models.CharField(max_length=30, blank=True)
+
+    def __unicode__(self):
+        return u'Record: %s' % self.data_type
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
@@ -222,7 +232,7 @@ class GenericData(models.Model):
             else:
                 self.anon_address = self.address
 
-        return super(Arrest, self).save(force_insert, force_update, using, update_fields=update_fields)
+        return super(GenericData, self).save(force_insert, force_update, using, update_fields=update_fields)
 
 
 
