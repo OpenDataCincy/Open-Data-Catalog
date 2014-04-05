@@ -173,8 +173,6 @@ class SubmissionAdmin(admin.ModelAdmin):
             except JSONDecodeError:
                 data = None
 
-            print data
-
             if data:
                 suggestion = Suggestion()
                 suggestion.text = data.get('dataset_name')[:255]
