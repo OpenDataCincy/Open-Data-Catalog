@@ -18,7 +18,7 @@ import csv
 
 from .models import ThreeOneOne, CincinnatiPolice, Arrest, BikeRack, GenericData
 from .serializers import ThreeOneOneSerializer, ResourceSerializer, CincinnatiPoliceSerializer, ArrestSerializer, \
-    BikeRackSerializer, GraffitiSerializer
+    BikeRackSerializer, GraffitiSerializer, VacancySerializer
 
 
 class JSONResponseMixin(object):
@@ -92,6 +92,15 @@ class GraffitiViewSet(viewsets.ModelViewSet):
     serializer_class = GraffitiSerializer
     filter_backends = [filters.SearchFilter, ]
     search_fields = ('location', 'community', )
+
+    http_method_names = ['get', ]
+
+
+class VacancyViewSet(viewsets.ModelViewSet):
+    queryset = GenericData.objects.filter(data_type='vacant')
+    serializer_class = VacancySerializer
+    filter_backends = [filters.SearchFilter, ]
+    search_fields = ('anon_address', 'description', 'comp_type', 'sub_type', 'status')
 
     http_method_names = ['get', ]
 

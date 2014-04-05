@@ -4,6 +4,7 @@ from optparse import make_option
 import xlrd
 from datetime import date, time
 import re
+import datetime
 
 from OpenDataCatalog.api.models import BikeRack, GenericData
 
@@ -88,6 +89,48 @@ class Command(BaseCommand):
 
                 self.stdout.write('Created bike rack: %s' % rack)
 
+            elif options.get('data') == 'vacant':
+
+                if u'NOTATION' in row[0]:
+                    continue
+
+                parcel_parts = row[8].splitlines()
+
+                if len(parcel_parts) > 1:
+                    parcel = parcel_parts[0].strip()
+                else:
+                    parcel = row[8].strip()
+
+                try:
+                    s = row[1].splitlines()
+                    (latitude, longitude) = s[2].strip('()').split(',')
+                    address = s[0]
+                except IndexError:
+                    latitude = 0
+                    longitude = 0
+                    address = 0
+
+                item = GenericData.objects.create(
+                    data_type='vacant',
+                    community=row[12].strip(),
+                    description=row[0].strip(),
+                    address=address,
+                    latitude=latitude,
+                    longitude=longitude,
+                    location=row[10].strip(),
+                    anon_location=row[9].strip(),
+                    status=row[2].strip(),
+                    comp_type=row[3].strip(),
+                    sub_type=row[4].strip(),
+                    approved=row[5].strip(),
+                    x_coordinate=row[6],
+                    y_coordinate=row[7],
+                    parcel=parcel,
+                    inspection_area=row[11],
+                    street_direction=row[13].strip(),
+                )
+                self.stdout.write(u'Create Vacant record at %s' % item.address)
+
             elif options.get('data') == 'graffiti':
 
                 if u'COMMUNITY' in row[0]:
@@ -100,20 +143,41 @@ class Command(BaseCommand):
 
                 s = row[1].splitlines()
                 (latitude, longitude) = s[2].strip('()').split(',')
+                address = s[0]
+
+                try:
+                    date_received = datetime.datetime(*xlrd.xldate_as_tuple(row[6], workbook.datemode)).date()
+                except (ValueError, TypeError):
+                    date_received = None
+
+                try:
+                    date_planned_completion = datetime.datetime(*xlrd.xldate_as_tuple(row[15], workbook.datemode)).date()
+                except (ValueError, TypeError):
+                    date_planned_completion = None
+
+                try:
+                    x = int(row[7] * 24 * 3600)
+                    time_received = datetime.time(x//3600, (x % 3600)//60, x % 60)
+
+                except ValueError:
+                    time_received = None
 
                 item = GenericData.objects.create(
                     data_type='graffiti',
+                    user_id=row[14].strip(),
                     community=row[0].strip(),
-                    address=row[1].strip(),
+                    address=address,
                     latitude=latitude,
                     longitude=longitude,
                     request_type=row[2].strip(),
                     csr=row[3].strip(),
                     status=row[4].strip(),
                     description=row[5].strip(),
+                    date_received=date_received,
+                    time_received=time_received,
+                    date_planned_completion=date_planned_completion,
                     location=row[8].strip(),
                     census_tract=census_tract,
                     street_direction=row[22].strip()
                 )
-
                 self.stdout.write('Created graffiti record: %s' % item.id)
