@@ -4,12 +4,14 @@ Pillow==2.4.0
 Shapely==1.2.17
 South==0.8.1
 argparse==1.2.1
+boto==2.31.1
 django-debug-toolbar==0.9.4
 django-filter==0.7
 django-pagination==1.0.7
 django-ratings==0.3.7
 django-registration==1.0
 django-sorting==0.1
+django-storages==1.1.8
 djangorestframework==2.3.12
 geopy==0.95.1
 gunicorn==0.14.6

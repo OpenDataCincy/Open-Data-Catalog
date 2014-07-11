@@ -12,6 +12,7 @@ from OpenDataCatalog.registration_backend import CatalogRegistrationView
 
 from OpenDataCatalog.opendata.views import ResourceView, UserView, SubmitDataView, HomeView, ResultsView, \
     TagResultsView, SearchResultsView, IdeaResultsView, IdeaDetailView, TagListView, FeedListView
+from OpenDataCatalog.visualization.views import TransitDataView
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -47,6 +48,8 @@ urlpatterns = patterns('',
     url(r'^idea/(?P<idea_id>\d+)/$', IdeaDetailView.as_view(), name='idea'),
     url(r'^idea/(?P<idea_id>\d+)/(?P<slug>[-\w]+)/$', IdeaDetailView.as_view(), name='idea-slug'),
     url(r'^thanks/$', TemplateView.as_view(template_name='thanks.html'), name='thanks'),
+
+    url(r'^transit/$', TransitDataView.as_view(), name='transit'),
     
     url(r'^tags/$', TagListView.as_view(), name='tag-list'),
 
